@@ -89,6 +89,9 @@ zstyle ':completion:*:default' menu select=2
 # 補完で大文字にもマッチ
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
+# 補完候補のカラー表示
+zstyle ':completion:*' list-colors "${LS_COLORS}" 
+
 # Ctrl+rでヒストリーのインクリメンタルサーチ、Ctrl+sで逆順
 bindkey '^r' history-incremental-pattern-search-backward
 bindkey '^s' history-incremental-pattern-search-forward
