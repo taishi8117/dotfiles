@@ -16,9 +16,6 @@ colors
 autoload -Uz compinit
 compinit
 
-# emacsキーバインド
-bindkey -e
-
 # 他のターミナルとヒストリーを共有
 setopt share_history
 
@@ -52,6 +49,7 @@ alias -g GI='| grep -ri'
 # エイリアス
 alias lst='ls -ltr --color=auto'
 alias l='ls -ltr --color=auto'
+alias ls='ls --color=auto'
 alias la='ls -la --color=auto'
 alias ll='ls -l --color=auto'
 alias so='source'
