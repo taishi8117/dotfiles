@@ -63,7 +63,6 @@ alias mkdir='mkdir -p'
 alias ..='c ../'
 alias back='pushd'
 alias diff='diff -U1'
-alias fuck='echo "fuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuck"'
 
 # change the current directory to the parent directory that contains the .git folder
 alias groot='cd "`git rev-parse --show-toplevel`"'
