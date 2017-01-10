@@ -64,6 +64,9 @@ alias ..='c ../'
 alias back='pushd'
 alias diff='diff -U1'
 
+# change the current directory to the parent directory that contains the .git folder
+alias groot='cd "`git rev-parse --show-toplevel`"'
+
 # backspace,deleteキーを使えるように
 #stty erase ^H
 #bindkey "^[[3~" delete-char
