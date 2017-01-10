@@ -8,8 +8,7 @@ DOTFILES_FILES		:= $(filter-out $(DOTFILES_EXCLUDES), $(DOTFILES_TARGET))
 deploy:
 	@echo '[+] Starting to deploy dotfiles to home directory...'
 	@$(foreach val, $(DOTFILES_FILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
-	@echo '[+] Sourcing new zshrc/zshenv etc...'
-	@$(foreach val, $(wildcard $(HOME)/.zsh?*), source $(val);)
+	@exec $$SHELL
 
 init:
 	@$(foreach val, $(wildcard ./etc/init/*.sh), bash $(val);)
