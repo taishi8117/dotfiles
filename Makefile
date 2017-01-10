@@ -3,26 +3,31 @@ DOTFILES_TARGET		:= $(wildcard .??*)
 DOTFILES_DIR			:= $(PWD)
 DOTFILES_FILES		:= $(filter-out $(DOTFILES_EXCLUDES), $(DOTFILES_TARGET))
 
-.PHONY: deploy init clean update install
+.PHONY: deploy init clean update install fetch exec_shell
 
 deploy:
 	@echo '[+] Starting to deploy dotfiles to home directory...'
 	@$(foreach val, $(DOTFILES_FILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
-	@exec $$SHELL
 
 init:
 	@$(foreach val, $(wildcard ./etc/init/*.sh), bash $(val);)
 
-update:
-	@echo '[+] Updating the repository...'
+update: fetch deploy exec_shell
+	@echo '[+] Dotfiles Updated!'
+
+fetch:
+	@echo '[+] Fetching the repository...'
 	git pull origin master
 	git submodule init
 	git submodule update
 	git submodule foreach git pull origin master
 
-install: update deploy init
-	@exec $$SHELL
+install: fetch deploy init exec_shell
+	@echo '[+] Dotfiles Installed!'
 
 clean: ## Remove the dot files and this repo
 	@echo 'Remove dot files in your home directory...'
 	@$(foreach val, $(DOTFILES_FILES), rm -vrf $(HOME)/$(val);)
+
+exec_shell:
+	@exec $$SHELL
