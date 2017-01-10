@@ -39,6 +39,8 @@ NeoBundle 'tpope/vim-fugitive'          "showing github branch
 NeoBundle 'bronson/vim-trailing-whitespace' "show trailing whitespace
 NeoBundle 'scrooloose/syntastic'        "syntax error checking
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'vim-scripts/c.vim'
 
 NeoBundle 'Shougo/vimproc.vim', {
 	      \   'build' : {
@@ -71,6 +73,26 @@ nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 
 " syntastic
 let g:loaded_syntastic_python_pylint_checker = 0
+
+" === QuickRun ===
+let g:quickrun_config = get(g:, 'quickrun_config', {})
+let g:quickrun_config._ = {
+      \ 'runner'    : 'vimproc',
+      \ 'runner/vimproc/updatetime' : 60,
+      \ 'outputter' : 'error',
+      \ 'outputter/error/success' : 'buffer',
+      \ 'outputter/error/error'   : 'quickfix',
+      \ 'outputter/buffer/split'  : ':rightbelow 8sp',
+      \ 'outputter/buffer/close_on_empty' : 1,
+      \ }
+" Close quickfix with q
+au FileType qf nnoremap <silent><buffer>q :quit<CR>
+
+
+" Close quickfix with \r + run
+let g:quickrun_no_default_key_mappings = 1
+nnoremap \r :cclose<CR>:write<CR>:QuickRun -mode n<CR>
+xnoremap \r :<C-U>cclose<CR>:write<CR>gv:QuickRun -mode v<CR>
 
 
 " ==========================================================

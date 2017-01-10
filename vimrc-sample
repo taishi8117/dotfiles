@@ -110,8 +110,8 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/vinarise.vim'
 NeoBundle 'tpope/vim-fugitive'		"showing github branch
-
 NeoBundle 'Shougo/vimproc'
+
 NeoBundle 'VimClojure'
 NeoBundle 'Shougo/neosnippet'		"neosnippet - snippet autocompletion
 NeoBundle 'Shougo/neosnippet-snippets'
