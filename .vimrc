@@ -42,6 +42,8 @@ NeoBundle 'cohama/lexima.vim'           "auto bracket
 
 NeoBundle 'Shougo/neosnippet'		"neosnippet - snippet autocompletion
 NeoBundle 'Shougo/neosnippet-snippets'
+" if_luaが有効ならneocompleteを使う
+NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
 
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'thinca/vim-quickrun'
@@ -103,8 +105,6 @@ xnoremap \r :<C-U>cclose<CR>:write<CR>gv:QuickRun -mode v<CR>
 "" NeoBundleComplete """""""
 """"""""""""""""""""""""""""
 
-" if_luaが有効ならneocompleteを使う
-NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
 
 if neobundle#is_installed('neocomplete')
 	" neocomplete用設定
