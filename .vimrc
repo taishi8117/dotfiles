@@ -66,7 +66,7 @@ NeoBundleCheck
 
 " remap settings
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
-nnoremap <silent><C-t> :VimShellPop
+nnoremap <silent><C-t> :VimShellPop<CR>
 
 " double ESC to switch search highlighting
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
