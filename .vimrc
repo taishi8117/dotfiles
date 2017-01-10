@@ -39,6 +39,7 @@ NeoBundle 'Shougo/unite.vim'
 " Colortheme related
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'itchyny/lightline.vim'       "bottom line coloring
 
 call neobundle#end()
 
@@ -55,6 +56,10 @@ nnoremap <silent><C-e> :NERDTreeToggle<CR>
 " ==========================================================
 " Display Setup
 " ==========================================================
+
+" For 256 color
+set t_Co=256
+
 set number         " 行番号を表示する
 set cursorline     " カーソル行の背景色を変える
 " set cursorcolumn   " カーソル位置のカラムの背景色を変える
@@ -133,6 +138,30 @@ set completeopt-=preview
 " ==========================================================
 " colortheme
 " ==========================================================
+"
+let g:lightline = {
+            \ 'colorscheme': 'jellybeans',
+            \ 'active': {
+            \   'left': [ [ 'mode', 'paste' ],
+            \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+            \ },
+            \ 'component': {
+            \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+            \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+            \ },
+            \ 'component_visible_condition': {
+            \   'readonly': '(&filetype!="help"&& &readonly)',
+            \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+            \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+            \ },
+            \
+    \ }
+set noshowmode
+
+filetype plugin indent on     " required!
+filetype indent on
+syntax enable
+
 try
   colorscheme jellybeans
 catch /^Vim\%((\a\+)\)\=:E185/

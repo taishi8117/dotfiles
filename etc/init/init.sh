@@ -4,4 +4,4 @@ git submodule init
 
 git submodule update
 
-vim +NeoBundleInstall +qall
+#vim +NeoBundleInstall +qall
