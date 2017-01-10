@@ -32,8 +32,12 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'Shougo/vinarise.vim'
+NeoBundle 'scrooloose/nerdtree'         "Explorer
+NeoBundle 'Shougo/vinarise.vim'         "Binary
+NeoBundle 'Shougo/unite.vim'
+
+" Colortheme related
+NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'nanotech/jellybeans.vim'
 
 call neobundle#end()
@@ -46,8 +50,6 @@ NeoBundleCheck
 " NERDTree settings
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
-" colortheme
-colorscheme jellybeans
 
 
 " ==========================================================
@@ -127,12 +129,19 @@ set noerrorbells "エラーメッセージの表示時にビープを鳴らさ�
 "Disable scratch
 set completeopt-=preview
 
-"Indicate 80th column
-
-let &colorcolumn="80,".join(range(120,999),",")
-highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
 " ==========================================================
+" colortheme
+" ==========================================================
+try
+  colorscheme jellybeans
+catch /^Vim\%((\a\+)\)\=:E185/
+  " deal with it
+endtry
+
+"Indicate 80th column
+let &colorcolumn="80,".join(range(120,999),",")
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
 "===========================
 " Assembly Languages
