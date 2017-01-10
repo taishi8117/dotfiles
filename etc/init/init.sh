@@ -1,7 +1,5 @@
 #!/bin/sh
 
-git submodule init
-
-git submodule update
-
-#vim +NeoBundleInstall +qall
+echo "[+] Installing vim plugins..."
+vim +NeoBundleInstall +qall
+echo "[+] Vim plugin installed!"
