@@ -34,6 +34,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'scrooloose/nerdtree'         "Explorer
 NeoBundle 'Shougo/vinarise.vim'         "Binary
+NeoBundle 'Shougo/vimshell'             "Open shell in vim
+NeoBundle 'tpope/vim-fugitive'          "showing github branch
+NeoBundle 'bronson/vim-trailing-whitespace' "show trailing whitespace
+NeoBundle 'scrooloose/syntastic'        "syntax error checking
 NeoBundle 'Shougo/unite.vim'
 
 " Colortheme related
@@ -48,9 +52,15 @@ filetype plugin indent on
 NeoBundleCheck
 " ==========================================================
 
-" NERDTree settings
+" remap settings
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
+nnoremap <silent><C-t> :VimShellPop
 
+" double ESC to switch search highlighting
+nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
+
+" syntastic
+let g:loaded_syntastic_python_pylint_checker = 0
 
 
 " ==========================================================
