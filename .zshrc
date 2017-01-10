@@ -65,8 +65,8 @@ alias back='pushd'
 alias diff='diff -U1'
 
 # backspace,deleteキーを使えるように
-stty erase ^H
-bindkey "^[[3~" delete-char
+#stty erase ^H
+#bindkey "^[[3~" delete-char
 
 # cdの後にlsを実行
 chpwd() { ls -ltr --color=auto }
