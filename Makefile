@@ -10,10 +10,10 @@ deploy:
 	@$(foreach val, $(DOTFILES_FILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
 
 init:
+	@echo '[+] Running init scripts...'
 	@$(foreach val, $(wildcard ./etc/init/*.sh), bash $(val);)
 
 update: fetch deploy exec_shell
-	@echo '[+] Dotfiles Updated!'
 
 fetch:
 	@echo '[+] Fetching the repository...'
@@ -23,7 +23,6 @@ fetch:
 	git submodule foreach git pull origin master
 
 install: fetch deploy init exec_shell
-	@echo '[+] Dotfiles Installed!'
 
 clean: ## Remove the dot files and this repo
 	@echo 'Remove dot files in your home directory...'
