@@ -38,6 +38,11 @@ NeoBundle 'Shougo/vimshell'             "Open shell in vim
 NeoBundle 'tpope/vim-fugitive'          "showing github branch
 NeoBundle 'bronson/vim-trailing-whitespace' "show trailing whitespace
 NeoBundle 'scrooloose/syntastic'        "syntax error checking
+NeoBundle 'cohama/lexima.vim'           "auto bracket
+
+NeoBundle 'Shougo/neosnippet'		"neosnippet - snippet autocompletion
+NeoBundle 'Shougo/neosnippet-snippets'
+
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'vim-scripts/c.vim'
@@ -94,6 +99,43 @@ let g:quickrun_no_default_key_mappings = 1
 nnoremap \r :cclose<CR>:write<CR>:QuickRun -mode n<CR>
 xnoremap \r :<C-U>cclose<CR>:write<CR>gv:QuickRun -mode v<CR>
 
+""""""""""""""""""""""""""""
+"" NeoBundleComplete """""""
+""""""""""""""""""""""""""""
+
+" if_luaが有効ならneocompleteを使う
+NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
+
+if neobundle#is_installed('neocomplete')
+	" neocomplete用設定
+	let g:neocomplete#enable_at_startup = 1
+	let g:neocomplete#enable_ignore_case = 1
+	let g:neocomplete#enable_smart_case = 1
+"	let g:neocomplete#enable_complete_select = 1
+	let g:neocomplete#enable_auto_select = 0
+	if !exists('g:neocomplete#keyword_patterns')
+		let g:neocomplete#keyword_patterns = {}
+	endif
+	let g:neocomplete#keyword_patterns._ =	'\h\w*'
+elseif neobundle#is_installed('neocomplcache')
+	" neocomplcache用設定
+	let	g:neocomplcache_enable_at_startup = 1
+	let	g:neocomplcache_enable_ignore_case= 1
+	let g:neocomplcache_enable_smart_case= 1
+	if !exists('g:neocomplcache_keyword_patterns')
+		let g:neocomplcache_keyword_patterns = {}
+	endif
+	let g:neocomplcache_keyword_patterns._ = '\h\w*'
+	let g:neocomplcache_enable_camel_case_completion = 1
+	let g:neocomplcache_enable_underbar_completion = 1
+endif
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+" NeoSnippet
+"Plugin key-mappings.  " <C-k>でsnippetの展開
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)))
 
 " ==========================================================
 " Display Setup
