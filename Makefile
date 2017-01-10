@@ -28,6 +28,7 @@ install: fetch deploy init exec_shell
 clean: ## Remove the dot files and this repo
 	@echo 'Remove dot files in your home directory...'
 	@$(foreach val, $(DOTFILES_FILES), rm -vrf $(HOME)/$(val);)
+	@exec $$SHELL
 
 exec_shell:
 	@exec $$SHELL
