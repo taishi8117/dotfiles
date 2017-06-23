@@ -36,7 +36,7 @@ NeoBundle 'scrooloose/nerdtree'         "Explorer
 NeoBundle 'Shougo/vinarise.vim'         "Binary
 NeoBundle 'Shougo/vimshell'             "Open shell in vim
 NeoBundle 'tpope/vim-fugitive'          "showing github branch
-NeoBundle 'bronson/vim-trailing-whitespace' "show trailing whitespace
+"NeoBundle 'bronson/vim-trailing-whitespace' "show trailing whitespace
 NeoBundle 'scrooloose/syntastic'        "syntax error checking
 NeoBundle 'cohama/lexima.vim'           "auto bracket
 

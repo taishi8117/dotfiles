@@ -47,11 +47,11 @@ alias -g GI='| grep -ri'
 
 
 # エイリアス
-alias lst='ls -ltr --color=auto'
-alias l='ls -ltr --color=auto'
-alias ls='ls --color=auto'
-alias la='ls -la --color=auto'
-alias ll='ls -l --color=auto'
+alias lst='ls -ltr -G'
+alias l='ls -ltr -G'
+alias ls='ls -G'
+alias la='ls -la -G'
+alias ll='ls -l -G'
 alias so='source'
 alias v='vim'
 alias vi='vim'
@@ -72,7 +72,7 @@ alias groot='cd "`git rev-parse --show-toplevel`"'
 #bindkey "^[[3~" delete-char
 
 # cdの後にlsを実行
-chpwd() { ls -ltr --color=auto }
+chpwd() { ls -ltr -G }
 
 # どこからでも参照できるディレクトリパス
 cdpath=(~)
