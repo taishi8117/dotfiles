@@ -13,39 +13,28 @@ source ~/.zsh/ls_color/ls_color.sh
 autoload -Uz colors
 colors
 
-# 補完
-autoload -Uz compinit
-compinit
-
-# 他のターミナルとヒストリーを共有
-setopt share_history
-
-# ヒストリーに重複を表示しない
-setopt histignorealldups
-
+############################## History setting #################################
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-# cdコマンドを省略して、ディレクトリ名のみの入力で移動
-setopt auto_cd
+# Ctrl+rでヒストリーのインクリメンタルサーチ、Ctrl+sで逆順
+bindkey '^r' history-incremental-pattern-search-backward
+bindkey '^s' history-incremental-pattern-search-forward
 
-# 自動でpushdを実行
-setopt auto_pushd
+# コマンドを途中まで入力後、historyから絞り込み
+# 例 ls まで打ってCtrl+pでlsコマンドをさかのぼる、Ctrl+nで逆順
+autoload -Uz history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^p" history-beginning-search-backward-end
+bindkey "^n" history-beginning-search-forward-end
 
-# pushdから重複を削除
-setopt pushd_ignore_dups
-
-# コマンドミスを修正
-setopt correct
-
-
-# グローバルエイリアス
+############################## Alias Settings ##################################
 alias -g L='| less'
 alias -g H='| head'
 alias -g G='| grep'
 alias -g GI='| grep -ri'
-
 
 # エイリアス
 alias lst='ls -ltr -G'
@@ -58,8 +47,7 @@ alias v='vim'
 alias vi='vim'
 alias vz='vim ~/.zshrc'
 alias c='cdr'
-# historyに日付を表示
-alias h='fc -lt '%F %T' 1'
+alias h='fc -lt '%F %T' 1' # historyに日付を表示
 alias mkdir='mkdir -p'
 alias ..='c ../'
 alias back='pushd'
@@ -68,15 +56,29 @@ alias diff='diff -U1'
 # change the current directory to the parent directory that contains the .git folder
 alias groot='cd "`git rev-parse --show-toplevel`"'
 
+################################ Set options ###################################
+setopt share_history # 他のターミナルとヒストリーを共有
+setopt histignorealldups # ヒストリーに重複を表示しない
+setopt append_history  # 複数の zsh を同時に使う時など history ファイルに上書きせず追加
+
+setopt no_nomatch # git show HEAD^とかrake foo[bar]とか使いたい
+setopt auto_cd # cdコマンドを省略して、ディレクトリ名のみの入力で移動
+setopt auto_pushd # 自動でpushdを実行
+setopt pushd_ignore_dups # pushdから重複を削除
+setopt correct # コマンドミスを修正
+setopt no_flow_control # Ctrl+sのロック, Ctrl+qのロック解除を無効にする
+chpwd() { ls -ltr -G } # cdの後にlsを実行
+cdpath=(~) # どこからでも参照できるディレクトリパス
+setopt no_beep
+
+setopt auto_list  # 補完候補が複数ある時に、一覧表示
+setopt auto_menu  # 補完候補が複数あるときに自動的に一覧表示する
+setopt complete_in_word  # カーソル位置で補完する。
+setopt magic_equal_subst  # コマンドライン引数の --prefix=/usr とか=以降でも補完
+
 # backspace,deleteキーを使えるように
 #stty erase ^H
 #bindkey "^[[3~" delete-char
-
-# cdの後にlsを実行
-chpwd() { ls -ltr -G }
-
-# どこからでも参照できるディレクトリパス
-cdpath=(~)
 
 # 区切り文字の設定
 autoload -Uz select-word-style
@@ -84,30 +86,36 @@ select-word-style default
 zstyle ':zle:*' word-chars "_-./;@"
 zstyle ':zle:*' word-style unspecified
 
-# Ctrl+sのロック, Ctrl+qのロック解除を無効にする
-setopt no_flow_control
+# 実行したプロセスの消費時間が3秒以上かかったら
+# 自動的に消費時間の統計情報を表示する。
+REPORTTIME=3
+
+############################ Completion options ################################
+autoload -Uz compinit
+compinit
+
+bindkey "\e[Z" reverse-menu-complete # Use Shift+Tab to reverse
+
+### 補完方法毎にグループ化する。
+zstyle ':completion:*' format '%B%F{blue}%d%f%b'
+zstyle ':completion:*' group-name ''
 
 # 補完後、メニュー選択モードになり左右キーで移動が出来る
+# select=2: 補完候補を一覧から選択する。補完候補が2つ以上なければすぐに補完する
 zstyle ':completion:*:default' menu select=2
-
-# 補完で大文字にもマッチ
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # 補完候補のカラー表示
 zstyle ':completion:*' list-colors "${LS_COLORS}" 
 
-# Ctrl+rでヒストリーのインクリメンタルサーチ、Ctrl+sで逆順
-bindkey '^r' history-incremental-pattern-search-backward
-bindkey '^s' history-incremental-pattern-search-forward
+# 補完で大文字にもマッチ
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' '+m:{A-Z}={a-z}'
+zstyle ':completion:*' keep-prefix
+zstyle ':completion:*' recent-dirs-insert both
 
-# コマンドを途中まで入力後、historyから絞り込み
-# 例 ls まで打ってCtrl+pでlsコマンドをさかのぼる、Ctrl+bで逆順
-autoload -Uz history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-bindkey "^p" history-beginning-search-backward-end
-bindkey "^b" history-beginning-search-forward-end
+## sudo の時にコマンドを探すパス
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin
 
+################################### Misc #######################################
 # cdrコマンドを有効 ログアウトしても有効なディレクトリ履歴
 # cdr タブでリストを表示
 autoload -Uz add-zsh-hook
