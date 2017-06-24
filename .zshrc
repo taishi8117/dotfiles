@@ -7,6 +7,7 @@
 #
 
 source ~/.zsh/git.zsh
+source ~/.zsh/ls_color/ls_color.sh
 
 # 色を使用
 autoload -Uz colors
