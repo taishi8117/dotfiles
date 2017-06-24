@@ -8,6 +8,7 @@
 
 source ~/.zsh/git.zsh
 source ~/.zsh/ls_color/ls_color.sh
+source ~/.zsh/dist_conf.zsh
 
 # 色を使用
 autoload -Uz colors
@@ -37,11 +38,7 @@ alias -g G='| grep'
 alias -g GI='| grep -ri'
 
 # エイリアス
-alias lst='ls -ltr -G'
-alias l='ls -ltr -G'
-alias ls='ls -G'
-alias la='ls -la -G'
-alias ll='ls -l -G'
+# ls related alias are located under .zsh/dist_conf.zsh
 alias so='source'
 alias v='vim'
 alias vi='vim'
@@ -67,7 +64,6 @@ setopt auto_pushd # 自動でpushdを実行
 setopt pushd_ignore_dups # pushdから重複を削除
 setopt correct # コマンドミスを修正
 setopt no_flow_control # Ctrl+sのロック, Ctrl+qのロック解除を無効にする
-chpwd() { ls -ltr -G } # cdの後にlsを実行
 cdpath=(~) # どこからでも参照できるディレクトリパス
 setopt no_beep
 
