@@ -40,6 +40,8 @@ alias -g GI='| grep -ri'
 if [ "$(uname)" = 'Darwin' ]; then
     # Do something under Mac OS X platform        
     # echo "Using Darwin"
+    export CLICOLOR=1
+    export LSCOLORS=GxFxCxDxBxegedabagaced
     alias lst='ls -ltr -G'
     alias l='ls -ltr -G'
     alias ls='ls -G'
