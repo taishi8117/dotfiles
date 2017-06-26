@@ -49,6 +49,8 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'vim-scripts/c.vim'
 
+NeoBundle 'lervag/vimtex' " LaTeX related
+
 NeoBundle 'Shougo/vimproc.vim', {
 	      \   'build' : {
 	      \     'windows' : 'tools\\update-dll-mingw',
@@ -63,36 +65,6 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'itchyny/lightline.vim'       "bottom line coloring
-
-"==============================
-" For LaTeX
-"
-NeoBundle 'lervag/vimtex'
-" QuickRun and view compile result quickly (but don't preview pdf file)
-nnoremap <silent><F5> :QuickRun<CR>
-
-" LaTeX Quickrun
-let g:quickrun_config['tex'] = {
-\ 'command' : 'latexmk',
-\ 'outputter' : 'error',
-\ 'outputter/error/success' : 'null',
-\ 'outputter/error/error' : 'quickfix',
-\ 'srcfile' : expand("%"),
-\ 'cmdopt': '-pdf',
-\ 'hook/sweep/files' : [
-\                      '%S:p:r.aux',
-\                      '%S:p:r.bbl',
-\                      '%S:p:r.blg',
-\                      '%S:p:r.dvi',
-\                      '%S:p:r.fdb_latexmk',
-\                      '%S:p:r.fls',
-\                      '%S:p:r.log',
-\                      '%S:p:r.out'
-\                      ],
-\ 'exec': '%c %o %a %s',
-\}
-
-"autocmd BufWritePost,FileWritePost *.tex QuickRun tex
 
 call neobundle#end()
 
@@ -167,6 +139,36 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 "Plugin key-mappings.  " <C-k>でsnippetの展開
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)))
+
+"==============================
+" For LaTeX
+"
+" QuickRun and view compile result quickly (but don't preview pdf file)
+nnoremap <silent><F5> :QuickRun<CR>
+
+" LaTeX Quickrun
+let g:quickrun_config['tex'] = {
+\ 'command' : 'latexmk',
+\ 'outputter' : 'error',
+\ 'outputter/error/success' : 'null',
+\ 'outputter/error/error' : 'quickfix',
+\ 'srcfile' : expand("%"),
+\ 'cmdopt': '-pdf',
+\ 'hook/sweep/files' : [
+\                      '%S:p:r.aux',
+\                      '%S:p:r.bbl',
+\                      '%S:p:r.blg',
+\                      '%S:p:r.dvi',
+\                      '%S:p:r.fdb_latexmk',
+\                      '%S:p:r.fls',
+\                      '%S:p:r.log',
+\                      '%S:p:r.out'
+\                      ],
+\ 'exec': '%c %o %a %s',
+\}
+
+"autocmd BufWritePost,FileWritePost *.tex QuickRun tex
+
 
 " ==========================================================
 " Display Setup
