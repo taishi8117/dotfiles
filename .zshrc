@@ -153,6 +153,14 @@ function mkcd() {
 }
 
 # =========================================================================== #
+# Virtual env
+
+function activate { export VIRTUAL_ENV_DISABLE_PROMPT='1' source ./$1/bin/activate }
+function virtualenv_info {
+    [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
+}
+
+# =========================================================================== #
 # pygmalion PROMPT theme
 # =========================================================================== #
 prompt_setup_pygmalion(){
@@ -182,7 +190,7 @@ prompt_pygmalion_precmd(){
     nl=$'\n%{\r%}';
   fi
   PROMPT="$base_prompt$gitinfo$nl$post_prompt"
+  RPROMPT="%{$fg[green]%}$(virtualenv_info)%{$reset_color%}"
 }
 
 prompt_setup_pygmalion
-# =========================================================================== #
