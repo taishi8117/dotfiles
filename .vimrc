@@ -1,25 +1,25 @@
 " ==========================================================
-"                              ____                         
-"               ,---,        ,'  , `.,-.----.     ,----..   
-"       ,---.,`--.' |     ,-+-,.' _ |\    /  \   /   /   \  
-"      /__./||   :  :  ,-+-. ;   , ||;   :    \ |   :     : 
-" ,---.;  ; |:   |  ' ,--.'|'   |  ;||   | .\ : .   |  ;. / 
-"/___/ \  | ||   :  ||   |  ,', |  ':.   : |: | .   ; /--`  
-"\   ;  \ ' |'   '  ;|   | /  | |  |||   |  \ : ;   | ;     
-" \   \  \: ||   |  |'   | :  | :  |,|   : .  / |   : |     
-"  ;   \  ' .'   :  ;;   . |  ; |--' ;   | |  \ .   | '___  
-"   \   \   '|   |  '|   : |  | ,    |   | ;\  \'   ; : .'| 
-"    \   `  ;'   :  ||   : '  |/     :   ' | \.''   | '/  : 
-"     :   \ |;   |.' ;   | |`-'      :   : :-'  |   :    /  
-"      '---" '---'   |   ;/          |   |.'     \   \ .'   
-"                    '---'           `---'        `---`     
-"                                                           
+"                              ____
+"               ,---,        ,'  , `.,-.----.     ,----..
+"       ,---.,`--.' |     ,-+-,.' _ |\    /  \   /   /   \
+"      /__./||   :  :  ,-+-. ;   , ||;   :    \ |   :     :
+" ,---.;  ; |:   |  ' ,--.'|'   |  ;||   | .\ : .   |  ;. /
+"/___/ \  | ||   :  ||   |  ,', |  ':.   : |: | .   ; /--`
+"\   ;  \ ' |'   '  ;|   | /  | |  |||   |  \ : ;   | ;
+" \   \  \: ||   |  |'   | :  | :  |,|   : .  / |   : |
+"  ;   \  ' .'   :  ;;   . |  ; |--' ;   | |  \ .   | '___
+"   \   \   '|   |  '|   : |  | ,    |   | ;\  \'   ; : .'|
+"    \   `  ;'   :  ||   : '  |/     :   ' | \.''   | '/  :
+"     :   \ |;   |.' ;   | |`-'      :   : :-'  |   :    /
+"      '---" '---'   |   ;/          |   |.'     \   \ .'
+"                    '---'           `---'        `---`
+"
 "
 " Copyright (c) 2017 Taishi Nojima All Rights Reserved
 " ==========================================================
 
 " ==========================================================
-" Plugin Setup -- NeoBundle 
+" Plugin Setup -- NeoBundle
 " ==========================================================
 filetype plugin indent off
 
@@ -36,7 +36,7 @@ NeoBundle 'scrooloose/nerdtree'         "Explorer
 NeoBundle 'Shougo/vinarise.vim'         "Binary
 NeoBundle 'Shougo/vimshell'             "Open shell in vim
 NeoBundle 'tpope/vim-fugitive'          "showing github branch
-"NeoBundle 'bronson/vim-trailing-whitespace' "show trailing whitespace
+NeoBundle 'ntpeters/vim-better-whitespace' "show trailing whitespace
 NeoBundle 'scrooloose/syntastic'        "syntax error checking
 NeoBundle 'cohama/lexima.vim'           "auto bracket
 
@@ -50,6 +50,11 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'vim-scripts/c.vim'
 
 NeoBundle 'lervag/vimtex' " LaTeX related
+NeoBundle 'nathanaelkane/vim-indent-guides' " Indent coloring
+let g:indent_guides_enable_on_vim_startup = 1
+set ts=4 sw=4 et
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
 
 NeoBundle 'Shougo/vimproc.vim', {
 	      \   'build' : {
@@ -83,6 +88,7 @@ nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 
 " syntastic
 let g:loaded_syntastic_python_pylint_checker = 0
+let g:syntastic_quiet_messages = { "type": "style" }
 
 " === QuickRun ===
 let g:quickrun_config = get(g:, 'quickrun_config', {})
@@ -218,9 +224,9 @@ set gdefault   " 置換の時 g オプションをデフォルトで有効にす
 " タブ/インデントの設定
 
 set expandtab     " タブ入力を複数の空白入力に置き換える
-set tabstop=2     " 画面上でタブ文字が占める幅
-set shiftwidth=2  " 自動インデントでずれる幅
-set softtabstop=2 " 連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
+set tabstop=4     " 画面上でタブ文字が占める幅
+set shiftwidth=4  " 自動インデントでずれる幅
+set softtabstop=4 " 連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
 set autoindent    " 改行時に前の行のインデントを継続する
 set smartindent   " 改行時に入力された行の末尾に合わせて次の行のインデントを増減する
 
