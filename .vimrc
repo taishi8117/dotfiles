@@ -90,9 +90,9 @@ nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 " === syntastic ===
 let g:loaded_syntastic_python_pylint_checker = 0
 let g:syntastic_quiet_messages = { "type": "style" }
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
