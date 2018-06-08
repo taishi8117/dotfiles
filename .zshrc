@@ -73,6 +73,9 @@ alias diff='diff -U1'
 # change the current directory to the parent directory that contains the .git folder
 alias groot='cd "`git rev-parse --show-toplevel`"'
 
+# tmux
+alias t='tmux'
+
 ################################ Set options ###################################
 setopt share_history # 他のターミナルとヒストリーを共有
 setopt histignorealldups # ヒストリーに重複を表示しない
