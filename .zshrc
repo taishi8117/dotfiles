@@ -63,6 +63,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" = 'Linux' ];  then
 fi
 
 alias so='source'
+alias vim='nvim'
 alias v='vim'
 alias vi='vim'
 alias vz='vim ~/.zshrc'

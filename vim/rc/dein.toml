@@ -2,39 +2,6 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'scrooloose/nerdtree'
-hook_add = 'let g:NERDTreeNodeDelimiter = "\u00a0"'
-
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-
-[[plugins]]
-repo = 'airblade/vim-gitgutter'
-
-[[plugins]]
-repo = 'ntpeters/vim-better-whitespace'
-
-[[plugins]]
-repo = 'cohama/lexima.vim'
-
-[[plugins]]
-repo = 'scrooloose/syntastic'
-hook_add = '''
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:loaded_syntastic_python_pylint_checker = 0
-let g:syntastic_quiet_messages = { "type": "style" }
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exe = 'npm run lint --'
-'''
-
-[[plugins]]
 repo = 'Shougo/deoplete.nvim'
 hook_add = '''
 let g:deoplete#enable_at_startup = 1
@@ -42,19 +9,21 @@ let g:deoplete#auto_completion_start_length = 1
 '''
 
 [[plugins]]
+repo = 'tpope/vim-fugitive'
+on_cmd = 'Gstatus'
+hook_add = '''
+autocmd QuickFixCmdPost *grep* cwindow
+'''
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
+on_i = 1
+
+[[plugins]]
 repo = 'Shougo/neosnippet'
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
-
-[[plugins]]
-repo = 'nathanaelkane/vim-indent-guides'
-hook_add = '''
-let g:indent_guides_enable_on_vim_startup = 1
-set ts=4 sw=4 et
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-'''
 
 [[plugins]]
 repo = 'Vimjas/vim-python-pep8-indent'

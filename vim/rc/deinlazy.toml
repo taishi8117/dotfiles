@@ -1,0 +1,36 @@
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = 'let g:NERDTreeNodeDelimiter = "\u00a0"'
+
+[[plugins]]
+repo = 'scrooloose/syntastic'
+hook_add = '''
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:loaded_syntastic_python_pylint_checker = 0
+let g:syntastic_quiet_messages = { "type": "style" }
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe = 'npm run lint --'
+'''
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+repo = 'ntpeters/vim-better-whitespace'
+
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+hook_add = '''
+let g:indent_guides_enable_on_vim_startup = 1
+set ts=4 sw=4 et
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+'''
+
