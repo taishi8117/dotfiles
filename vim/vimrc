@@ -1,0 +1,23 @@
+if has('nvim')
+  let g:vim_home = expand('~/.nvim')
+  let g:rc_dir = expand('~/.nvim/rc')
+else
+  let g:vim_home = expand('~/.vim')
+  let g:rc_dir = expand('~/.vim/rc')
+endif
+
+function! s:source_rc(rc_file_name)
+    let rc_file = expand(g:rc_dir . '/' . a:rc_file_name)
+    if filereadable(rc_file)
+        execute 'source' rc_file
+    endif
+endfunction
+
+" -----------------------------------------------------------------------------------------
+
+call s:source_rc('init.rc.vim')
+call s:source_rc('dein.rc.vim')
+call s:source_rc('editor.rc.vim')
+call s:source_rc('system.rc.vim')
+call s:source_rc('mapping.rc.vim')
+call s:source_rc('theme.rc.vim')
