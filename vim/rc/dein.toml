@@ -3,7 +3,7 @@ repo = 'Shougo/dein.vim'
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
-hook_add = 'nnoremap <silent><C-e> :NERDTreeToggle<CR>'
+hook_add = 'let g:NERDTreeNodeDelimiter = "\u00a0"'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
@@ -35,23 +35,6 @@ let g:syntastic_javascript_eslint_exe = 'npm run lint --'
 '''
 
 [[plugins]]
-repo = 'Shougo/neocomplete'
-hook_add = '''
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_ignore_case = 1
-let g:neocomplete#enable_smart_case = 1
-" let g:neocomplete#enable_complete_select = 1
-let g:neocomplete#enable_auto_select = 0
-if !exists('g:neocomplete#keyword_patterns')
-let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns._ =	'\h\w*'
-
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
-'''
-
-[[plugins]]
 repo = 'Shougo/deoplete.nvim'
 hook_add = '''
 let g:deoplete#enable_at_startup = 1
@@ -60,10 +43,6 @@ let g:deoplete#auto_completion_start_length = 1
 
 [[plugins]]
 repo = 'Shougo/neosnippet'
-hook_add = '''
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-'''
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
