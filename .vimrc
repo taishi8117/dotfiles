@@ -52,20 +52,21 @@ NeoBundle 'stephpy/vim-yaml'
 
 NeoBundle 'lervag/vimtex' " LaTeX related
 NeoBundle 'nathanaelkane/vim-indent-guides' " Indent coloring
+NeoBundle 'Vimjas/vim-python-pep8-indent' " for python indenting
 let g:indent_guides_enable_on_vim_startup = 1
 set ts=4 sw=4 et
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 
-NeoBundle 'Shougo/vimproc.vim', {
-	      \   'build' : {
-	      \     'windows' : 'tools\\update-dll-mingw',
-	      \     'cygwin' : 'make -f make_cygwin.mak',
-	      \     'mac' : 'make -f make_mac.mak',
-	      \     'linux' : 'make',
-	      \     'unix' : 'gmake',
-	      \   }
-	      \ }
+" NeoBundle 'Shougo/vimproc.vim', {
+" 	      \   'build' : {
+" 	      \     'windows' : 'tools\\update-dll-mingw',
+" 	      \     'cygwin' : 'make -f make_cygwin.mak',
+" 	      \     'mac' : 'make -f make_mac.mak',
+" 	      \     'linux' : 'make',
+" 	      \     'unix' : 'gmake',
+" 	      \   }
+" 	      \ }
 
 " Colortheme related
 NeoBundle 'ujihisa/unite-colorscheme'
@@ -88,29 +89,33 @@ nnoremap <silent><C-t> :VimShellPop<CR>
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 
 " === syntastic ===
-let g:loaded_syntastic_python_pylint_checker = 0
-let g:syntastic_quiet_messages = { "type": "style" }
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exe = 'npm run lint --'
 
+let g:syntastic_python_checkers = ["flake8"]
+" Temporarily disable the python lint
+let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
+
 " === QuickRun ===
-let g:quickrun_config = get(g:, 'quickrun_config', {})
-let g:quickrun_config._ = {
-      \ 'runner'    : 'vimproc',
-      \ 'runner/vimproc/updatetime' : 60,
-      \ 'outputter' : 'error',
-      \ 'outputter/error/success' : 'buffer',
-      \ 'outputter/error/error'   : 'quickfix',
-      \ 'outputter/buffer/split'  : ':rightbelow 8sp',
-      \ 'outputter/buffer/close_on_empty' : 1,
-      \ }
+" let g:quickrun_config = get(g:, 'quickrun_config', {})
+" let g:quickrun_config._ = {
+"       \ 'runner'    : 'vimproc',
+"       \ 'runner/vimproc/updatetime' : 60,
+"       \ 'outputter' : 'error',
+"       \ 'outputter/error/success' : 'buffer',
+"       \ 'outputter/error/error'   : 'quickfix',
+"       \ 'outputter/buffer/split'  : ':rightbelow 8sp',
+"       \ 'outputter/buffer/close_on_empty' : 1,
+"       \ }
 " Close quickfix with q
 au FileType qf nnoremap <silent><buffer>q :quit<CR>
 
@@ -163,25 +168,25 @@ smap <C-k> <Plug>(neosnippet_expand_or_jump)))
 nnoremap <silent><F5> :QuickRun<CR>
 
 " LaTeX Quickrun
-let g:quickrun_config['tex'] = {
-\ 'command' : 'latexmk',
-\ 'outputter' : 'error',
-\ 'outputter/error/success' : 'null',
-\ 'outputter/error/error' : 'quickfix',
-\ 'srcfile' : expand("%"),
-\ 'cmdopt': '-pdf',
-\ 'hook/sweep/files' : [
-\                      '%S:p:r.aux',
-\                      '%S:p:r.bbl',
-\                      '%S:p:r.blg',
-\                      '%S:p:r.dvi',
-\                      '%S:p:r.fdb_latexmk',
-\                      '%S:p:r.fls',
-\                      '%S:p:r.log',
-\                      '%S:p:r.out'
-\                      ],
-\ 'exec': '%c %o %a %s',
-\}
+"let g:quickrun_config['tex'] = {
+"\ 'command' : 'latexmk',
+"\ 'outputter' : 'error',
+"\ 'outputter/error/success' : 'null',
+"\ 'outputter/error/error' : 'quickfix',
+"\ 'srcfile' : expand("%"),
+"\ 'cmdopt': '-pdf',
+"\ 'hook/sweep/files' : [
+"\                      '%S:p:r.aux',
+"\                      '%S:p:r.bbl',
+"\                      '%S:p:r.blg',
+"\                      '%S:p:r.dvi',
+"\                      '%S:p:r.fdb_latexmk',
+"\                      '%S:p:r.fls',
+"\                      '%S:p:r.log',
+"\                      '%S:p:r.out'
+"\                      ],
+"\ 'exec': '%c %o %a %s',
+"\}
 
 "autocmd BufWritePost,FileWritePost *.tex QuickRun tex
 
