@@ -9,13 +9,6 @@ repo = 'itchyny/lightline.vim'
 hook_add = 'source ~/.vim/rc/plugins/lightline.vim'
 
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-hook_add = '''
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#auto_completion_start_length = 1
-'''
-
-[[plugins]]
 repo = 'tpope/vim-fugitive'
 hook_add = 'autocmd QuickFixCmdPost *grep* cwindow'
 
@@ -40,12 +33,6 @@ hook_add = '''
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
 build = 'make'  # Linux & macOS only
-
-[[plugins]]
-repo = 'Shougo/neosnippet'
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
 repo = 'w0rp/ale'
