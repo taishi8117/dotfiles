@@ -37,3 +37,16 @@ build = 'make'  # Linux & macOS only
 [[plugins]]
 repo = 'w0rp/ale'
 hook_add = 'source ~/.vim/rc/plugins/ale.vim'
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+hook_add = '''
+  let g:deoplete#enable_at_startup = 1
+'''
+
+# TODO: Fix: https://github.com/Shougo/neosnippet.vim/issues/456
+[[plugins]]
+repo = 'himkt/neosnippet.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
