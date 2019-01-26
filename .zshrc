@@ -229,3 +229,5 @@ if [ -f '/Users/taishinojima/tools/google-cloud-sdk/path.zsh.inc' ]; then . '/Us
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/taishinojima/tools/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/taishinojima/tools/google-cloud-sdk/completion.zsh.inc'; fi
 export PATH="/usr/local/sbin:$HOME/tools:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

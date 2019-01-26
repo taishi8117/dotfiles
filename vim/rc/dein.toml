@@ -2,21 +2,44 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+repo = 'nanotech/jellybeans.vim'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = 'source ~/.vim/rc/plugins/lightline.vim'
+
+[[plugins]]
 repo = 'Shougo/deoplete.nvim'
 hook_add = '''
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_completion_start_length = 1
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#auto_completion_start_length = 1
 '''
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
-on_cmd = 'Gstatus'
-hook_add = '''
-autocmd QuickFixCmdPost *grep* cwindow
-'''
+hook_add = 'autocmd QuickFixCmdPost *grep* cwindow'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
+hook_add = '''
+  set updatetime=1000
+'''
+
+[[plugins]]
+repo = 'ntpeters/vim-better-whitespace'
+
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+hook_add = '''
+  let g:indent_guides_enable_on_vim_startup = 1
+  set ts=4 sw=4 et
+  let g:indent_guides_start_level = 2
+  let g:indent_guides_guide_size = 1
+'''
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'  # Linux & macOS only
 
 [[plugins]]
 repo = 'Shougo/neosnippet'
@@ -25,50 +48,5 @@ repo = 'Shougo/neosnippet'
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
-repo = 'Vimjas/vim-python-pep8-indent'
-
-[[plugins]]
 repo = 'w0rp/ale'
-hook_add = '''
-let g:ale_linters = {
-\   'python': ['flake8'],
-\}
-
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 0
-let g:ale_lint_on_enter = 0
-
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-'''
-
-[[plugins]]
-repo = 'itchyny/lightline.vim'
-hook_add = '''
-let g:lightline = {
-            \ 'colorscheme': 'jellybeans',
-            \ 'active': {
-            \   'left': [ [ 'mode', 'paste' ],
-            \             [ 'fugitive', 'readonly', 'filename', 'modified', 'ale' ] ]
-            \ },
-            \ 'component': {
-            \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-            \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
-            \ },
-            \ 'component_visible_condition': {
-            \   'readonly': '(&filetype!="help"&& &readonly)',
-            \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-            \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
-            \ },
-            \ 'component_function': {
-            \   'ale': 'ALEGetStatusLine'
-            \},
-    \ }
-set noshowmode
-'''
-
-[[plugins]]
-repo = 'nanotech/jellybeans.vim'
+hook_add = 'source ~/.vim/rc/plugins/ale.vim'

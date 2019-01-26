@@ -30,8 +30,8 @@ if dein#load_state(s:dein_dir)
   endif
 
   " To clear cache
-  " call map(dein#check_clean(), "delete(v:val, 'rf')")
-  " call dein#recache_runtimepath()
+  call map(dein#check_clean(), "delete(v:val, 'rf')")
+  call dein#recache_runtimepath()
 
   call dein#end()
   call dein#save_state()
