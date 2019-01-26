@@ -30,3 +30,6 @@ call s:source_rc('system.rc.vim')
 call s:source_rc('mapping.rc.vim')
 call s:source_rc('theme.rc.vim')
 call s:source_rc('filetype.rc.vim')
+
+filetype plugin indent on
+syntax enable
