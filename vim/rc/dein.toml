@@ -16,8 +16,7 @@ autocmd QuickFixCmdPost *grep* cwindow
 '''
 
 [[plugins]]
-repo = 'cohama/lexima.vim'
-on_i = 1
+repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
 repo = 'Shougo/neosnippet'
@@ -29,7 +28,22 @@ repo = 'Shougo/neosnippet-snippets'
 repo = 'Vimjas/vim-python-pep8-indent'
 
 [[plugins]]
-repo = 'nanotech/jellybeans.vim'
+repo = 'w0rp/ale'
+hook_add = '''
+let g:ale_linters = {
+\   'python': ['flake8'],
+\}
+
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_enter = 0
+
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+'''
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
@@ -38,18 +52,23 @@ let g:lightline = {
             \ 'colorscheme': 'jellybeans',
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
-            \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+            \             [ 'fugitive', 'readonly', 'filename', 'modified', 'ale' ] ]
             \ },
             \ 'component': {
             \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-            \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+            \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
             \ },
             \ 'component_visible_condition': {
             \   'readonly': '(&filetype!="help"&& &readonly)',
             \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
             \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
             \ },
-            \
+            \ 'component_function': {
+            \   'ale': 'ALEGetStatusLine'
+            \},
     \ }
 set noshowmode
 '''
+
+[[plugins]]
+repo = 'nanotech/jellybeans.vim'
