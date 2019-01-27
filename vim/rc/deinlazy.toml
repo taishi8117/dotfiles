@@ -1,6 +1,6 @@
 [[plugins]]
 repo = 'scrooloose/nerdtree'
-hook_add = 'let g:NERDTreeNodeDelimiter = "\u00a0"'
+hook_add = 'source ~/.vim/rc/plugins/nerdtree.vim'
 
 [[plugins]]
 repo = 'cohama/lexima.vim'

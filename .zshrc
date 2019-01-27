@@ -33,6 +33,8 @@ bindkey "^n" history-beginning-search-forward-end
 ############################## Alias Settings ##################################
 alias sirius-ssh='ssh sirius@71.145.208.119 -p 2222'
 
+alias rg='rg -p'
+alias less='less -RFX'
 alias grep='grep --color=auto'
 alias -g L='| less'
 alias -g H='| head'

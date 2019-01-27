@@ -15,3 +15,9 @@ xmap <C-k> <Plug>(neosnippet_expand_target)
 " quickrun
 nnoremap \r :cclose<CR>:write<CR>:QuickRun -mode n<CR>
 xnoremap \r :<C-U>cclose<CR>:write<CR>gv:QuickRun -mode v<CR>
+
+" fzf
+nnoremap <C-f> :Files<CR>
+
+" fugitive
+nnoremap <C-s> :Gstatus<CR>

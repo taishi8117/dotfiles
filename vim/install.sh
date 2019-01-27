@@ -14,3 +14,5 @@ mkdir -p $NVIM_HOME $NVIM_CONF
 ln -sfh $DOTFILES_ROOT/vim/vimrc $NVIM_CONF/init.vim
 ln -sfh $DOTFILES_ROOT/vim/after/ $NVIM_CONF/after
 ln -sfh $DOTFILES_ROOT/vim/rc/ $NVIM_HOME/rc
+
+echo '[*] Set up configuration files successfully. Launch vim to complete installation'
