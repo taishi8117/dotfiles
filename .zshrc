@@ -31,6 +31,11 @@ bindkey "^p" history-beginning-search-backward-end
 bindkey "^n" history-beginning-search-forward-end
 
 ############################## Alias Settings ##################################
+alias sirius-ssh='ssh sirius@71.145.208.119 -p 2222'
+
+alias rg='rg -p'
+alias less='less -RFX'
+alias grep='grep --color=auto'
 alias -g L='| less'
 alias -g H='| head'
 alias -g G='| grep'
@@ -60,6 +65,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" = 'Linux' ];  then
 fi
 
 alias so='source'
+alias vim='nvim'
 alias v='vim'
 alias vi='vim'
 alias vz='vim ~/.zshrc'
@@ -209,3 +215,21 @@ prompt_pygmalion_precmd(){
 }
 
 prompt_setup_pygmalion
+export FBANDROID_DIR=/Users/taishinojima/fbsource/fbandroid
+alias quicklog_update=/Users/taishinojima/fbsource/fbandroid/scripts/quicklog/quicklog_update.sh
+alias qlu=quicklog_update
+
+# added by setup_fb4a.sh
+export ANDROID_SDK=/opt/android_sdk
+export ANDROID_NDK_REPOSITORY=/opt/android_ndk
+export ANDROID_HOME=${ANDROID_SDK}
+export PATH=${PATH}:${ANDROID_SDK}/tools:${ANDROID_SDK}/platform-tools
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/taishinojima/tools/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/taishinojima/tools/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/taishinojima/tools/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/taishinojima/tools/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="/usr/local/sbin:$HOME/tools:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

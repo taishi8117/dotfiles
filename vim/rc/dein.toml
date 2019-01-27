@@ -1,0 +1,66 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'nanotech/jellybeans.vim'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = 'source ~/.vim/rc/plugins/lightline.vim'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+hook_add = 'autocmd QuickFixCmdPost *grep* cwindow'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+hook_add = '''
+  set updatetime=1000
+'''
+
+[[plugins]]
+repo = 'ntpeters/vim-better-whitespace'
+
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+hook_add = '''
+  let g:indent_guides_enable_on_vim_startup = 1
+  set ts=4 sw=4 et
+  let g:indent_guides_start_level = 2
+  let g:indent_guides_guide_size = 1
+'''
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'  # Linux & macOS only
+
+[[plugins]]
+repo = 'scrooloose/syntastic'
+hook_add = 'source ~/.vim/rc/plugins/syntastic.vim'
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+hook_add = '''
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#auto_completion_start_length = 1
+'''
+
+# TODO: Fix: https://github.com/Shougo/neosnippet.vim/issues/456
+[[plugins]]
+repo = 'himkt/neosnippet.vim'
+hook_add = '''
+  source ~/.vim/rc/plugins/neosnippet.vim
+'''
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --bin'
+merged = '0'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'fzf'
+hook_add = 'source ~/.vim/rc/plugins/fzf.vim'

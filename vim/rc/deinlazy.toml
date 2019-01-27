@@ -1,0 +1,16 @@
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = 'source ~/.vim/rc/plugins/nerdtree.vim'
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
+on_i = 1
+
+[[plugins]]
+repo = 'Vimjas/vim-python-pep8-indent'
+on_ft = 'python'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+on_cmd = 'QuickRun'
+hook_source = 'source ~/.vim/rc/plugins/quickrun.vim'
