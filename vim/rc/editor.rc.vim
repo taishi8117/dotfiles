@@ -41,7 +41,9 @@ set ignorecase " ignore case for search
 set smartcase  " case-senstive search if mixed cases are specified
 set wrapscan   " back to the beginning of the file after last match
 set gdefault   " default to global search
-set inccommand=split
+if has('nvim')
+  set inccommand=split
+endif
 
 " tab / indent settings
 
