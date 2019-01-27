@@ -13,13 +13,13 @@ function! s:source_rc(rc_file_name)
     endif
 endfunction
 
-" if has("nvim")
-"     if executable("/usr/local/bin/python3")
-"         let g:python3_host_prog = "/usr/local/bin/python3"
-"     elseif executable("/usr/bin/python3")
-"         let g:python3_host_prog = "/usr/bin/python3"
-"     endif
-" endif
+if has("nvim")
+    if executable("/usr/local/bin/python3")
+        let g:python3_host_prog = "/usr/local/bin/python3"
+    elseif executable("/usr/bin/python3")
+        let g:python3_host_prog = "/usr/bin/python3"
+    endif
+endif
 
 " -----------------------------------------------------------------------------------------
 
