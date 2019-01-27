@@ -5,3 +5,4 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_python_checkers = ["flake8"]
+let g:syntastic_quiet_messages = { 'regex': ['E111', 'E114', 'E129', 'E501'] }
