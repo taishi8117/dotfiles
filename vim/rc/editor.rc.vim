@@ -14,6 +14,7 @@ set helpheight=999 " maximize help window
 set list           " show hidden characters
 " hidden character settings
 set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮
+set encoding=utf-8
 
 " cursor settings
 
@@ -50,6 +51,10 @@ set shiftwidth=2  " shift width
 set softtabstop=2
 set autoindent
 set smartindent
+
+" folding
+set foldmethod=indent
+set foldlevel=99
 
 " Indicate 80th column
 let &colorcolumn="80,".join(range(120,999),",")
