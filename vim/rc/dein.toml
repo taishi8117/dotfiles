@@ -56,7 +56,7 @@ repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
 repo = 'junegunn/fzf'
-build = './install --bin'
+build = './install --all'
 merged = '0'
 
 [[plugins]]
