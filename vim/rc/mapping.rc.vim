@@ -21,3 +21,6 @@ nnoremap <C-f> :Files<CR>
 
 " fugitive
 nnoremap <C-s> :Gstatus<CR>
+
+" suda
+command WS :w suda://%

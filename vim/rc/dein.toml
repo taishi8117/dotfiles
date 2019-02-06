@@ -63,3 +63,6 @@ merged = '0'
 repo = 'junegunn/fzf.vim'
 depends = 'fzf'
 hook_add = 'source ~/.vim/rc/plugins/fzf.vim'
+
+[[plugins]]
+repo = 'lambdalisue/suda.vim'
