@@ -18,6 +18,7 @@ xnoremap \r :<C-U>cclose<CR>:write<CR>gv:QuickRun -mode v<CR>
 
 " fzf
 nnoremap <C-f> :Files<CR>
+nnoremap <C-g> :Rg<CR>
 
 " fugitive
 nnoremap <C-s> :Gstatus<CR>
