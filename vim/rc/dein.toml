@@ -45,9 +45,8 @@ hook_add = '''
   let g:deoplete#auto_completion_start_length = 1
 '''
 
-# TODO: Fix: https://github.com/Shougo/neosnippet.vim/issues/456
 [[plugins]]
-repo = 'himkt/neosnippet.vim'
+repo = 'Shougo/neosnippet.vim'
 hook_add = '''
   source ~/.vim/rc/plugins/neosnippet.vim
 '''
@@ -57,10 +56,13 @@ repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
 repo = 'junegunn/fzf'
-build = './install --bin'
+build = './install --all'
 merged = '0'
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 depends = 'fzf'
 hook_add = 'source ~/.vim/rc/plugins/fzf.vim'
+
+[[plugins]]
+repo = 'lambdalisue/suda.vim'
