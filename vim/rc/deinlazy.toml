@@ -14,3 +14,7 @@ on_ft = 'python'
 repo = 'thinca/vim-quickrun'
 on_cmd = 'QuickRun'
 hook_source = 'source ~/.vim/rc/plugins/quickrun.vim'
+
+[[plugins]]
+repo = 'Shougo/vinarise.vim'
+on_cmd = 'Vinarise'
