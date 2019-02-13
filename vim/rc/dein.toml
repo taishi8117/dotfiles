@@ -20,6 +20,9 @@ hook_add = '''
 
 [[plugins]]
 repo = 'ntpeters/vim-better-whitespace'
+hook_add = '''
+  let g:better_whitespace_enabled=0
+'''
 
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
