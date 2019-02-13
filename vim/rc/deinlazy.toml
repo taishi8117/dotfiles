@@ -11,6 +11,14 @@ repo = 'Vimjas/vim-python-pep8-indent'
 on_ft = 'python'
 
 [[plugins]]
+repo = 'solarnz/thrift.vim'
+on_ft = 'thrift'
+
+[[plugins]]
 repo = 'thinca/vim-quickrun'
 on_cmd = 'QuickRun'
 hook_source = 'source ~/.vim/rc/plugins/quickrun.vim'
+
+[[plugins]]
+repo = 'Shougo/vinarise.vim'
+on_cmd = 'Vinarise'
