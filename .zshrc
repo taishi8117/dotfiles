@@ -226,6 +226,16 @@ export ANDROID_NDK_REPOSITORY=/opt/android_ndk
 export ANDROID_HOME=${ANDROID_SDK}
 export PATH=${PATH}:${ANDROID_SDK}/tools:${ANDROID_SDK}/platform-tools
 
+# load profile
+if [ -d /etc/profile.d ]; then
+  for i in /etc/profile.d/*.sh; do
+    if [ -r $i ]; then
+      . $i
+    fi
+  done
+  unset i
+fi
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/taishinojima/tools/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/taishinojima/tools/google-cloud-sdk/path.zsh.inc'; fi
 
