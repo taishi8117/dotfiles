@@ -44,8 +44,7 @@ hook_add = 'source ~/.vim/rc/plugins/syntastic.vim'
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 hook_add = '''
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#auto_completion_start_length = 1
+  source ~/.vim/rc/plugins/deoplete.vim
 '''
 
 [[plugins]]

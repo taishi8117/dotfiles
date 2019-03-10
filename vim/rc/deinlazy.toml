@@ -19,7 +19,7 @@ repo = 'fatih/vim-go'
 on_ft = 'go'
 hook_add = 'source ~/.vim/rc/plugins/vim-go.vim'
 
-[[plugins]]  # go completion
+[[plugins]]
 repo = 'zchee/deoplete-go'
 build = 'make'
 on_ft = 'go'
