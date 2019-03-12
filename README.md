@@ -38,3 +38,4 @@
     go get -u github.com/stamblerre/gocode
     ```
   Restart gocode if autocompletion doesn't work
+  Potential [issues](https://github.com/Shougo/deoplete.nvim/issues/818)
