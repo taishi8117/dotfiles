@@ -244,3 +244,8 @@ if [ -f '/Users/taishinojima/tools/google-cloud-sdk/completion.zsh.inc' ]; then 
 export PATH="/usr/local/sbin:$HOME/tools:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
