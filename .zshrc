@@ -249,3 +249,4 @@ export PATH="/usr/local/sbin:$HOME/tools:$PATH"
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+export PYTHONPATH=$PYTHONPATH:/home/ubuntu/turbinia
