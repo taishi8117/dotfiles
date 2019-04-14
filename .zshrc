@@ -249,4 +249,9 @@ export PATH="/usr/local/sbin:$HOME/tools:$PATH"
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+
+# For Arch fzf settings
+if [ -f '/usr/share/fzf/completion.zsh' ]; then . '/usr/share/fzf/completion.zsh'; fi
+if [ -f '/usr/share/fzf/key-bindings.zsh' ]; then . '/usr/share/fzf/key-bindings.zsh'; fi
+
 export PYTHONPATH=$PYTHONPATH:/home/ubuntu/turbinia
