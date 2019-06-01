@@ -82,6 +82,7 @@ alias groot='cd "`git rev-parse --show-toplevel`"'
 
 # tmux
 alias t='tmux'
+alias ta='t attach -t'
 
 ################################ Set options ###################################
 setopt share_history # 他のターミナルとヒストリーを共有
