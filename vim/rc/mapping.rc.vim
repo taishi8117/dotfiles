@@ -18,9 +18,12 @@ xnoremap \r :<C-U>cclose<CR>:write<CR>gv:QuickRun -mode v<CR>
 
 " fzf
 nnoremap <C-f> :Files<CR>
+nnoremap <C-g> :Rg<CR>
 
 " fugitive
 nnoremap <C-s> :Gstatus<CR>
 
+" syntastic
+nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 " suda
 command WS :w suda://%

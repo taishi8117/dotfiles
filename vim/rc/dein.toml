@@ -20,6 +20,9 @@ hook_add = '''
 
 [[plugins]]
 repo = 'ntpeters/vim-better-whitespace'
+hook_add = '''
+  let g:better_whitespace_enabled=0
+'''
 
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
@@ -28,6 +31,7 @@ hook_add = '''
   set ts=4 sw=4 et
   let g:indent_guides_start_level = 2
   let g:indent_guides_guide_size = 1
+  let g:indent_guides_tab_guides = 0
 '''
 
 [[plugins]]
@@ -41,8 +45,7 @@ hook_add = 'source ~/.vim/rc/plugins/syntastic.vim'
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 hook_add = '''
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#auto_completion_start_length = 1
+  source ~/.vim/rc/plugins/deoplete.vim
 '''
 
 [[plugins]]
