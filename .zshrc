@@ -32,6 +32,7 @@ bindkey "^n" history-beginning-search-forward-end
 
 ############################## Alias Settings ##################################
 alias sirius-ssh='ssh sirius@71.145.208.119 -p 2222'
+alias sirius-ssh='ssh sirius@hnd-gw.sirius-lab.net -p 1985'
 alias dev='ssh devvm1209.prn3.facebook.com'
 
 alias rg='rg -p'
@@ -225,6 +226,13 @@ export ANDROID_SDK=/opt/android_sdk
 export ANDROID_NDK_REPOSITORY=/opt/android_ndk
 export ANDROID_HOME=${ANDROID_SDK}
 export PATH=${PATH}:${ANDROID_SDK}/tools:${ANDROID_SDK}/platform-tools
+
+# Enable Ctrl-x-e to edit command line
+autoload -U edit-command-line
+# Emacs style
+zle -N edit-command-line
+bindkey '^xe' edit-command-line
+bindkey '^x^e' edit-command-line
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/taishinojima/tools/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/taishinojima/tools/google-cloud-sdk/path.zsh.inc'; fi
