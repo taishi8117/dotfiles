@@ -32,7 +32,7 @@ bindkey "^n" history-beginning-search-forward-end
 
 ############################## Alias Settings ##################################
 alias sirius-ssh='ssh sirius@71.145.208.119 -p 2222'
-alias sirius-ssh='ssh sirius@hnd-gw.sirius-lab.net -p 1985'
+alias hnd-ssh='ssh sirius@hnd-gw.sirius-lab.net -p 1985'
 alias dev='ssh devvm1209.prn3.facebook.com'
 
 alias rg='rg -p'
@@ -83,6 +83,7 @@ alias groot='cd "`git rev-parse --show-toplevel`"'
 
 # tmux
 alias t='tmux'
+alias ta='t attach -t'
 
 ################################ Set options ###################################
 setopt share_history # 他のターミナルとヒストリーを共有
@@ -234,6 +235,16 @@ zle -N edit-command-line
 bindkey '^xe' edit-command-line
 bindkey '^x^e' edit-command-line
 
+# load profile
+if [ -d /etc/profile.d ]; then
+  for i in /etc/profile.d/*.sh; do
+    if [ -r $i ]; then
+      . $i
+    fi
+  done
+  unset i
+fi
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/taishinojima/tools/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/taishinojima/tools/google-cloud-sdk/path.zsh.inc'; fi
 
@@ -242,3 +253,14 @@ if [ -f '/Users/taishinojima/tools/google-cloud-sdk/completion.zsh.inc' ]; then 
 export PATH="/usr/local/sbin:$HOME/tools:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+# For Arch fzf settings
+if [ -f '/usr/share/fzf/completion.zsh' ]; then . '/usr/share/fzf/completion.zsh'; fi
+if [ -f '/usr/share/fzf/key-bindings.zsh' ]; then . '/usr/share/fzf/key-bindings.zsh'; fi
+
+export PYTHONPATH=$PYTHONPATH:/home/ubuntu/turbinia

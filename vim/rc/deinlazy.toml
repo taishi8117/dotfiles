@@ -1,13 +1,37 @@
+##### FILE EXPLORER #####
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = 'source ~/.vim/rc/plugins/nerdtree.vim'
 
+##### EDITOR #####
+
+# Auto close parentheses and repeat by dot dot dot ...
 [[plugins]]
 repo = 'cohama/lexima.vim'
 on_i = 1
 
+# Binary editor
+[[plugins]]
+repo = 'Shougo/vinarise.vim'
+on_cmd = 'Vinarise'
+
+##### RUNTIME #####
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+on_cmd = 'QuickRun'
+hook_source = 'source ~/.vim/rc/plugins/quickrun.vim'
+
+##### FILE TYPE #####
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
 [[plugins]]
 repo = 'Vimjas/vim-python-pep8-indent'
+on_ft = 'python'
+
+[[plugins]]
+repo = 'deoplete-plugins/deoplete-jedi'
 on_ft = 'python'
 
 [[plugins]]
@@ -15,10 +39,14 @@ repo = 'solarnz/thrift.vim'
 on_ft = 'thrift'
 
 [[plugins]]
-repo = 'thinca/vim-quickrun'
-on_cmd = 'QuickRun'
-hook_source = 'source ~/.vim/rc/plugins/quickrun.vim'
+repo = 'fatih/vim-go'
+on_ft = 'go'
+hook_add = 'source ~/.vim/rc/plugins/vim-go.vim'
 
 [[plugins]]
-repo = 'Shougo/vinarise.vim'
-on_cmd = 'Vinarise'
+repo = 'zchee/deoplete-go'
+build = 'make'
+on_ft = 'go'
+depends = ['deoplete.nvim']
+hook_add = 'source ~/.vim/rc/plugins/deoplete-go.vim'
+
