@@ -1,4 +1,5 @@
 # !!!!TODO!!!!: still very early WIP.
+# REFER TO https://github.com/bardisty/dotfiles/blob/master/zsh/.zshrc
 
 # ZSH Configuration
 DOTFILES_BASE="/home/sirius/dotfiles"
