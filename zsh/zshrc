@@ -1,6 +1,18 @@
 # ZSH Configuration
+DOTFILES_BASE="/home/sirius/dotfiles"
+DOTFILES_ZSH_BASE="${DOTFILES_BASE}/zsh"
 
 # Color settings
 autoload -Uz colors
 colors
 
+source "${DOTFILES_ZSH_BASE}/options.zsh"
+source "${DOTFILES_ZSH_BASE}/completion.zsh"
+source "${DOTFILES_ZSH_BASE}/alias.zsh"
+
+# Load plugins
+source "${DOTFILES_ZSH_BASE}/plugins/git.zsh"
+source "${DOTFILES_ZSH_BASE}/plugins/virtualenv.zsh"
+
+# Theme is sourced at the end, after plugins are loaded
+source "${DOTFILES_ZSH_BASE}/theme.zsh"
