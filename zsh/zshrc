@@ -1,0 +1,6 @@
+# ZSH Configuration
+
+# Color settings
+autoload -Uz colors
+colors
+
