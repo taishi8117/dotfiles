@@ -1,3 +1,5 @@
+# !!!!TODO!!!!: still very early WIP.
+
 # ZSH Configuration
 DOTFILES_BASE="/home/sirius/dotfiles"
 DOTFILES_ZSH_BASE="${DOTFILES_BASE}/zsh"
@@ -11,8 +13,24 @@ source "${DOTFILES_ZSH_BASE}/completion.zsh"
 source "${DOTFILES_ZSH_BASE}/alias.zsh"
 
 # Load plugins
-source "${DOTFILES_ZSH_BASE}/plugins/git.zsh"
-source "${DOTFILES_ZSH_BASE}/plugins/virtualenv.zsh"
+#source "${DOTFILES_ZSH_BASE}/plugins/git.zsh"
+#source "${DOTFILES_ZSH_BASE}/plugins/virtualenv.zsh"
+
+source ~/.zplug/init.zsh
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "plugins/colored-man", from:oh-my-zsh
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# Then, source plugins and add commands to $PATH
+zplug load --verbose
+
 
 # Theme is sourced at the end, after plugins are loaded
 source "${DOTFILES_ZSH_BASE}/theme.zsh"
