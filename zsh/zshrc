@@ -1,37 +1,198 @@
+#!/usr/bin/env zsh
+# vim:fdm=marker:
+#
+# Sirius Lab ZSH Configuration
+#
 # !!!!TODO!!!!: still very early WIP.
 # REFER TO https://github.com/bardisty/dotfiles/blob/master/zsh/.zshrc
 
-# ZSH Configuration
 DOTFILES_BASE="/home/sirius/dotfiles"
 DOTFILES_ZSH_BASE="${DOTFILES_BASE}/zsh"
 
-# Color settings
-autoload -Uz colors
-colors
+#===============================================================================
+# 1: ZPLUG CONFIGURATION
+#===============================================================================
 
-source "${DOTFILES_ZSH_BASE}/options.zsh"
-source "${DOTFILES_ZSH_BASE}/completion.zsh"
-source "${DOTFILES_ZSH_BASE}/alias.zsh"
+  # Install zplug if it's not installed
+  if [[ ! -d $ZPLUG_HOME ]]; then
+    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
+  fi
+  
+  # Init zplug
+  source $ZPLUG_HOME/init.zsh
+  
+  # Let zplug manage zplug for easy updating
+  zplug "zplug/zplug", hook-build:'zplug --self-manage'
 
-# Load plugins
-#source "${DOTFILES_ZSH_BASE}/plugins/git.zsh"
-#source "${DOTFILES_ZSH_BASE}/plugins/virtualenv.zsh"
+  # Manage command aliases
+  zplug "${DOTFILES_ZSH_BASE}/aliases", from:local, use:"_*.zsh"
 
-source ~/.zplug/init.zsh
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "plugins/colored-man", from:oh-my-zsh
+  # *Note*:
+  #
+  #   Oh-My-Zsh libs and plugins will fail to clone/load if your
+  #   global git config has `transfer.fsckObjects` set to `true`.
+  #
+  #   Set it to `false` during zplug's initial install and anytime you run
+  #   `zplug update`
+  
+  # External plugins
+  zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
+  # Oh-My-Zsh plugins
+  zplug "plugins/colored-man-pages", from:oh-my-zsh
+
+
+
+  # Install plugins if there are plugins that have not been installed
+  if ! zplug check --verbose; then
+      printf "Install? [y/N]: "
+      if read -q; then
+          echo; zplug install
+      fi
+  fi
+
+  # Then, source plugins and add commands to $PATH
+  zplug load --verbose
+
+
+#===============================================================================
+# 2: BASIC OPTIONS
+#===============================================================================
+#
+  # Color settings
+  autoload -Uz colors; colors
+
+  setopt no_nomatch # git show HEAD^とかrake foo[bar]とか使いたい
+  setopt auto_cd # cdコマンドを省略して、ディレクトリ名のみの入力で移動
+  setopt auto_pushd # 自動でpushdを実行
+  setopt pushd_ignore_dups # pushdから重複を削除
+  setopt correct # コマンドミスを修正
+  setopt no_flow_control # Ctrl+sのロック, Ctrl+qのロック解除を無効にする
+  cdpath=(~) # どこからでも参照できるディレクトリパス
+  setopt no_beep
+
+  # backspace,deleteキーを使えるように
+  #stty erase ^H
+  #bindkey "^[[3~" delete-char
+
+  # 区切り文字の設定
+  autoload -Uz select-word-style
+  select-word-style default
+  zstyle ':zle:*' word-chars "_-./;@"
+  zstyle ':zle:*' word-style unspecified
+
+  # 実行したプロセスの消費時間が3秒以上かかったら
+  # 自動的に消費時間の統計情報を表示する。
+  REPORTTIME=3
+
+#===============================================================================
+# 3: HISTORY OPTIONS
+#===============================================================================
+
+  HISTFILE=~/.zsh_history
+  HISTSIZE=10000
+  SAVEHIST=10000
+
+  setopt share_history # 他のターミナルとヒストリーを共有
+  setopt histignorealldups # ヒストリーに重複を表示しない
+  setopt append_history  # 複数の zsh を同時に使う時など history ファイルに上書きせず追加
+
+  # Ctrl+rでヒストリーのインクリメンタルサーチ、Ctrl+sで逆順
+  bindkey '^r' history-incremental-pattern-search-backward
+  bindkey '^s' history-incremental-pattern-search-forward
+
+  # コマンドを途中まで入力後、historyから絞り込み
+  # 例 ls まで打ってCtrl+pでlsコマンドをさかのぼる、Ctrl+nで逆順
+  autoload -Uz history-search-end
+  zle -N history-beginning-search-backward-end history-search-end
+  zle -N history-beginning-search-forward-end history-search-end
+  bindkey "^p" history-beginning-search-backward-end
+  bindkey "^n" history-beginning-search-forward-end
+
+#===============================================================================
+# 4: COMPLETION OPTIONS
+#===============================================================================
+
+  setopt auto_list  # 補完候補が複数ある時に、一覧表示
+  setopt auto_menu  # 補完候補が複数あるときに自動的に一覧表示する
+  setopt complete_in_word  # カーソル位置で補完する。
+  setopt magic_equal_subst  # コマンドライン引数の --prefix=/usr とか=以降でも補完
+
+  autoload -Uz compinit
+  compinit
+
+  bindkey "\e[Z" reverse-menu-complete # Use Shift+Tab to reverse
+
+  ### 補完方法毎にグループ化する。
+  zstyle ':completion:*' format '%B%F{blue}%d%f%b'
+  zstyle ':completion:*' group-name ''
+
+  # 補完後、メニュー選択モードになり左右キーで移動が出来る
+  # select=2: 補完候補を一覧から選択する。補完候補が2つ以上なければすぐに補完する
+  zstyle ':completion:*:default' menu select=2
+
+  # 補完候補のカラー表示
+  zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+  # 補完で大文字にもマッチ
+  zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+  zstyle ':completion:*' keep-prefix
+  zstyle ':completion:*' recent-dirs-insert both
+
+  ## sudo の時にコマンドを探すパス
+  zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin
+
+  #kill の候補にも色付き表示
+  zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([%0-9]#)*=0=01;31'
+
+  # 補完候補のメニュー選択で、矢印キーの代わりにhjklで移動出来るようにする。
+  zmodload zsh/complist
+  bindkey -M menuselect 'h' vi-backward-char
+  bindkey -M menuselect 'j' vi-down-line-or-history
+  bindkey -M menuselect 'k' vi-up-line-or-history
+  bindkey -M menuselect 'l' vi-forward-char
+
+
+
+#===============================================================================
+# 5: MISC OPTIONS
+#===============================================================================
+
+# added by setup_fb4a.sh
+export ANDROID_SDK=/opt/android_sdk
+export ANDROID_NDK_REPOSITORY=/opt/android_ndk
+export ANDROID_HOME=${ANDROID_SDK}
+export PATH=${PATH}:${ANDROID_SDK}/tools:${ANDROID_SDK}/platform-tools
+
+# load profile
+if [ -d /etc/profile.d ]; then
+  for i in /etc/profile.d/*.sh; do
+    if [ -r $i ]; then
+      . $i
     fi
+  done
+  unset i
 fi
 
-# Then, source plugins and add commands to $PATH
-zplug load --verbose
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/taishinojima/tools/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/taishinojima/tools/google-cloud-sdk/path.zsh.inc'; fi
 
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/taishinojima/tools/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/taishinojima/tools/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="/usr/local/sbin:$HOME/tools:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+# For Arch fzf settings
+if [ -f '/usr/share/fzf/completion.zsh' ]; then . '/usr/share/fzf/completion.zsh'; fi
+if [ -f '/usr/share/fzf/key-bindings.zsh' ]; then . '/usr/share/fzf/key-bindings.zsh'; fi
+
+export PYTHONPATH=$PYTHONPATH:/home/ubuntu/turbinia
 
 # Theme is sourced at the end, after plugins are loaded
 source "${DOTFILES_ZSH_BASE}/theme.zsh"
