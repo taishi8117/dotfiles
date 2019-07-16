@@ -1,0 +1,50 @@
+# vim:fdm=marker:
+#
+# Sirius Lab ZSH Environment Configuration
+#
+
+#===============================================================================
+# 0: SHARED
+#===============================================================================
+
+  DOTFILES_BASE="/home/sirius/dotfiles"
+
+  # load profile
+  if [ -d /etc/profile.d ]; then
+    for i in /etc/profile.d/*.sh; do
+      if [ -r $i ]; then
+        . $i
+      fi
+    done
+    unset i
+  fi
+
+#===============================================================================
+# 1: GENERAL
+#===============================================================================
+
+  export DOTFILES_ZSH_BASE="${DOTFILES_BASE}/zsh"
+  export ZPLUG_HOME="/home/sirius/.zplug"
+
+  # 実行したプロセスの消費時間が3秒以上かかったら
+  # 自動的に消費時間の統計情報を表示する。
+  export REPORTTIME=3
+
+
+#===============================================================================
+# 2: HISTORY
+#===============================================================================
+
+  HISTFILE=~/.zsh_history
+  HISTSIZE=10000
+  SAVEHIST=10000
+
+
+#===============================================================================
+# 3: PATH
+#===============================================================================
+
+  # set PATH so it includes user's private bin if it exists
+  if [ -d "$HOME/.local/bin" ] ; then
+      PATH="$HOME/.local/bin:$PATH"
+  fi

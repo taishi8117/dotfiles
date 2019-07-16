@@ -6,9 +6,6 @@
 # !!!!TODO!!!!: still very early WIP.
 # REFER TO https://github.com/bardisty/dotfiles/blob/master/zsh/.zshrc
 
-DOTFILES_BASE="/home/sirius/dotfiles"
-DOTFILES_ZSH_BASE="${DOTFILES_BASE}/zsh"
-ZPLUG_HOME="/home/sirius/.zplug"
 
 #===============================================================================
 # 1: ZPLUG CONFIGURATION
@@ -21,12 +18,9 @@ ZPLUG_HOME="/home/sirius/.zplug"
   
   # Init zplug
   source $ZPLUG_HOME/init.zsh
-  
+
   # Let zplug manage zplug for easy updating
   zplug "zplug/zplug", hook-build:'zplug --self-manage'
-
-  ### # Manage command aliases
-  ### zplug "${DOTFILES_ZSH_BASE}/aliases", from:local, use:"_*.zsh"
 
   # *Note*:
   #
@@ -47,7 +41,11 @@ ZPLUG_HOME="/home/sirius/.zplug"
   # Oh-My-Zsh plugins
   zplug "plugins/colored-man-pages", from:oh-my-zsh
   zplug "plugins/git", from:oh-my-zsh, if:"(( $+commands[git] ))",  defer:0
+  zplug "plugins/virtualenv", from:oh-my-zsh
 
+
+  # Zsh theme
+  zplug "${DOTFILES_ZSH_BASE}/themes", from:local, as:theme, use:"sirius-pygmalion.zsh"
 
 
   # Install plugins if there are plugins that have not been installed
@@ -88,17 +86,9 @@ ZPLUG_HOME="/home/sirius/.zplug"
   zstyle ':zle:*' word-chars "_-./;@"
   zstyle ':zle:*' word-style unspecified
 
-  # 実行したプロセスの消費時間が3秒以上かかったら
-  # 自動的に消費時間の統計情報を表示する。
-  REPORTTIME=3
-
 #===============================================================================
 # 3: HISTORY OPTIONS
 #===============================================================================
-
-  HISTFILE=~/.zsh_history
-  HISTSIZE=10000
-  SAVEHIST=10000
 
   setopt share_history # 他のターミナルとヒストリーを共有
   setopt histignorealldups # ヒストリーに重複を表示しない
@@ -120,13 +110,12 @@ ZPLUG_HOME="/home/sirius/.zplug"
 # 4: COMPLETION OPTIONS
 #===============================================================================
 
+  autoload -Uz compinit; compinit
+
   setopt auto_list  # 補完候補が複数ある時に、一覧表示
   setopt auto_menu  # 補完候補が複数あるときに自動的に一覧表示する
   setopt complete_in_word  # カーソル位置で補完する。
   setopt magic_equal_subst  # コマンドライン引数の --prefix=/usr とか=以降でも補完
-
-  autoload -Uz compinit
-  compinit
 
   bindkey "\e[Z" reverse-menu-complete # Use Shift+Tab to reverse
 
@@ -166,44 +155,82 @@ ZPLUG_HOME="/home/sirius/.zplug"
 #===============================================================================
 
 
-## HERE I SOURCE ALIAS
-source ${DOTFILES_ZSH_BASE}/aliases/_common.zsh
+  # HERE I SOURCE ALIAS
+  # TODO: Use alias management plugin
+  source ${DOTFILES_ZSH_BASE}/aliases/_common.zsh
 
-# added by setup_fb4a.sh
-export ANDROID_SDK=/opt/android_sdk
-export ANDROID_NDK_REPOSITORY=/opt/android_ndk
-export ANDROID_HOME=${ANDROID_SDK}
-export PATH=${PATH}:${ANDROID_SDK}/tools:${ANDROID_SDK}/platform-tools
+  # Source FZF
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# load profile
-if [ -d /etc/profile.d ]; then
-  for i in /etc/profile.d/*.sh; do
-    if [ -r $i ]; then
-      . $i
-    fi
-  done
-  unset i
-fi
+  # For Arch fzf settings
+  if [ -f '/usr/share/fzf/completion.zsh' ]; then . '/usr/share/fzf/completion.zsh'; fi
+  if [ -f '/usr/share/fzf/key-bindings.zsh' ]; then . '/usr/share/fzf/key-bindings.zsh'; fi
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/taishinojima/tools/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/taishinojima/tools/google-cloud-sdk/path.zsh.inc'; fi
+#  # Theme is sourced at the end, after plugins are loaded
+#  source "${DOTFILES_ZSH_BASE}/theme.zsh"
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/taishinojima/tools/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/taishinojima/tools/google-cloud-sdk/completion.zsh.inc'; fi
-export PATH="/usr/local/sbin:$HOME/tools:$PATH"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#===============================================================================
+# 0xff: ZSH SYNTAX HIGHLIGHTING
+#===============================================================================
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
+  # Source:
+  # https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/highlighters/main/main-highlighter.zsh
+  #
+  #: ${ZSH_HIGHLIGHT_STYLES[default]:=none}
+  #: ${ZSH_HIGHLIGHT_STYLES[unknown-token]:=fg=red,bold}
+  #: ${ZSH_HIGHLIGHT_STYLES[reserved-word]:=fg=yellow}
+  #: ${ZSH_HIGHLIGHT_STYLES[alias]:=fg=green}
+  #: ${ZSH_HIGHLIGHT_STYLES[suffix-alias]:=fg=green,underline}
+  #: ${ZSH_HIGHLIGHT_STYLES[builtin]:=fg=green}
+  #: ${ZSH_HIGHLIGHT_STYLES[function]:=fg=green}
+  #: ${ZSH_HIGHLIGHT_STYLES[command]:=fg=green}
+  #: ${ZSH_HIGHLIGHT_STYLES[precommand]:=fg=green,underline}
+  #: ${ZSH_HIGHLIGHT_STYLES[commandseparator]:=none}
+  #: ${ZSH_HIGHLIGHT_STYLES[hashed-command]:=fg=green}
+  #: ${ZSH_HIGHLIGHT_STYLES[path]:=underline}
+  #: ${ZSH_HIGHLIGHT_STYLES[path_prefix]:=underline}
+  #: ${ZSH_HIGHLIGHT_STYLES[globbing]:=fg=blue}
+  #: ${ZSH_HIGHLIGHT_STYLES[history-expansion]:=fg=blue}
+  #: ${ZSH_HIGHLIGHT_STYLES[single-hyphen-option]:=none}
+  #: ${ZSH_HIGHLIGHT_STYLES[double-hyphen-option]:=none}
+  #: ${ZSH_HIGHLIGHT_STYLES[back-quoted-argument]:=none}
+  #: ${ZSH_HIGHLIGHT_STYLES[single-quoted-argument]:=fg=yellow}
+  #: ${ZSH_HIGHLIGHT_STYLES[double-quoted-argument]:=fg=yellow}
+  #: ${ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]:=fg=yellow}
+  #: ${ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]:=fg=cyan}
+  #: ${ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]:=fg=cyan}
+  #: ${ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]:=fg=cyan}
+  #: ${ZSH_HIGHLIGHT_STYLES[assign]:=none}
+  #: ${ZSH_HIGHLIGHT_STYLES[redirection]:=none}
+  #: ${ZSH_HIGHLIGHT_STYLES[comment]:=fg=black,bold}
 
-# For Arch fzf settings
-if [ -f '/usr/share/fzf/completion.zsh' ]; then . '/usr/share/fzf/completion.zsh'; fi
-if [ -f '/usr/share/fzf/key-bindings.zsh' ]; then . '/usr/share/fzf/key-bindings.zsh'; fi
-
-export PYTHONPATH=$PYTHONPATH:/home/ubuntu/turbinia
-
-# Theme is sourced at the end, after plugins are loaded
-source "${DOTFILES_ZSH_BASE}/theme.zsh"
+  if zplug check zsh-users/zsh-syntax-highlighting; then
+    ZSH_HIGHLIGHT_STYLES[default]='none'
+    ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red'
+    ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=yellow'
+    ZSH_HIGHLIGHT_STYLES[alias]='fg=blue'
+    ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=green,underline'
+    ZSH_HIGHLIGHT_STYLES[builtin]='fg=green'
+    ZSH_HIGHLIGHT_STYLES[function]='fg=magenta'
+    ZSH_HIGHLIGHT_STYLES[command]='fg=green'
+    ZSH_HIGHLIGHT_STYLES[precommand]='fg=white,underline'
+    ZSH_HIGHLIGHT_STYLES[commandseparator]='none'
+    ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=green'
+    ZSH_HIGHLIGHT_STYLES[path]='fg=blue,bold'
+    ZSH_HIGHLIGHT_STYLES[path_prefix]='underline'
+    ZSH_HIGHLIGHT_STYLES[globbing]='fg=blue'
+    ZSH_HIGHLIGHT_STYLES[history-expansion]='fg=blue'
+    ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=magenta'
+    ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=magenta'
+    ZSH_HIGHLIGHT_STYLES[back-quoted-argument]='none'
+    ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=yellow'
+    ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=yellow'
+    ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=yellow'
+    ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=cyan'
+    ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]='fg=cyan'
+    ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]='fg=cyan'
+    ZSH_HIGHLIGHT_STYLES[assign]='none'
+    ZSH_HIGHLIGHT_STYLES[redirection]='none'
+    ZSH_HIGHLIGHT_STYLES[comment]='fg=black,bold'
+  fi

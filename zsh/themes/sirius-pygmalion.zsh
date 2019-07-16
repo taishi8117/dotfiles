@@ -1,14 +1,5 @@
-# Virtual env
-
-function activate { export VIRTUAL_ENV_DISABLE_PROMPT='1' source ./$1/bin/activate }
-function virtualenv_info {
-    [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
-  }
-
-
-
 # =========================================================================== #
-# pygmalion PROMPT theme
+# Sirius Lab custom pygmalion prompt theme
 # =========================================================================== #
 prompt_setup_pygmalion(){
   ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[green]%}"
@@ -16,16 +7,30 @@ prompt_setup_pygmalion(){
   ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%}⚡%{$reset_color%}"
   ZSH_THEME_GIT_PROMPT_CLEAN=""
 
-  base_prompt="%{$fg[magenta]%}%n%{$reset_color%}%{$fg[cyan]%}@%{$reset_color%}%{$fg[yellow]%}%m%{$reset_color%}%{$fg[red]%}:%{$reset_color%}%{$fg[cyan]%}%0~%{$reset_color%}%{$fg[red]%}|%{$reset_color%}"
-  post_prompt="%{$fg[cyan]%}⇒%{$reset_color%}  "
+  pt_user="%{$fg[magenta]%}%n%{$reset_color%}"
+  pt_at="%{$fg[cyan]%}@%{$reset_color%}"
+  pt_host="%{$fg[yellow]%}%m%{$reset_color%}"
+  pt_colon="%{$fg[red]%}:%{$reset_color%}"
+  pt_pwd="%{$fg[cyan]%}%0~%{$reset_color%}"
+  pt_pipe="%{$fg[red]%}|%{$reset_color%}"
 
+  base_prompt="$pt_user$pt_at$pt_host$pt_colon$pt_pwd$pt_pipe"
   base_prompt_nocolor=$(echo "$base_prompt" | perl -pe "s/%\{[^}]+\}//g")
-  post_prompt_nocolor=$(echo "$post_prompt" | perl -pe "s/%\{[^}]+\}//g")
 
   precmd_functions+=(prompt_pygmalion_precmd)
 }
 
 prompt_pygmalion_precmd(){
+  # Change prompt if root
+  if [ "$EUID" -ne 0 ]
+  then
+    local post_prompt="%{$fg[cyan]%}$%{$reset_color%}  "
+  else
+    local post_prompt="%{$fg[cyan]%}#%{$reset_color%}  "
+  fi
+
+  local post_prompt_nocolor=$(echo "$post_prompt" | perl -pe "s/%\{[^}]+\}//g")
+
   local gitinfo=$(git_prompt_info)
   local gitinfo_nocolor=$(echo "$gitinfo" | perl -pe "s/%\{[^}]+\}//g")
   local exp_nocolor="$(print -P \"$base_prompt_nocolor$gitinfo_nocolor$post_prompt_nocolor\")"
@@ -37,7 +42,7 @@ prompt_pygmalion_precmd(){
     nl=$'\n%{\r%}';
   fi
   PROMPT="$base_prompt$gitinfo$nl$post_prompt"
-  RPROMPT="%{$fg[green]%}$(virtualenv_info)%{$reset_color%}"
+  RPROMPT="%{$fg[green]%}$(virtualenv_prompt_info)%{$reset_color%}"
 }
 
 prompt_setup_pygmalion
