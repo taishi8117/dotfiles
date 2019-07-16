@@ -30,7 +30,7 @@
 #===============================================================================
 
   export DOTFILES_ZSH_BASE="${DOTFILES_BASE}/zsh"
-  export ZPLUG_HOME="/home/sirius/.zplug"
+  export ZPLUG_HOME="${HOME}/.zplug"
 
   # 実行したプロセスの消費時間が3秒以上かかったら
   # 自動的に消費時間の統計情報を表示する。
