@@ -8,6 +8,7 @@
 
 DOTFILES_BASE="/home/sirius/dotfiles"
 DOTFILES_ZSH_BASE="${DOTFILES_BASE}/zsh"
+ZPLUG_HOME="/home/sirius/.zplug"
 
 #===============================================================================
 # 1: ZPLUG CONFIGURATION
@@ -24,8 +25,8 @@ DOTFILES_ZSH_BASE="${DOTFILES_BASE}/zsh"
   # Let zplug manage zplug for easy updating
   zplug "zplug/zplug", hook-build:'zplug --self-manage'
 
-  # Manage command aliases
-  zplug "${DOTFILES_ZSH_BASE}/aliases", from:local, use:"_*.zsh"
+  ### # Manage command aliases
+  ### zplug "${DOTFILES_ZSH_BASE}/aliases", from:local, use:"_*.zsh"
 
   # *Note*:
   #
@@ -35,11 +36,17 @@ DOTFILES_ZSH_BASE="${DOTFILES_BASE}/zsh"
   #   Set it to `false` during zplug's initial install and anytime you run
   #   `zplug update`
   
+  
   # External plugins
   zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
+  # Oh-My-Zsh libraries
+  zplug "lib/completion", from:oh-my-zsh
+  zplug "lib/git", from:oh-my-zsh, if:"(( $+commands[git] ))"
+
   # Oh-My-Zsh plugins
   zplug "plugins/colored-man-pages", from:oh-my-zsh
+  zplug "plugins/git", from:oh-my-zsh, if:"(( $+commands[git] ))",  defer:0
 
 
 
@@ -132,7 +139,7 @@ DOTFILES_ZSH_BASE="${DOTFILES_BASE}/zsh"
   zstyle ':completion:*:default' menu select=2
 
   # 補完候補のカラー表示
-  zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+  zstyle ':completion:*:default' list-colors ${LS_COLORS}
 
   # 補完で大文字にもマッチ
   zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
@@ -157,6 +164,10 @@ DOTFILES_ZSH_BASE="${DOTFILES_BASE}/zsh"
 #===============================================================================
 # 5: MISC OPTIONS
 #===============================================================================
+
+
+## HERE I SOURCE ALIAS
+source ${DOTFILES_ZSH_BASE}/aliases/_common.zsh
 
 # added by setup_fb4a.sh
 export ANDROID_SDK=/opt/android_sdk

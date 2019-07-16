@@ -41,6 +41,3 @@ prompt_pygmalion_precmd(){
 }
 
 prompt_setup_pygmalion
-export FBANDROID_DIR=/Users/taishinojima/fbsource/fbandroid
-alias quicklog_update=/Users/taishinojima/fbsource/fbandroid/scripts/quicklog/quicklog_update.sh
-alias qlu=quicklog_update
