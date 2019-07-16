@@ -42,7 +42,11 @@ prompt_pygmalion_precmd(){
 
   local gitinfo=$(git_prompt_info)
   local gitinfo_nocolor=$(echo "$gitinfo" | perl -pe "s/%\{[^}]+\}//g")
-  local hginfo=$(hg_prompt_info)
+
+  # Disabling Mercurial because it's slow? Uncomment below to re-enable.
+  # local hginfo=$(hg_prompt_info)
+
+  local hginfo=""
   local hginfo_nocolor=$(echo "$hginfo" | perl -pe "s/%\{[^}]+\}//g")
 
   local exp_nocolor="$(print -P \"$base_prompt_nocolor$hginfo_nocolor$gitinfo_nocolor$post_prompt_nocolor\")"
