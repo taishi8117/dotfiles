@@ -36,11 +36,17 @@ prompt_pygmalion_precmd(){
   local exp_nocolor="$(print -P \"$base_prompt_nocolor$gitinfo_nocolor$post_prompt_nocolor\")"
   local prompt_length=${#exp_nocolor}
 
-  local nl=""
 
-  if [[ $prompt_length -gt 40 ]]; then
-    nl=$'\n%{\r%}';
-  fi
+  local nl=$'\n%{\r%}'
+
+  ## Uncomment below to change whether to add a newline
+  ## before post-promt based on length
+  #local nl=""
+
+  #if [[ $prompt_length -gt 40 ]]; then
+  #  nl=$'\n%{\r%}';
+  #fi
+  
   PROMPT="$base_prompt$gitinfo$nl$post_prompt"
   RPROMPT="%{$fg[green]%}$(virtualenv_prompt_info)%{$reset_color%}"
 }
