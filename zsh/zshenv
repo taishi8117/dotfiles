@@ -12,7 +12,8 @@
 # 0: SHARED
 #===============================================================================
 
-  DOTFILES_BASE="/home/sirius/dotfiles"
+  export DOTFILES_BASE="/home/sirius/dotfiles"
+  export EDITOR=nvim
 
   # load profile
   if [ -d /etc/profile.d ]; then
@@ -66,4 +67,4 @@
   #  >>> from pygments.styles import STYLE_MAP
   #  >>> STYLE_MAP.keys()
   #
-  ZSH_COLORIZE_STYLE="monokai"
+  export ZSH_COLORIZE_STYLE="monokai"

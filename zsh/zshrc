@@ -36,6 +36,7 @@
   # External plugins
   zplug "zsh-users/zsh-syntax-highlighting", defer:2
   zplug "zsh-users/zsh-autosuggestions"
+  zplug "djui/alias-tips"
 
   # Oh-My-Zsh libraries
   zplug "lib/completion", from:oh-my-zsh
@@ -242,7 +243,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23"
     ZSH_HIGHLIGHT_STYLES[builtin]='fg=green'
     ZSH_HIGHLIGHT_STYLES[function]='fg=magenta'
     ZSH_HIGHLIGHT_STYLES[command]='fg=green'
-    ZSH_HIGHLIGHT_STYLES[precommand]='fg=white,underline'
+    ZSH_HIGHLIGHT_STYLES[precommand]='fg=magenta,bold'
     ZSH_HIGHLIGHT_STYLES[commandseparator]='none'
     ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=green'
     ZSH_HIGHLIGHT_STYLES[path]='fg=blue,bold'
