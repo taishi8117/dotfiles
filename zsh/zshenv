@@ -53,3 +53,17 @@
   if [ -d "$HOME/.local/bin" ] ; then
       PATH="$HOME/.local/bin:$PATH"
   fi
+
+#===============================================================================
+# 4: MISC
+#===============================================================================
+
+  # ccat (colorize via oh-my-zsh) color styles
+  #
+  # Refer to http://pygments.org/docs/styles/
+  # To get all available styles from python:
+  #
+  #  >>> from pygments.styles import STYLE_MAP
+  #  >>> STYLE_MAP.keys()
+  #
+  ZSH_COLORIZE_STYLE="monokai"
