@@ -2,15 +2,19 @@
 # Sirius Lab custom pygmalion prompt theme
 # =========================================================================== #
 prompt_setup_pygmalion(){
-  ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[green]%}"
+  # ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[green]%}"
+  # ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
+  # ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%}⚡%{$reset_color%}"
+  # ZSH_THEME_GIT_PROMPT_CLEAN=""
+  ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}"
   ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
-  ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%}⚡%{$reset_color%}"
-  ZSH_THEME_GIT_PROMPT_CLEAN=""
+  ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%} %{$fg[yellow]%}✗%{$reset_color%}"
+  ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}"
 
-  ZSH_THEME_HG_PROMPT_PREFIX="%{$fg_bold[magenta]%}hg:(%{$fg[red]%}"
+  ZSH_THEME_HG_PROMPT_PREFIX="%{$fg[magenta]%}"
   ZSH_THEME_HG_PROMPT_SUFFIX="%{$reset_color%}"
-  ZSH_THEME_HG_PROMPT_DIRTY="%{$fg[magenta]%}) %{$fg[yellow]%}✗%{$reset_color%}"
-  ZSH_THEME_HG_PROMPT_CLEAN="%{$fg[magenta]%})"
+  ZSH_THEME_HG_PROMPT_DIRTY="%{$fg[magenta]%} %{$fg[yellow]%}✗%{$reset_color%}"
+  ZSH_THEME_HG_PROMPT_CLEAN="%{$fg[magenta]%}"
 
   pt_user="%{$fg[magenta]%}%n%{$reset_color%}"
   pt_at="%{$fg[cyan]%}@%{$reset_color%}"

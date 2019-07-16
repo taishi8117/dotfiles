@@ -61,7 +61,10 @@
   fi
 
   # Then, source plugins and add commands to $PATH
-  zplug load --verbose
+  #
+  # Uncomment below to get verbose output from zplug
+  # zplug load --verbose
+  zplug load
 
 
 #===============================================================================
@@ -114,7 +117,20 @@
 # 4: COMPLETION OPTIONS
 #===============================================================================
 
-  autoload -Uz compinit; compinit
+  # TODO: Compinit on root issue: https://github.com/zplug/zplug/issues/397
+  # 
+  # The following work around can suppress the warning when `sudo -s`, but
+  # as the directory permissions are messed up, you will get more errers when
+  # you log back into your non-root account.
+  #
+  #   # maybe better to run compaudit | xargs sudo {chmod,chown} -R
+  #   sudo chmod -R 755 /usr/local/share/zsh
+  #   sudo chown -R root:root /usr/local/share/zsh
+  #   sudo chmod -R 755 ${HOME}/.zplug
+  #   sudo chown -R root:root ${HOME}/.zplug
+  #
+  # For now, accept the warning or always prepend `sudo`, which is actually safer.
+  autoload -Uz compinit; compinit -i
 
   setopt auto_list  # 補完候補が複数ある時に、一覧表示
   setopt auto_menu  # 補完候補が複数あるときに自動的に一覧表示する
