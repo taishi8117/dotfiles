@@ -7,6 +7,11 @@ prompt_setup_pygmalion(){
   ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%}⚡%{$reset_color%}"
   ZSH_THEME_GIT_PROMPT_CLEAN=""
 
+  ZSH_THEME_HG_PROMPT_PREFIX="%{$fg_bold[magenta]%}hg:(%{$fg[red]%}"
+  ZSH_THEME_HG_PROMPT_SUFFIX="%{$reset_color%}"
+  ZSH_THEME_HG_PROMPT_DIRTY="%{$fg[magenta]%}) %{$fg[yellow]%}✗%{$reset_color%}"
+  ZSH_THEME_HG_PROMPT_CLEAN="%{$fg[magenta]%})"
+
   pt_user="%{$fg[magenta]%}%n%{$reset_color%}"
   pt_at="%{$fg[cyan]%}@%{$reset_color%}"
   pt_host="%{$fg[yellow]%}%m%{$reset_color%}"
@@ -33,7 +38,10 @@ prompt_pygmalion_precmd(){
 
   local gitinfo=$(git_prompt_info)
   local gitinfo_nocolor=$(echo "$gitinfo" | perl -pe "s/%\{[^}]+\}//g")
-  local exp_nocolor="$(print -P \"$base_prompt_nocolor$gitinfo_nocolor$post_prompt_nocolor\")"
+  local hginfo=$(hg_prompt_info)
+  local hginfo_nocolor=$(echo "$hginfo" | perl -pe "s/%\{[^}]+\}//g")
+
+  local exp_nocolor="$(print -P \"$base_prompt_nocolor$hginfo_nocolor$gitinfo_nocolor$post_prompt_nocolor\")"
   local prompt_length=${#exp_nocolor}
 
 
@@ -47,7 +55,7 @@ prompt_pygmalion_precmd(){
   #  nl=$'\n%{\r%}';
   #fi
   
-  PROMPT="$base_prompt$gitinfo$nl$post_prompt"
+  PROMPT="$base_prompt$hginfo$gitinfo$nl$post_prompt"
   RPROMPT="%{$fg[green]%}$(virtualenv_prompt_info)%{$reset_color%}"
 }
 

@@ -7,4 +7,6 @@ ZSHENV=$HOME/.zshenv
 
 ln -sfn $DOTFILES_ROOT/zsh/zshrc $ZSHRC
 ln -sfn $DOTFILES_ROOT/zsh/zshenv $ZSHENV
+source $ZSHENV
+source $ZSHRC
 echo '[*] Set up ZSH configuration files successfully.'

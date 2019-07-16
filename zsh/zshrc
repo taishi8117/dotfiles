@@ -40,9 +40,12 @@
   zplug "lib/git", from:oh-my-zsh, if:"(( $+commands[git] ))"
 
   # Oh-My-Zsh plugins
+  zplug "plugins/colorize", from:oh-my-zsh
   zplug "plugins/colored-man-pages", from:oh-my-zsh
   zplug "plugins/git", from:oh-my-zsh, if:"(( $+commands[git] ))",  defer:0
   zplug "plugins/virtualenv", from:oh-my-zsh
+  zplug "plugins/nmap", from:oh-my-zsh
+  zplug "plugins/mercurial", from:oh-my-zsh
 
 
   # Zsh theme
@@ -129,6 +132,7 @@
   zstyle ':completion:*:default' menu select=2
 
   # 補完候補のカラー表示
+  eval "$(dircolors -b)"
   zstyle ':completion:*:default' list-colors ${LS_COLORS}
 
   # 補完で大文字にもマッチ
@@ -172,12 +176,12 @@
 
 
 #===============================================================================
-# 0xfe: ZSH AUTO SUGGESTION
+# 0x10: ZSH AUTO SUGGESTION
 #===============================================================================
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23"
 
 #===============================================================================
-# 0xff: ZSH SYNTAX HIGHLIGHTING
+# 0x11: ZSH SYNTAX HIGHLIGHTING
 #===============================================================================
 
   # Source:
@@ -240,3 +244,11 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23"
     ZSH_HIGHLIGHT_STYLES[redirection]='none'
     ZSH_HIGHLIGHT_STYLES[comment]='fg=black,bold'
   fi
+
+#===============================================================================
+# 0xff: LOCAL OVERRIDE
+#===============================================================================
+
+  # Source `~/zshrc.override` if exist
+  [ -f ~/zshrc.override ] && source ~/zshrc.override
+
