@@ -12,6 +12,7 @@
 ```
 
 * python 3
+* pygments (for colorize oh-my-zsh, incl. ccat)
 * git
 * [junegunn/fzf](https://github.com/junegunn/fzf)
     ```

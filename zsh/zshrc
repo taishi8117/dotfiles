@@ -1,0 +1,254 @@
+#!/usr/bin/env zsh
+# vim:fdm=marker:
+#
+# Sirius Lab ZSH Configuration
+#
+# !!!!TODO!!!!: still very early WIP.
+# REFER TO https://github.com/bardisty/dotfiles/blob/master/zsh/.zshrc
+
+
+#===============================================================================
+# 1: ZPLUG CONFIGURATION
+#===============================================================================
+
+  # Install zplug if it's not installed
+  if [[ ! -d $ZPLUG_HOME ]]; then
+    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
+  fi
+  
+  # Init zplug
+  source $ZPLUG_HOME/init.zsh
+
+  # Let zplug manage zplug for easy updating
+  zplug "zplug/zplug", hook-build:'zplug --self-manage'
+
+  # *Note*:
+  #
+  #   Oh-My-Zsh libs and plugins will fail to clone/load if your
+  #   global git config has `transfer.fsckObjects` set to `true`.
+  #
+  #   Set it to `false` during zplug's initial install and anytime you run
+  #   `zplug update`
+  
+  
+  # External plugins
+  zplug "zsh-users/zsh-syntax-highlighting", defer:2
+  zplug "zsh-users/zsh-autosuggestions"
+
+  # Oh-My-Zsh libraries
+  zplug "lib/completion", from:oh-my-zsh
+  zplug "lib/git", from:oh-my-zsh, if:"(( $+commands[git] ))"
+
+  # Oh-My-Zsh plugins
+  zplug "plugins/colorize", from:oh-my-zsh
+  zplug "plugins/colored-man-pages", from:oh-my-zsh
+  zplug "plugins/git", from:oh-my-zsh, if:"(( $+commands[git] ))",  defer:0
+  zplug "plugins/virtualenv", from:oh-my-zsh
+  zplug "plugins/nmap", from:oh-my-zsh
+  zplug "plugins/mercurial", from:oh-my-zsh
+
+
+  # Zsh theme
+  zplug "${DOTFILES_ZSH_BASE}/themes", from:local, as:theme, use:"sirius-pygmalion.zsh"
+
+
+  # Install plugins if there are plugins that have not been installed
+  if ! zplug check --verbose; then
+      printf "Install? [y/N]: "
+      if read -q; then
+          echo; zplug install
+      fi
+  fi
+
+  # Then, source plugins and add commands to $PATH
+  zplug load --verbose
+
+
+#===============================================================================
+# 2: BASIC OPTIONS
+#===============================================================================
+#
+  # Color settings
+  autoload -Uz colors; colors
+
+  setopt no_nomatch # git show HEAD^とかrake foo[bar]とか使いたい
+  setopt auto_cd # cdコマンドを省略して、ディレクトリ名のみの入力で移動
+  setopt auto_pushd # 自動でpushdを実行
+  setopt pushd_ignore_dups # pushdから重複を削除
+  setopt correct # コマンドミスを修正
+  setopt no_flow_control # Ctrl+sのロック, Ctrl+qのロック解除を無効にする
+  cdpath=(~) # どこからでも参照できるディレクトリパス
+  setopt no_beep
+
+  # backspace,deleteキーを使えるように
+  #stty erase ^H
+  #bindkey "^[[3~" delete-char
+
+  # 区切り文字の設定
+  autoload -Uz select-word-style
+  select-word-style default
+  zstyle ':zle:*' word-chars "_-./;@"
+  zstyle ':zle:*' word-style unspecified
+
+#===============================================================================
+# 3: HISTORY OPTIONS
+#===============================================================================
+
+  setopt share_history # 他のターミナルとヒストリーを共有
+  setopt histignorealldups # ヒストリーに重複を表示しない
+  setopt append_history  # 複数の zsh を同時に使う時など history ファイルに上書きせず追加
+
+  # Ctrl+rでヒストリーのインクリメンタルサーチ、Ctrl+sで逆順
+  bindkey '^r' history-incremental-pattern-search-backward
+  bindkey '^s' history-incremental-pattern-search-forward
+
+  # コマンドを途中まで入力後、historyから絞り込み
+  # 例 ls まで打ってCtrl+pでlsコマンドをさかのぼる、Ctrl+nで逆順
+  autoload -Uz history-search-end
+  zle -N history-beginning-search-backward-end history-search-end
+  zle -N history-beginning-search-forward-end history-search-end
+  bindkey "^p" history-beginning-search-backward-end
+  bindkey "^n" history-beginning-search-forward-end
+
+#===============================================================================
+# 4: COMPLETION OPTIONS
+#===============================================================================
+
+  autoload -Uz compinit; compinit
+
+  setopt auto_list  # 補完候補が複数ある時に、一覧表示
+  setopt auto_menu  # 補完候補が複数あるときに自動的に一覧表示する
+  setopt complete_in_word  # カーソル位置で補完する。
+  setopt magic_equal_subst  # コマンドライン引数の --prefix=/usr とか=以降でも補完
+
+  bindkey "\e[Z" reverse-menu-complete # Use Shift+Tab to reverse
+
+  ### 補完方法毎にグループ化する。
+  zstyle ':completion:*' format '%B%F{blue}%d%f%b'
+  zstyle ':completion:*' group-name ''
+
+  # 補完後、メニュー選択モードになり左右キーで移動が出来る
+  # select=2: 補完候補を一覧から選択する。補完候補が2つ以上なければすぐに補完する
+  zstyle ':completion:*:default' menu select=2
+
+  # 補完候補のカラー表示
+  eval "$(dircolors -b)"
+  zstyle ':completion:*:default' list-colors ${LS_COLORS}
+
+  # 補完で大文字にもマッチ
+  zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+  zstyle ':completion:*' keep-prefix
+  zstyle ':completion:*' recent-dirs-insert both
+
+  ## sudo の時にコマンドを探すパス
+  zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin
+
+  #kill の候補にも色付き表示
+  zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([%0-9]#)*=0=01;31'
+
+  # 補完候補のメニュー選択で、矢印キーの代わりにhjklで移動出来るようにする。
+  zmodload zsh/complist
+  bindkey -M menuselect 'h' vi-backward-char
+  bindkey -M menuselect 'j' vi-down-line-or-history
+  bindkey -M menuselect 'k' vi-up-line-or-history
+  bindkey -M menuselect 'l' vi-forward-char
+
+
+
+#===============================================================================
+# 5: MISC OPTIONS
+#===============================================================================
+
+
+  # HERE I SOURCE ALIAS
+  # TODO: Use alias management plugin
+  source ${DOTFILES_ZSH_BASE}/aliases/_common.zsh
+
+  # Source FZF
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+  # For Arch fzf settings
+  if [ -f '/usr/share/fzf/completion.zsh' ]; then . '/usr/share/fzf/completion.zsh'; fi
+  if [ -f '/usr/share/fzf/key-bindings.zsh' ]; then . '/usr/share/fzf/key-bindings.zsh'; fi
+
+#  # Theme is sourced at the end, after plugins are loaded
+#  source "${DOTFILES_ZSH_BASE}/theme.zsh"
+
+
+#===============================================================================
+# 0x10: ZSH AUTO SUGGESTION
+#===============================================================================
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23"
+
+#===============================================================================
+# 0x11: ZSH SYNTAX HIGHLIGHTING
+#===============================================================================
+
+  # Source:
+  # https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/highlighters/main/main-highlighter.zsh
+  #
+  #: ${ZSH_HIGHLIGHT_STYLES[default]:=none}
+  #: ${ZSH_HIGHLIGHT_STYLES[unknown-token]:=fg=red,bold}
+  #: ${ZSH_HIGHLIGHT_STYLES[reserved-word]:=fg=yellow}
+  #: ${ZSH_HIGHLIGHT_STYLES[alias]:=fg=green}
+  #: ${ZSH_HIGHLIGHT_STYLES[suffix-alias]:=fg=green,underline}
+  #: ${ZSH_HIGHLIGHT_STYLES[builtin]:=fg=green}
+  #: ${ZSH_HIGHLIGHT_STYLES[function]:=fg=green}
+  #: ${ZSH_HIGHLIGHT_STYLES[command]:=fg=green}
+  #: ${ZSH_HIGHLIGHT_STYLES[precommand]:=fg=green,underline}
+  #: ${ZSH_HIGHLIGHT_STYLES[commandseparator]:=none}
+  #: ${ZSH_HIGHLIGHT_STYLES[hashed-command]:=fg=green}
+  #: ${ZSH_HIGHLIGHT_STYLES[path]:=underline}
+  #: ${ZSH_HIGHLIGHT_STYLES[path_prefix]:=underline}
+  #: ${ZSH_HIGHLIGHT_STYLES[globbing]:=fg=blue}
+  #: ${ZSH_HIGHLIGHT_STYLES[history-expansion]:=fg=blue}
+  #: ${ZSH_HIGHLIGHT_STYLES[single-hyphen-option]:=none}
+  #: ${ZSH_HIGHLIGHT_STYLES[double-hyphen-option]:=none}
+  #: ${ZSH_HIGHLIGHT_STYLES[back-quoted-argument]:=none}
+  #: ${ZSH_HIGHLIGHT_STYLES[single-quoted-argument]:=fg=yellow}
+  #: ${ZSH_HIGHLIGHT_STYLES[double-quoted-argument]:=fg=yellow}
+  #: ${ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]:=fg=yellow}
+  #: ${ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]:=fg=cyan}
+  #: ${ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]:=fg=cyan}
+  #: ${ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]:=fg=cyan}
+  #: ${ZSH_HIGHLIGHT_STYLES[assign]:=none}
+  #: ${ZSH_HIGHLIGHT_STYLES[redirection]:=none}
+  #: ${ZSH_HIGHLIGHT_STYLES[comment]:=fg=black,bold}
+
+  if zplug check zsh-users/zsh-syntax-highlighting; then
+    ZSH_HIGHLIGHT_STYLES[default]='none'
+    ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red'
+    ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=yellow'
+    ZSH_HIGHLIGHT_STYLES[alias]='fg=blue'
+    ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=green,underline'
+    ZSH_HIGHLIGHT_STYLES[builtin]='fg=green'
+    ZSH_HIGHLIGHT_STYLES[function]='fg=magenta'
+    ZSH_HIGHLIGHT_STYLES[command]='fg=green'
+    ZSH_HIGHLIGHT_STYLES[precommand]='fg=white,underline'
+    ZSH_HIGHLIGHT_STYLES[commandseparator]='none'
+    ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=green'
+    ZSH_HIGHLIGHT_STYLES[path]='fg=blue,bold'
+    ZSH_HIGHLIGHT_STYLES[path_prefix]='underline'
+    ZSH_HIGHLIGHT_STYLES[globbing]='fg=blue'
+    ZSH_HIGHLIGHT_STYLES[history-expansion]='fg=blue'
+    ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=magenta'
+    ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=magenta'
+    ZSH_HIGHLIGHT_STYLES[back-quoted-argument]='none'
+    ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=yellow'
+    ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=yellow'
+    ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=yellow'
+    ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=cyan'
+    ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]='fg=cyan'
+    ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]='fg=cyan'
+    ZSH_HIGHLIGHT_STYLES[assign]='none'
+    ZSH_HIGHLIGHT_STYLES[redirection]='none'
+    ZSH_HIGHLIGHT_STYLES[comment]='fg=black,bold'
+  fi
+
+#===============================================================================
+# 0xff: LOCAL OVERRIDE
+#===============================================================================
+
+  # Source `~/zshrc.override` if exist
+  [ -f ~/zshrc.override ] && source ~/zshrc.override
+
