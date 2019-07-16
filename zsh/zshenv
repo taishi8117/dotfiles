@@ -12,7 +12,7 @@
 # 0: SHARED
 #===============================================================================
 
-  export DOTFILES_BASE="/home/sirius/dotfiles"
+  export DOTFILES_BASE="${HOME}/dotfiles"
   export EDITOR=nvim
 
   # load profile
