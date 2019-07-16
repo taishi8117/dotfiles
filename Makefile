@@ -1,19 +1,6 @@
-DOTFILES_EXCLUDES	:= .DS_Store .git .gitmodules .travis.yml
-DOTFILES_TARGET		:= $(wildcard .??*) 
 DOTFILES_DIR			:= $(PWD)
-DOTFILES_FILES		:= $(filter-out $(DOTFILES_EXCLUDES), $(DOTFILES_TARGET))
 
-.PHONY: deploy init clean update install fetch exec_shell
-
-deploy:
-	@echo '[+] Starting to deploy dotfiles to home directory...'
-	@$(foreach val, $(DOTFILES_FILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
-
-init:
-	@echo '[+] Running init scripts...'
-	@$(foreach val, $(wildcard ./etc/init/*.sh), bash $(val);)
-
-update: fetch deploy exec_shell
+.PHONY: fetch tmux_install zsh_install vim_install clean update install
 
 fetch:
 	@echo '[+] Fetching the repository...'
@@ -22,12 +9,25 @@ fetch:
 	git submodule update
 	git submodule foreach git pull origin master
 
-install: fetch deploy init exec_shell
+tmux_install:
+	@echo '[+] Setting up tmux...'
+	$(DOTFILES_DIR)/tmux-install.sh
+
+zsh_install:
+	@echo '[+] Setting up zsh...'
+	$(DOTFILES_DIR)/zsh/install.sh
+
+vim_install:
+	@echo '[+] Setting up vim...'
+	$(DOTFILES_DIR)/vim/install.sh
+
+
+update: fetch deploy exec_shell
+
+install: fetch tmux_install zsh_install vim_install
 
 clean: ## Remove the dot files and this repo
-	@echo 'Remove dot files in your home directory...'
-	@$(foreach val, $(DOTFILES_FILES), rm -vrf $(HOME)/$(val);)
-	@exec $$SHELL
-
-exec_shell:
-	@exec $$SHELL
+	@echo 'Cleaning dotfiles...'
+	rm -rf $(HOME)/.tmux*
+	$(DOTFILES_DIR)/zsh/cleanup.sh
+	$(DOTFILES_DIR)/vim/cleanup.sh

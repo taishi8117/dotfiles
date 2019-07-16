@@ -1,29 +1,39 @@
+# Package manager
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
+##### INTERFACE #####
+
+# Color theme
 [[plugins]]
 repo = 'nanotech/jellybeans.vim'
 
+# Status bar
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = 'source ~/.vim/rc/plugins/lightline.vim'
 
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-hook_add = 'autocmd QuickFixCmdPost *grep* cwindow'
+##### RUNTIME #####
 
+# Asynchronous execution library
 [[plugins]]
-repo = 'airblade/vim-gitgutter'
-hook_add = '''
-  set updatetime=1000
-'''
+repo = 'Shougo/vimproc.vim'
+build = 'make'  # Linux & macOS only
 
+##### EDITOR #####
+
+# Highlight all trailing whitespace characters
 [[plugins]]
 repo = 'ntpeters/vim-better-whitespace'
 hook_add = '''
   let g:better_whitespace_enabled=0
 '''
 
+# Read/Write files with `sudo` command
+[[plugins]]
+repo = 'lambdalisue/suda.vim'
+
+# Visually display indent levels
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
 hook_add = '''
@@ -34,20 +44,23 @@ hook_add = '''
   let g:indent_guides_tab_guides = 0
 '''
 
+# Surround
 [[plugins]]
-repo = 'Shougo/vimproc.vim'
-build = 'make'  # Linux & macOS only
+repo = 'tpope/vim-surround'
 
+# Syntax checking
 [[plugins]]
 repo = 'scrooloose/syntastic'
 hook_add = 'source ~/.vim/rc/plugins/syntastic.vim'
 
+# Autocompletion framework 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 hook_add = '''
   source ~/.vim/rc/plugins/deoplete.vim
 '''
 
+# Snippet support
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
 hook_add = '''
@@ -56,6 +69,22 @@ hook_add = '''
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
+
+##### SOURCE CONTROL #####
+
+# Git wrapper
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+hook_add = 'autocmd QuickFixCmdPost *grep* cwindow'
+
+# Shows a git diff in the gutter
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+hook_add = '''
+  set updatetime=1000
+'''
+
+##### FUZZY FINDER #####
 
 [[plugins]]
 repo = 'junegunn/fzf'
@@ -66,6 +95,3 @@ merged = '0'
 repo = 'junegunn/fzf.vim'
 depends = 'fzf'
 hook_add = 'source ~/.vim/rc/plugins/fzf.vim'
-
-[[plugins]]
-repo = 'lambdalisue/suda.vim'
