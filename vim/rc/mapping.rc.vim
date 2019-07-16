@@ -27,3 +27,7 @@ nnoremap <C-s> :Gstatus<CR>
 nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 " suda
 command WS :w suda://%
+
+" locationlist
+nmap <C-n> :lnext<CR>
+nmap <C-p> :lprevious<CR>
