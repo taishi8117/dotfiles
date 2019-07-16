@@ -33,6 +33,7 @@
   
   # External plugins
   zplug "zsh-users/zsh-syntax-highlighting", defer:2
+  zplug "zsh-users/zsh-autosuggestions"
 
   # Oh-My-Zsh libraries
   zplug "lib/completion", from:oh-my-zsh
@@ -169,6 +170,11 @@
 #  # Theme is sourced at the end, after plugins are loaded
 #  source "${DOTFILES_ZSH_BASE}/theme.zsh"
 
+
+#===============================================================================
+# 0xfe: ZSH AUTO SUGGESTION
+#===============================================================================
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23"
 
 #===============================================================================
 # 0xff: ZSH SYNTAX HIGHLIGHTING
