@@ -22,7 +22,9 @@ vim_install:
 	$(DOTFILES_DIR)/vim/install.sh
 
 
-update: fetch deploy exec_shell
+update:
+	git pull origin master
+	git submodule update --recursive --remote
 
 install: fetch tmux_install zsh_install vim_install
 

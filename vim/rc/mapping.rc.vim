@@ -26,6 +26,10 @@ nnoremap <C-s> :Gstatus<CR>
 " syntastic
 nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 
+" locationlist
+nmap <C-n> :lnext<CR>
+nmap <C-p> :lprevious<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom Command
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
