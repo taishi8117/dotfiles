@@ -25,5 +25,14 @@ nnoremap <C-s> :Gstatus<CR>
 
 " syntastic
 nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Custom Command
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " suda
 command WS :w suda://%
+
+" change working directory to the currently open file
+" https://vi.stackexchange.com/questions/3674/change-working-directory-to-current-opened-file
+command CD :cd %:h
