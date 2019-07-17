@@ -77,6 +77,9 @@
   # Color settings
   autoload -Uz colors; colors
 
+  # This shuold be sourced for Bash too
+  set -o emacs
+
   setopt no_nomatch # git show HEAD^とかrake foo[bar]とか使いたい
   setopt auto_cd # cdコマンドを省略して、ディレクトリ名のみの入力で移動
   setopt auto_pushd # 自動でpushdを実行
