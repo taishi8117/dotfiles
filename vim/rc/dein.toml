@@ -70,6 +70,9 @@ hook_add = '''
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
+[[plugins]]
+repo = 'honza/vim-snippets'
+
 ##### SOURCE CONTROL #####
 
 # Git wrapper
