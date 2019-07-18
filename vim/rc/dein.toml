@@ -61,14 +61,22 @@ hook_add = '''
 '''
 
 # Snippet support
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
-hook_add = '''
-  source ~/.vim/rc/plugins/neosnippet.vim
-'''
+#[[plugins]]
+#repo = 'Shougo/neosnippet.vim'
+#hook_add = '''
+#  source ~/.vim/rc/plugins/neosnippet.vim
+#'''
+#
+#[[plugins]]
+#repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
+repo = 'SirVer/ultisnips'
+hook_add = '''
+  let g:UltiSnipsExpandTrigger="<c-k>"
+  let g:UltiSnipsJumpForwardTrigger="<c-n>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-p>"
+'''
 
 [[plugins]]
 repo = 'honza/vim-snippets'
