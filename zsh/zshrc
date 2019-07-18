@@ -49,6 +49,7 @@
   zplug "plugins/virtualenv", from:oh-my-zsh
   zplug "plugins/nmap", from:oh-my-zsh
   zplug "plugins/mercurial", from:oh-my-zsh
+  zplug "plugins/docker", from:oh-my-zsh
 
 
   # Zsh theme
