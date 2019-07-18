@@ -1,5 +1,7 @@
 # dotfiles
 
+[Sirius Lab dotfiles](https://github.com/taishi8117/dotfiles)
+
 # Requirement
 * vim
 * neovim (python 3)

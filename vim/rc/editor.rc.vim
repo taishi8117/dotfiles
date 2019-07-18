@@ -48,16 +48,12 @@ endif
 " tab / indent settings
 
 set expandtab     " expand tabs to spaces
-set tabstop=2     " number of spaces per tab
-set shiftwidth=2  " shift width
-set softtabstop=2
+set tabstop=4     " number of spaces per tab
+set shiftwidth=4  " shift width
+set softtabstop=4
 set autoindent
 set smartindent
 
 " folding
 set foldmethod=indent
 set foldlevel=99
-
-" Indicate 80th column
-let &colorcolumn="80,".join(range(120,999),",")
-highlight ColorColumn ctermbg=235 guibg=#2c2d27
