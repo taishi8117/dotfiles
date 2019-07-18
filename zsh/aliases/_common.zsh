@@ -50,3 +50,7 @@ alias groot='cd "`git rev-parse --show-toplevel`"'
 alias t='tmux'
 alias ta='t attach -t'
 
+
+function cl () {
+  ccat $1 | less
+}
