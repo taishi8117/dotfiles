@@ -1,8 +1,10 @@
 FROM ubuntu:18.04
 MAINTAINER Taishi Nojima
 
+RUN apt-get update && apt-get install software-properties-common -y
+RUN add-apt-repository ppa:neovim-ppa/stable
 RUN apt-get update
-RUN apt-get install git sudo zsh tmux neovim python3 python3-dev wget gawk curl -y
+RUN apt-get install git sudo zsh tmux neovim python3 python3-dev python3-pip wget gawk curl -y
 
 # Create user
 RUN useradd -m -s /bin/zsh sirius
@@ -33,3 +35,8 @@ ENV ZSHENV /home/sirius/.zshenv
 RUN ln -sfn /home/sirius/dotfiles/zsh/zshrc $ZSHRC
 RUN ln -sfn /home/sirius/dotfiles/zsh/zshenv $ZSHENV
 RUN zsh -ic "source $ZSHENV; source $ZSHRC; zplug install"
+
+# Install vim config
+RUN pip3 install --user pynvim
+RUN zsh ./vim/install.sh
+RUN nvim --headless +UpdateRemotePlugins +qa
