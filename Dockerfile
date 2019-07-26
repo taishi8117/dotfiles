@@ -40,3 +40,6 @@ RUN zsh -ic "source $ZSHENV; source $ZSHRC; zplug install"
 RUN pip3 install --user pynvim
 RUN zsh ./vim/install.sh
 RUN nvim --headless +UpdateRemotePlugins +qa
+
+# Install tmux config
+RUN zsh ./tmux-install.sh
