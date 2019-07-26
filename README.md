@@ -1,5 +1,5 @@
 # dotfiles
-
+[![Build Status](https://travis-ci.org/taishi8117/dotfiles.svg?branch=master)](https://travis-ci.org/taishi8117/dotfiles)
 [Sirius Lab dotfiles](https://github.com/taishi8117/dotfiles)
 
 # Requirement
