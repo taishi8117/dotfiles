@@ -34,7 +34,7 @@ ENV ZSHENV /home/sirius/.zshenv
 
 RUN ln -sfn /home/sirius/dotfiles/zsh/zshrc $ZSHRC
 RUN ln -sfn /home/sirius/dotfiles/zsh/zshenv $ZSHENV
-RUN zsh -ic "zplug install"
+RUN zsh -ic "echo 'hello dotfiles!'"
 
 # Install vim config
 RUN pip3 install --user pynvim
