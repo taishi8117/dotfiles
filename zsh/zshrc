@@ -64,9 +64,6 @@
               echo; zplug install
           fi
       fi
-  else
-      # Install without prompt if DOTFILES_DOCKER is set
-      zplug install
   fi
 
   # Then, source plugins and add commands to $PATH

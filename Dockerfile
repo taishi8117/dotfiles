@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 MAINTAINER Taishi Nojima
 
 RUN apt-get update
-RUN apt-get install git sudo zsh tmux neovim python3 python3-dev wget curl -y
+RUN apt-get install git sudo zsh tmux neovim python3 python3-dev wget gawk curl -y
 
 # Create user
 RUN useradd -m -s /bin/zsh sirius
@@ -30,7 +30,6 @@ WORKDIR /home/sirius/dotfiles
 ENV ZSHRC /home/sirius/.zshrc
 ENV ZSHENV /home/sirius/.zshenv
 
-RUN export DOTFILES_ROOT=$(git rev-parse --show-toplevel)
-RUN source $ZSHENV
-RUN source $ZSHRC
-
+RUN ln -sfn /home/sirius/dotfiles/zsh/zshrc $ZSHRC
+RUN ln -sfn /home/sirius/dotfiles/zsh/zshenv $ZSHENV
+RUN zsh -ic "source $ZSHENV; source $ZSHRC; zplug install"
