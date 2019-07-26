@@ -34,7 +34,7 @@ ENV ZSHENV /home/sirius/.zshenv
 
 RUN ln -sfn /home/sirius/dotfiles/zsh/zshrc $ZSHRC
 RUN ln -sfn /home/sirius/dotfiles/zsh/zshenv $ZSHENV
-RUN zsh -ic "source $ZSHENV; source $ZSHRC; zplug install </dev/null"
+RUN zsh -ic "zplug install"
 
 # Install vim config
 RUN pip3 install --user pynvim
