@@ -1,0 +1,36 @@
+FROM ubuntu:18.04
+MAINTAINER Taishi Nojima
+
+RUN apt-get update
+RUN apt-get install git sudo zsh tmux neovim python3 python3-dev wget curl -y
+
+# Create user
+RUN useradd -m -s /bin/zsh sirius
+RUN usermod -aG sudo sirius
+RUN echo "sirius ALL=(ALL:ALL) NOPASSWD: ALL" > /etc/sudoers
+
+# Add dotfiles and chown
+ADD . /home/sirius/dotfiles
+RUN chown -R sirius:sirius /home/sirius
+
+# Switch user
+USER sirius
+ENV HOME /home/sirius
+ENV TERM xterm-256color
+ENV ZPLUG_HOME /home/sirius/.zplug
+ENV LANG en_US.UTF-8
+ENV DOTFILES_DOCKER true
+
+# Install zplug
+RUN git clone https://github.com/zplug/zplug $ZPLUG_HOME
+
+WORKDIR /home/sirius/dotfiles
+
+# Install zsh config
+ENV ZSHRC /home/sirius/.zshrc
+ENV ZSHENV /home/sirius/.zshenv
+
+RUN export DOTFILES_ROOT=$(git rev-parse --show-toplevel)
+RUN source $ZSHENV
+RUN source $ZSHRC
+

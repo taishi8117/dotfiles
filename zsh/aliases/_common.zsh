@@ -59,14 +59,19 @@ function cl () {
 # Docker related
 # https://blog.ropnop.com/docker-for-pentesters/
 
-alias dockershell="docker run --rm -i -t --entrypoint=/bin/bash"
-alias dockershellsh="docker run --rm -i -t --entrypoint=/bin/sh"
+alias dockerzsh="docker run --rm -i -t --entrypoint=/bin/zsh"
+alias dockerbash="docker run --rm -i -t --entrypoint=/bin/bash"
+alias dockersh="docker run --rm -i -t --entrypoint=/bin/sh"
 
-function dockershellhere() {
+function dockerzshhere() {
+    dirname=${PWD##*/}
+    docker run --rm -it --entrypoint=/bin/zsh -v `pwd`:/${dirname} -w /${dirname} "$@"
+}
+function dockerbashhere() {
     dirname=${PWD##*/}
     docker run --rm -it --entrypoint=/bin/bash -v `pwd`:/${dirname} -w /${dirname} "$@"
 }
-function dockershellshhere() {
+function dockershhere() {
     dirname=${PWD##*/}
     docker run --rm -it --entrypoint=/bin/sh -v `pwd`:/${dirname} -w /${dirname} "$@"
 }
