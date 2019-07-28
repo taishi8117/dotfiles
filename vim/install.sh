@@ -15,4 +15,6 @@ ln -sfn $DOTFILES_ROOT/vim/vimrc $NVIM_CONF/init.vim
 ln -sfn $DOTFILES_ROOT/vim/after/ $NVIM_CONF/after
 ln -sfn $DOTFILES_ROOT/vim/rc/ $NVIM_HOME/rc
 
-echo '[*] Set up configuration files successfully. Launch nvim to complete installation'
+nvim --headless +UpdateRemotePlugins +qa
+echo "hello dotfiles: vim"
+

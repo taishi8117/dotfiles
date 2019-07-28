@@ -2,7 +2,11 @@ FROM ubuntu:18.04
 MAINTAINER Taishi Nojima
 
 # Install dependencies
-RUN ./dep/ubuntu.sh
+# Here, sync with ./dep/ubuntu.sh.
+RUN apt-get update && apt-get install software-properties-common -y
+RUN add-apt-repository ppa:neovim-ppa/stable
+RUN apt-get update
+RUN apt-get install git sudo zsh tmux neovim python3 python3-dev python3-pip wget gawk curl -y
 
 # Create user
 RUN useradd -m -s /bin/zsh sirius
@@ -20,7 +24,6 @@ ENV TERM xterm-256color
 ENV ZPLUG_HOME /home/sirius/.zplug
 ENV LANG en_US.UTF-8
 ENV DOTFILES_DOCKER true
-
 WORKDIR /home/sirius/dotfiles
 
 # Install zsh config
@@ -29,7 +32,6 @@ RUN bash ./zsh/install.sh
 # Install vim config
 RUN pip3 install --user pynvim
 RUN zsh ./vim/install.sh
-RUN nvim --headless +UpdateRemotePlugins +qa
 
 # Install tmux config
 RUN zsh ./tmux-install.sh
