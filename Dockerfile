@@ -24,7 +24,7 @@ ENV LANG en_US.UTF-8
 ENV DOTFILES_DOCKER true
 
 # Install zplug
-RUN git clone https://github.com/zplug/zplug $ZPLUG_HOME
+RUN git clone https://github.com/taishi8117/zplug $ZPLUG_HOME
 
 WORKDIR /home/sirius/dotfiles
 
