@@ -6,7 +6,7 @@ ZSHRC=$HOME/.zshrc
 ZSHENV=$HOME/.zshenv
 
 # Install zplug
-git clone https://github.com/zplug/zplug $ZPLUG_HOME
+git clone https://github.com/taishi8117/zplug $ZPLUG_HOME
 
 ln -sfn $DOTFILES_ROOT/zsh/zshrc $ZSHRC
 ln -sfn $DOTFILES_ROOT/zsh/zshenv $ZSHENV
