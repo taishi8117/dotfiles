@@ -2,10 +2,7 @@ FROM ubuntu:18.04
 MAINTAINER Taishi Nojima
 
 # Install dependencies
-RUN apt-get update && apt-get install software-properties-common -y
-RUN add-apt-repository ppa:neovim-ppa/stable
-RUN apt-get update
-RUN apt-get install git sudo zsh tmux neovim python3 python3-dev python3-pip wget gawk curl -y
+RUN ./dep/ubuntu.sh
 
 # Create user
 RUN useradd -m -s /bin/zsh sirius

@@ -1,6 +1,6 @@
 DOTFILES_DIR			:= $(PWD)
 
-.PHONY: fetch tmux_install zsh_install vim_install clean update install
+.PHONY: fetch tmux_install zsh_install vim_install clean update install ubuntu ubuntu_dep
 
 fetch:
 	@echo '[+] Fetching the repository...'
