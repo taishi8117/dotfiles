@@ -1,13 +1,15 @@
-#!/bin/zsh
+#!/bin/bash
 
 DOTFILES_ROOT=$(git rev-parse --show-toplevel)
 
 ZSHRC=$HOME/.zshrc
 ZSHENV=$HOME/.zshenv
 
+# Install zplug
+git clone https://github.com/zplug/zplug $ZPLUG_HOME
+
 ln -sfn $DOTFILES_ROOT/zsh/zshrc $ZSHRC
 ln -sfn $DOTFILES_ROOT/zsh/zshenv $ZSHENV
 
-source $ZSHENV
-source $ZSHRC
-echo '[*] Set up ZSH configuration files successfully.'
+# Here, ~/.zshenv and ~/.zshrc are loaded
+zsh -ic "echo 'hello dotfiles: zsh'"

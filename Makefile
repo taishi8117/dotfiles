@@ -20,13 +20,19 @@ zsh_install:
 vim_install:
 	@echo '[+] Setting up vim...'
 	$(DOTFILES_DIR)/vim/install.sh
-
+	nvim +UpdateRemotePlugins +qa
 
 update:
 	git pull origin master
 	git submodule update --recursive --remote
 
 install: fetch tmux_install zsh_install vim_install
+
+ubuntu_dep:
+	@echo '[+] Installing dependencies for ubuntu...'
+	$(DOTFILES_DIR)/dep/ubuntu.sh
+
+ubuntu: ubuntu_dep install
 
 clean: ## Remove the dot files and this repo
 	@echo 'Cleaning dotfiles...'

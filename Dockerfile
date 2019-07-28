@@ -1,6 +1,7 @@
 FROM ubuntu:18.04
 MAINTAINER Taishi Nojima
 
+# Install dependencies
 RUN apt-get update && apt-get install software-properties-common -y
 RUN add-apt-repository ppa:neovim-ppa/stable
 RUN apt-get update
@@ -23,18 +24,10 @@ ENV ZPLUG_HOME /home/sirius/.zplug
 ENV LANG en_US.UTF-8
 ENV DOTFILES_DOCKER true
 
-# Install zplug
-RUN git clone https://github.com/zplug/zplug $ZPLUG_HOME
-
 WORKDIR /home/sirius/dotfiles
 
 # Install zsh config
-ENV ZSHRC /home/sirius/.zshrc
-ENV ZSHENV /home/sirius/.zshenv
-
-RUN ln -sfn /home/sirius/dotfiles/zsh/zshrc $ZSHRC
-RUN ln -sfn /home/sirius/dotfiles/zsh/zshenv $ZSHENV
-RUN zsh -ic "echo 'hello dotfiles!'"
+RUN bash ./zsh/install.sh
 
 # Install vim config
 RUN pip3 install --user pynvim
