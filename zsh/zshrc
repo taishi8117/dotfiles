@@ -13,16 +13,19 @@
 # 1: ZPLUG CONFIGURATION
 #===============================================================================
 
+  # NOTE(DOCKER): HERE I ASSUME ZPLUG IS INSTALLED
   # Install zplug if it's not installed
-  if [[ ! -d $ZPLUG_HOME ]]; then
-    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
-  fi
+      #
+  #if [[ ! -d $ZPLUG_HOME && -z "$DOTFILES_DOCKER" ]]; then
+  #  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
+  #fi
   
   # Init zplug
   source $ZPLUG_HOME/init.zsh
 
-  # Let zplug manage zplug for easy updating
-  zplug "zplug/zplug", hook-build:'zplug --self-manage'
+  # NOTE(DOCKER): HERE I DON'T SELF MANAGE ZPLUG
+  ## Let zplug manage zplug for easy updating
+  #zplug "taishi8117/zplug", hook-build:'zplug --self-manage'
 
   # *Note*:
   #
