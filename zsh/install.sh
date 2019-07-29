@@ -4,6 +4,7 @@ DOTFILES_ROOT=$(git rev-parse --show-toplevel)
 
 ZSHRC=$HOME/.zshrc
 ZSHENV=$HOME/.zshenv
+ZPLUG_HOME=$HOME/.zplug
 
 # Install zplug
 git clone https://github.com/taishi8117/zplug $ZPLUG_HOME
