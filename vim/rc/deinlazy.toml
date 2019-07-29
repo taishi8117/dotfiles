@@ -50,3 +50,6 @@ on_ft = 'go'
 depends = ['deoplete.nvim']
 hook_add = 'source ~/.vim/rc/plugins/deoplete-go.vim'
 
+[[plugins]]
+repo = 'ekalinin/Dockerfile.vim'
+on_ft = 'dockerfile'
