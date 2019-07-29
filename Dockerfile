@@ -52,4 +52,4 @@ RUN sudo dpkg -i fd_7.3.0_amd64.deb
 RUN rm fd_7.3.0_amd64.deb
 
 # httpie
-RUN sudo apt-get install httpie -y
+RUN sudo apt-get install httpie python-pygments -y
