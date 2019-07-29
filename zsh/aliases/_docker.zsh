@@ -2,6 +2,7 @@
 alias godev="docker run --rm -i -t --entrypoint=/bin/zsh \
     -v ~/.ssh/id_rsa.pub:/home/sirius/.ssh/id_rsa.pub:ro \
     -v ~/.ssh/id_rsa:/home/sirius/.ssh/id_rsa:ro \
+    -v ~/.ssh/known_hosts:/home/sirius/.ssh/known_hosts \
     -v ~/.gitconfig:/home/sirius/.gitconfig:ro \
     sirius8117/dotfiles:godev"
 
@@ -11,6 +12,7 @@ function dockerdev() {
         -v `pwd`:/${dirname} -w /${dirname} \
         -v ~/.ssh/id_rsa.pub:/home/sirius/.ssh/id_rsa.pub:ro \
         -v ~/.ssh/id_rsa:/home/sirius/.ssh/id_rsa:ro \
+        -v ~/.ssh/known_hosts:/home/sirius/.ssh/known_hosts \
         -v ~/.gitconfig:/home/sirius/.gitconfig:ro \
         sirius8117/dotfiles
 }
