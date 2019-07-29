@@ -13,3 +13,4 @@ before_install:
 
 script:
     - docker build .
+    - docker build ./godev
