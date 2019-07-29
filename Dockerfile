@@ -11,6 +11,7 @@ RUN apt-get install git sudo zsh tmux neovim python3 python3-dev python3-pip wge
 # Create user
 RUN useradd -m -s /bin/zsh sirius
 RUN usermod -aG sudo sirius
+RUN usermod -aG root sirius
 RUN echo "sirius ALL=(ALL:ALL) NOPASSWD: ALL" > /etc/sudoers
 
 # Add dotfiles and chown
@@ -35,3 +36,18 @@ RUN zsh ./vim/install.sh
 
 # Install tmux config
 RUN zsh ./tmux-install.sh
+
+WORKDIR /home/sirius
+
+# Install other packages
+
+# rg
+RUN curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.1/ripgrep_11.0.1_amd64.deb
+RUN sudo dpkg -i ripgrep_11.0.1_amd64.deb
+
+# fd
+RUN curl -LO https://github.com/sharkdp/fd/releases/download/v7.3.0/fd_7.3.0_amd64.deb
+RUN sudo dpkg -i fd_7.3.0_amd64.deb
+
+# httpie
+RUN sudo apt-get install httpie -y

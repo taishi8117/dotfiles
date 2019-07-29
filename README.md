@@ -3,6 +3,17 @@
 
 [Sirius Lab dotfiles](https://github.com/taishi8117/dotfiles)
 
+# Features
+
+* Docker support
+    * [Dotfiles](https://github.com/taishi8117/dotfiles/Dockerfile)
+    * [Go Development](https://github.com/taishi8117/dotfiles/godev/Dockerfile)
+
+# Installation
+
+## On Ubuntu
+* Run `make ubuntu`
+
 # Requirement
 * vim
 * neovim (python 3)
