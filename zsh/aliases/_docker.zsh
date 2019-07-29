@@ -2,6 +2,7 @@
 alias godev="docker run --rm -i -t --entrypoint=/bin/zsh \
     -v ~/.ssh/id_rsa.pub:/home/sirius/.ssh/id_rsa.pub:ro \
     -v ~/.ssh/id_rsa:/home/sirius/.ssh/id_rsa:ro \
+    -v ~/.gitconfig:/home/sirius/.gitconfig:ro \
     sirius8117/dotfiles:godev"
 
 # Referenced from: https://blog.ropnop.com/docker-for-pentesters/
