@@ -1,8 +1,10 @@
 #!/bin/bash
 
 DOTFILES_ROOT=$(git rev-parse --show-toplevel)
-
 VIM_HOME=$HOME/.vim
+
+pip3 install --user pynvim
+
 mkdir -p $VIM_HOME
 ln -sfn $DOTFILES_ROOT/vim/vimrc $HOME/.vimrc
 ln -sfn $DOTFILES_ROOT/vim/rc/ $VIM_HOME/rc
