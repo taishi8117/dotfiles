@@ -13,4 +13,5 @@ before_install:
 
 script:
     - docker build .
-    - docker build ./godev
+    - docker build ./dev/go/
+    - docker build ./dev/tensorflow/
