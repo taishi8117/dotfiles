@@ -15,3 +15,4 @@ script:
     - docker build .
     - docker build ./dev/go/
     - docker build ./dev/tensorflow/
+    - docker build ./dev/frida/
