@@ -8,6 +8,9 @@ RUN add-apt-repository ppa:neovim-ppa/stable
 RUN apt-get update
 RUN apt-get install git sudo zsh tmux neovim python3 python3-dev python3-pip wget gawk curl -y
 
+RUN ln -sfn python3 /usr/bin/python
+RUN ln -sfn pip3 /usr/bin/pip
+
 # Create user
 RUN useradd -m -s /bin/zsh sirius
 RUN usermod -aG sudo sirius

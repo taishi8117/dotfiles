@@ -17,6 +17,13 @@ function dockerdev() {
         sirius8117/dotfiles
 }
 
+function fridahere() {
+    dirname=${PWD##*/}
+    docker run --rm -it --entrypoint=/bin/zsh \
+        -v `pwd`:/${dirname} -w /${dirname} \
+        sirius8117/dotfiles:frida
+}
+
 # Referenced from: https://blog.ropnop.com/docker-for-pentesters/
 alias dockerzsh="docker run --rm -i -t --entrypoint=/bin/zsh"
 alias dockerbash="docker run --rm -i -t --entrypoint=/bin/bash"
