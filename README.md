@@ -3,54 +3,51 @@
 
 [Sirius Lab dotfiles](https://github.com/taishi8117/dotfiles)
 
-# Features
-
-* Docker support
-    * [Dotfiles](https://github.com/taishi8117/dotfiles/Dockerfile)
-    * [Go Development](https://github.com/taishi8117/dotfiles/godev/Dockerfile)
-
 # Installation
 
-## On Ubuntu
-* Run `make ubuntu`
-
-# Requirement
-* vim
-* neovim (python 3)
+To install on a Ubuntu 18.04 instance, clone this repository in your home directory and
+run `make ubuntu`. Note that the dotfiles directory should live in the root of your
+home directory, otherwise it may not function properly.
 ```
-    sudo add-apt-repository ppa:neovim-ppa/stable
-    sudo apt-get update
-    sudo apt-get install neovim
-    sudo apt-get install python-dev python-pip python3-dev python3-pip
-    pip3 install --user pynvim
+cd ${HOME}
+git clone https://github.com/taishi8117/dotfiles
+make ubuntu
 ```
 
-* python 3
-* pygments (for colorize oh-my-zsh, incl. ccat)
-* git
-* [junegunn/fzf](https://github.com/junegunn/fzf)
-    ```
-    brew install fzf
-    $(brew --prefix)/opt/fzf/install
-    ```
+Then, change the default shell to zsh using `chsh`.
 
-    ```
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    ~/.fzf/install
-    ```
-* [rg](https://github.com/BurntSushi/ripgrep)
-    ```
-    brew install ripgrep
-    ```
+Installation on darwin (macOS) should also work out of box, but run the following
+instead of `make ubuntu`.
+```
+~/dotfiles/dep/darwin.sh  # to install dependencies for darwin
+make install
+```
 
-    ```
-    curl -LO https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep_0.10.0_amd64.deb
-    sudo dpkg -i ripgrep_0.10.0_amd64.deb
-    ```
+# Running on Docker
 
-* gocode
-    ```
-    go get -u github.com/stamblerre/gocode
-    ```
-  Restart gocode if autocompletion doesn't work
-  Potential [issues](https://github.com/Shougo/deoplete.nvim/issues/818)
+This dotfiles environment is available as a Docker image
+hosted on [Docker Hub] (https://hub.docker.com/r/sirius8117/dotfiles/tags).
+Run `docker pull sirius8117/dotfiles:latest` to retrieve the image.
+Alternatively, you can build the image locally with
+`docker built -t sirius8117/dotfiles ~/dotfiles`.
+
+# Development Environment
+
+This repository also hosts Docker images useful for development in some
+specific environments. It currently supports golang, tensorflow and frida,
+but I plan to add more in the future. These images are based on
+`sirius8117/dotfiles:latest` and have the corresponding runtime environments
+and configurations already preinstalled.
+
+Combined with aliases defined in `~/dotfiles/zsh/aliases/_docker.zsh`, you can
+create a throwaway, on-demand and clean development environment with just
+a single command. For example, running `godev` will automatically start a new
+container based on `sirius8117/dotfiles:godev`, mount the current directory inside
+the container, and pop you a familiar Zsh shell.
+
+As before, you can pull the images from Docker Hub with the following tags, or
+you can build them locally if you prefer.
+
+* [sirius8117/dotfiles:godev](https://hub.docker.com/r/sirius8117/dotfiles/tags):
+* [sirius8117/dotfiles:tensorflow](https://hub.docker.com/r/sirius8117/dotfiles/tags):
+* [sirius8117/dotfiles:frida](https://hub.docker.com/r/sirius8117/dotfiles/tags):
