@@ -194,6 +194,7 @@
   # TODO: Use alias management plugin
   source ${DOTFILES_ZSH_BASE}/aliases/_common.zsh
   source ${DOTFILES_ZSH_BASE}/aliases/_docker.zsh
+  source ${DOTFILES_ZSH_BASE}/aliases/_experimental.zsh
 
   # Source FZF
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
