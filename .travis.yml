@@ -16,3 +16,4 @@ script:
     - docker build ./dev/go/
     - docker build ./dev/tensorflow/
     - docker build ./dev/frida/
+    - docker build ./dev/mitmproxy/
