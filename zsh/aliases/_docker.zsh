@@ -30,6 +30,16 @@ function fridahere() {
         sirius8117/dotfiles:frida
 }
 
+function mitmhere() {
+    dirname=${PWD##*/}
+    docker run --rm -it --entrypoint=/bin/zsh \
+        -p 8080:8080 \
+        -v ~/.mitmproxy:/home/sirius/.mitmproxy \
+        -v `pwd`:/${dirname} -w /${dirname} \
+        sirius8117/dotfiles:mitmproxy
+}
+
+
 # Referenced from: https://blog.ropnop.com/docker-for-pentesters/
 alias dockerzsh="docker run --rm -i -t --entrypoint=/bin/zsh"
 alias dockerbash="docker run --rm -i -t --entrypoint=/bin/bash"

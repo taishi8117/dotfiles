@@ -8,3 +8,5 @@ git config --global alias.sl '!git smartlog'
 function wut() {
   curl --silent cheat.sh/$1 | less
 }
+
+alias mitmproxy='mitmproxy --set console_palette=lowdark'
