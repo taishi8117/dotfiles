@@ -1,0 +1,5 @@
+console_eventlog_verbosity: info
+console_palette: lowdark
+console_layout: horizontal
+console_mouse: False
+flow_detail: 2
