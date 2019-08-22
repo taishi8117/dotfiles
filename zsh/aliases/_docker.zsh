@@ -32,7 +32,7 @@ function fridahere() {
 
 function mitmhere() {
     dirname=${PWD##*/}
-    docker run --rm -it --entrypoint=/bin/zsh \
+    docker run --rm -it --entrypoint=/home/sirius/dotfiles/mitmproxy/start-mitmproxy.sh \
         -p 8080:8080 \
         -v ~/.mitmproxy:/home/sirius/.mitmproxy \
         -v `pwd`:/${dirname} -w /${dirname} \
