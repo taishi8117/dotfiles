@@ -3,10 +3,11 @@ MAINTAINER Taishi Nojima
 
 # Install dependencies
 # Here, sync with ./dep/ubuntu.sh.
-RUN apt-get update && apt-get install software-properties-common -y
+RUN apt-get update && apt-get install -y software-properties-common
 RUN add-apt-repository ppa:neovim-ppa/stable
-RUN apt-get update
-RUN apt-get install git sudo zsh tmux neovim python3 python3-dev python3-pip wget gawk curl -y
+
+RUN apt-get update && apt-get install -y \
+        git sudo zsh tmux neovim python3 python3-dev python3-pip wget gawk curl
 
 RUN ln -sfn python3 /usr/bin/python
 RUN ln -sfn pip3 /usr/bin/pip
