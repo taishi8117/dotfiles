@@ -39,6 +39,12 @@ function mitmhere() {
         sirius8117/dotfiles:mitmproxy
 }
 
+function drozerhere() {
+    dirname=${PWD##*/}
+    docker run --rm -it --entrypoint=/bin/zsh \
+        -v `pwd`:/${dirname} -w /${dirname} \
+        sirius8117/dotfiles:drozer
+}
 
 # Referenced from: https://blog.ropnop.com/docker-for-pentesters/
 alias dockerzsh="docker run --rm -i -t --entrypoint=/bin/zsh"
