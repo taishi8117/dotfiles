@@ -1,6 +1,7 @@
 DOTFILES_DIR			:= $(PWD)
 
-.PHONY: fetch tmux_install zsh_install vim_install clean update install ubuntu ubuntu_dep
+.PHONY: fetch tmux_install zsh_install vim_install clean update install ubuntu ubuntu_dep \
+	ubuntu_docker kali_docker
 
 fetch:
 	@echo '[+] Fetching the repository...'
@@ -33,6 +34,12 @@ ubuntu_dep:
 	$(DOTFILES_DIR)/dep/ubuntu.sh
 
 ubuntu: ubuntu_dep install
+
+ubuntu_docker:
+	docker build -t sirius8117/dotfiles:ubuntu -f=Dockerfile .
+
+kali_docker:
+	docker build -t sirius8117/dotfiles:kali -f=dev/kali/Dockerfile .
 
 clean: ## Remove the dot files and this repo
 	@echo 'Cleaning dotfiles...'

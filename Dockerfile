@@ -3,11 +3,28 @@ MAINTAINER Taishi Nojima
 
 # Install dependencies
 # Here, sync with ./dep/ubuntu.sh.
-RUN apt-get update && apt-get install -y software-properties-common
+RUN apt-get update && apt-get install -y software-properties-common && rm -rf /var/lib/apt/lists/*
 RUN add-apt-repository ppa:neovim-ppa/stable
 
 RUN apt-get update && apt-get install -y \
-        git sudo zsh tmux neovim python3 python3-dev python3-pip wget gawk curl
+        sudo \
+        git \
+        zsh \
+        tmux \
+        neovim \
+        python \
+        python3 \
+        python3-pip \
+        wget \
+        gawk \
+        net-tools \
+        curl \
+        locales \
+        httpie \
+        python-pygments \
+        shellcheck \
+        jq \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN ln -sfn python3 /usr/bin/python
 RUN ln -sfn pip3 /usr/bin/pip
@@ -46,14 +63,13 @@ WORKDIR /home/sirius
 # Install other packages
 
 # rg
-RUN curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.1/ripgrep_11.0.1_amd64.deb
-RUN sudo dpkg -i ripgrep_11.0.1_amd64.deb
-RUN rm ripgrep_11.0.1_amd64.deb
+RUN curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.1/ripgrep_11.0.1_amd64.deb && \ 
+        sudo dpkg -i ripgrep_11.0.1_amd64.deb && \
+        rm ripgrep_11.0.1_amd64.deb
 
 # fd
-RUN curl -LO https://github.com/sharkdp/fd/releases/download/v7.3.0/fd_7.3.0_amd64.deb
-RUN sudo dpkg -i fd_7.3.0_amd64.deb
-RUN rm fd_7.3.0_amd64.deb
+RUN curl -LO https://github.com/sharkdp/fd/releases/download/v7.3.0/fd_7.3.0_amd64.deb && \
+        sudo dpkg -i fd_7.3.0_amd64.deb && \
+        rm fd_7.3.0_amd64.deb
 
-# httpie
-RUN sudo apt-get install httpie python-pygments shellcheck jq -y
+ENTRYPOINT /bin/zsh
