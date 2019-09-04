@@ -28,3 +28,5 @@ RUN pip install -r DomLink/requirements.txt
 RUN git clone https://github.com/blechschmidt/massdns.git
 WORKDIR /tools/massdns
 RUN make
+
+WORKDIR /root
