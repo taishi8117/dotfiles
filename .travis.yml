@@ -17,3 +17,5 @@ script:
     - docker build ./dev/tensorflow/
     - docker build ./dev/frida/
     - docker build ./dev/mitmproxy/
+    - docker build -f=./dev/kali/Dockerfile .
+    - docker build ./dev/recon/
