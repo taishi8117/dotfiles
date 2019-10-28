@@ -1,0 +1,14 @@
+#!/bin/bash
+
+CONNECTION=$(nmcli -t connection show --active | grep FB-VPN)
+
+LABEL_COLOR=${vpn_label_color:-$(xrescat i3xrocks.label.color)}
+VALUE_COLOR="${vpn_color:-$(xrescat i3xrocks.value.color)}"
+VALUE_FONT=${font:-$(xrescat i3xrocks.value.font)}
+
+if [[ -z "$CONNECTION" ]]; then
+    exit 0
+else
+   echo "<span color=\"${LABEL_COLOR}\" font=\"FontAwesome\"> </span> <span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\">FB-VPN</span>" # full text
+   echo "<span color=\"${LABEL_COLOR}\" font=\"FontAwesome\"> </span>" # short text
+fi
