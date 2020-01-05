@@ -49,8 +49,11 @@ bindsym $mod+Return exec $terminal_path
 # start a web browser
 bindsym $mod+Shift+Return exec /usr/bin/sensible-browser
 
+# start a file manager
+bindsym $mod+e exec $terminal_path -e '/usr/bin/ranger .'
+
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 set_from_resource $rofiTheme rofi.theme "regolith-theme"
 

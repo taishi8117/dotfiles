@@ -82,4 +82,4 @@ percent_color=true
 # Date Time
 #
 [time]
-interval=60
+interval=10
