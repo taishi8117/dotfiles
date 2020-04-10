@@ -52,6 +52,9 @@ bindsym $mod+Shift+Return exec /usr/bin/sensible-browser
 # start a file manager
 bindsym $mod+e exec $terminal_path -e '/usr/bin/ranger .'
 
+# open Notion dashboard
+bindsym $mod+m exec /usr/bin/sensible-browser 'https://www.notion.so/siriuslab/Dashboard-0c20be91d48042ed9bae7154d1386a6e'
+
 # kill focused window
 bindsym $mod+q kill
 
@@ -339,6 +342,6 @@ exec --no-startup-id /usr/bin/unclutter -b
 # Refresh wallpaper on screen resolution change
 exec --no-startup-id /usr/bin/xeventbind resolution /usr/bin/wallpaper-refresh
 
-# Start nm-applet to enalbe VPN password popup
+# Start nm-applet to enable VPN password popup
 # https://github.com/regolith-linux/regolith-desktop/issues/64
 exec --no-startup-id /usr/bin/nm-applet
