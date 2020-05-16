@@ -54,11 +54,11 @@ repo = 'scrooloose/syntastic'
 hook_add = 'source ~/.vim/rc/plugins/syntastic.vim'
 
 # Autocompletion framework 
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-hook_add = '''
-  source ~/.vim/rc/plugins/deoplete.vim
-'''
+# [[plugins]]
+# repo = 'Shougo/deoplete.nvim'
+# hook_add = '''
+#   source ~/.vim/rc/plugins/deoplete.vim
+# '''
 
 # Snippet support
 #[[plugins]]
@@ -70,16 +70,16 @@ hook_add = '''
 #[[plugins]]
 #repo = 'Shougo/neosnippet-snippets'
 
-[[plugins]]
-repo = 'SirVer/ultisnips'
-hook_add = '''
-  let g:UltiSnipsExpandTrigger="<c-k>"
-  let g:UltiSnipsJumpForwardTrigger="<tab>"
-  let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-'''
+#[[plugins]]
+#repo = 'SirVer/ultisnips'
+#hook_add = '''
+#  let g:UltiSnipsExpandTrigger="<c-k>"
+#  let g:UltiSnipsJumpForwardTrigger="<tab>"
+#  let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+#'''
 
-[[plugins]]
-repo = 'honza/vim-snippets'
+#[[plugins]]
+#repo = 'honza/vim-snippets'
 
 ##### SOURCE CONTROL #####
 

@@ -38,17 +38,17 @@ on_ft = 'python'
 repo = 'solarnz/thrift.vim'
 on_ft = 'thrift'
 
-[[plugins]]
-repo = 'fatih/vim-go'
-on_ft = 'go'
-hook_add = 'source ~/.vim/rc/plugins/vim-go.vim'
+# [[plugins]]
+# repo = 'fatih/vim-go'
+# on_ft = 'go'
+# hook_add = 'source ~/.vim/rc/plugins/vim-go.vim'
 
-[[plugins]]
-repo = 'zchee/deoplete-go'
-build = 'make'
-on_ft = 'go'
-depends = ['deoplete.nvim']
-hook_add = 'source ~/.vim/rc/plugins/deoplete-go.vim'
+# [[plugins]]
+# repo = 'zchee/deoplete-go'
+# build = 'make'
+# on_ft = 'go'
+# depends = ['deoplete.nvim']
+# hook_add = 'source ~/.vim/rc/plugins/deoplete-go.vim'
 
 [[plugins]]
 repo = 'ekalinin/Dockerfile.vim'
