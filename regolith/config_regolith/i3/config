@@ -48,12 +48,19 @@ bindsym $mod+Return exec $terminal_path
 
 # start a web browser
 bindsym $mod+Shift+Return exec /usr/bin/sensible-browser
+bindsym $mod+Shift+Ctrl+Return exec /usr/bin/firefox
 
 # start a file manager
 bindsym $mod+e exec $terminal_path -e '/usr/bin/ranger .'
 
 # open Notion dashboard
 bindsym $mod+m exec /usr/bin/sensible-browser 'https://www.notion.so/siriuslab/Dashboard-0c20be91d48042ed9bae7154d1386a6e'
+
+# open Notion bookmark
+bindsym $mod+Shift+b exec /usr/bin/sensible-browser 'https://www.notion.so/siriuslab/f6cc02f0f2b74f84a129f878ffd00346?v=241a12f75f494177961ce4970413530c'
+
+# open Notion encyclopedia
+bindsym $mod+Shift+e exec /usr/bin/sensible-browser 'https://www.notion.so/siriuslab/bc25767ddb8d4783822af381bb06a3a5?v=fda7759a3c1c42b383bf17032e93f723'
 
 # kill focused window
 bindsym $mod+q kill
@@ -183,10 +190,10 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Logout of session
-bindsym $mod+Shift+e exec /usr/bin/gnome-session-quit --logout
+# bindsym $mod+Shift+e exec /usr/bin/gnome-session-quit --logout
 
 # Reboot computer
-bindsym $mod+Shift+b exec /usr/bin/gnome-session-quit --reboot
+# bindsym $mod+Shift+b exec /usr/bin/gnome-session-quit --reboot
 
 # Power off computer
 bindsym $mod+Shift+p exec /usr/bin/gnome-session-quit --power-off

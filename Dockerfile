@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install -y \
         python-pygments \
         shellcheck \
         jq \
-    && rm -rf /var/lib/apt/lists/*
+        && rm -rf /var/lib/apt/lists/*
 
 RUN ln -sfn python3 /usr/bin/python
 RUN ln -sfn pip3 /usr/bin/pip
