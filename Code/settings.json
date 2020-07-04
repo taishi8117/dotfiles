@@ -1,0 +1,19 @@
+{
+    "editor.fontFamily": "Source Code Pro",
+    "go.formatTool": "goimports",
+    "go.useLanguageServer": true,
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    "window.zoomLevel": 0,
+    "terminal.integrated.commandsToSkipShell": [
+        "-workbench.action.quickOpen"
+    ],
+    "files.associations": {
+        "**/.i3/config": "i3",
+        "**/i3/config": "i3",
+        "**/i3rocks/config": "i3",
+    },
+    "workbench.list.keyboardNavigation": "simple",
+    "explorer.confirmDragAndDrop": false,
+    "gitlens.views.repositories.files.layout": "list"
+}
