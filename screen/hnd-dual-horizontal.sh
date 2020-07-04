@@ -6,3 +6,4 @@ xrandr --output DP-2-1 --mode 3840x2160 --scale 1.0x1.0 --output HDMI-1 --mode 1
 xrandr --output DP-2-1 --pos 2880x0
 xrandr --output DP-2-1 --scale 0.9999x0.9999
 
+/usr/bin/regolith-look refresh
