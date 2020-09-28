@@ -23,7 +23,14 @@ prompt_setup_pygmalion(){
   pt_pwd="%{$fg[cyan]%}%0~%{$reset_color%}"
   pt_pipe="%{$fg[red]%}|%{$reset_color%}"
 
-  base_prompt="$pt_user$pt_at$pt_host$pt_colon$pt_pwd$pt_pipe"
+  if [ -z ${SIRIUS_HOSTNAME} ];
+  then
+      local sirius_hostname=""
+  else
+      local sirius_hostname="%{$fg[red]%}/%{$fg[yellow]%}${SIRIUS_HOSTNAME}%{$reset_color%}"
+  fi
+
+  base_prompt="$pt_user$pt_at$pt_host$sirius_hostname$pt_colon$pt_pwd$pt_pipe"
   base_prompt_nocolor=$(echo "$base_prompt" | perl -pe "s/%\{[^}]+\}//g")
 
   precmd_functions+=(prompt_pygmalion_precmd)
@@ -37,6 +44,7 @@ prompt_pygmalion_precmd(){
   else
     local post_prompt="%{$fg[cyan]%}#%{$reset_color%}  "
   fi
+
 
   local post_prompt_nocolor=$(echo "$post_prompt" | perl -pe "s/%\{[^}]+\}//g")
 

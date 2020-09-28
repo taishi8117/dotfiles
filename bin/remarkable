@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# https://www.reddit.com/r/RemarkableTablet/comments/gek1u4/how_to_use_the_remarkable_app_with_linux_native/
+
+remove_dir="/home/taishi/.wine/drive_c/users/taishi/Application Data/remarkable/desktop"
+remarkable_bin="/home/taishi/.wine/dosdevices/c:/Program Files (x86)/reMarkable/remarkable.exe"
+
+find "$remove_dir" -name "*.rm" -delete
+find "$remove_dir" -name "*.metadata" -delete
+
+/usr/bin/wine "$remarkable_bin"

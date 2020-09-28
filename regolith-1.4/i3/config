@@ -77,6 +77,9 @@ bindsym $mod+Return exec /usr/bin/x-terminal-emulator
 ## Launch // Browser // <><Shift> Enter ##
 bindsym $mod+Shift+Return exec gtk-launch $(xdg-settings get default-web-browser)
 
+## Launch // Google Chrome // <><Shift><Ctrl> Enter ##
+bindsym $mod+Shift+Ctrl+Return exec /usr/bin/google-chrome
+
 set_from_resource $rofiTheme rofi.theme /etc/regolith/styles/lascaille/rofi.rasi
 
 ## Launch // Application // <> Space ##
@@ -108,9 +111,32 @@ bindsym $mod+Shift+b exec /usr/bin/sensible-browser 'https://www.notion.so/siriu
 ## Launch // Sirius Encyclopedia // <><Shift> e ##
 bindsym $mod+Shift+e exec /usr/bin/sensible-browser 'https://www.notion.so/siriuslab/bc25767ddb8d4783822af381bb06a3a5?v=fda7759a3c1c42b383bf17032e93f723'
 
-## Launch // VS Code // <><Shift> v ##
-bindsym $mod+v exec /snap/bin/code
+## Launch // Emigru // <><Shift> m ##
+bindsym $mod+Shift+m exec /usr/bin/sensible-browser 'https://www.notion.so/siriuslab/933a7f9d1b8c4944a300a8c376777778'
 
+## Launch // VS Code // <> v ##
+bindsym $mod+v exec GTK_IM_MODULE=xim /snap/bin/code
+
+## Launch // Slack // <> s ##
+bindsym $mod+s exec /snap/bin/slack
+
+## Launch // Google Calendar // <> c ##
+bindsym $mod+c exec /usr/bin/google-chrome "https://calendar.google.com/calendar?authuser=taishi.nojima@aya.yale.edu"
+
+## Launch // Google Calendar (AR) // <><Ctrl> c ##
+bindsym $mod+Ctrl+c exec /usr/bin/google-chrome "https://calendar.google.com/calendar?authuser=tnojima@accelrobotics.com"
+
+## Launch // Gmail (AYA) // <> g ##
+bindsym $mod+g exec /usr/bin/google-chrome "https://mail.google.com/mail?authuser=taishi.nojima@aya.yale.edu"
+
+## Launch // Gmail (Emigru) // <> g ##
+bindsym $mod+Shift+g exec /usr/bin/google-chrome "https://mail.google.com/mail?authuser=taishi@emigru.com"
+
+## Launch // Gmail (AR) // <><Ctrl> g ##
+bindsym $mod+Ctrl+g exec /usr/bin/google-chrome "https://mail.google.com/mail?authuser=tnojima@accelrobotics.com"
+
+## Launch // GDrive (AR) // <><Ctrl> d ##
+bindsym $mod+Ctrl+d exec /usr/bin/google-chrome "https://drive.google.com/drive/my-drive?authuser=tnojima@accelrobotics.com"
 
 ###############################################################################
 # Window and Workspace Navigation
@@ -300,8 +326,8 @@ bindsym $mod+Ctrl+l exec $i3-wm.program.lock
 ###############################################################################
 
 ## Modify // Settings // <> c ##
-set_from_resource $i3-wm.program.settings i3-wm.program.settings gnome-control-center
-bindsym $mod+c exec $i3-wm.program.settings
+# set_from_resource $i3-wm.program.settings i3-wm.program.settings gnome-control-center
+# bindsym $mod+c exec $i3-wm.program.settings
 
 ## Modify // Display Settings // <> d ##
 set_from_resource $i3-wm.program.display i3-wm.program.display gnome-control-center display

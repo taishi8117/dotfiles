@@ -1,10 +1,22 @@
 {
-    "editor.fontFamily": "Source Code Pro",
-    "go.formatTool": "goimports",
+    "window.zoomLevel": 0,
+
     "go.useLanguageServer": true,
+    "go.toolsEnvVars": {
+        "GO111MODULE": "on",
+    },
+    "go.formatTool": "goimports",
+    "go.lintTool": "golangci-lint",
+    "go.alternateTools": {
+        "golangci-lint": "${workspaceFolder}/bin/golangci-lint",
+    },
+    "go.lintFlags": [
+        "--fast"
+    ],
+
     "git.confirmSync": false,
     "git.enableSmartCommit": true,
-    "window.zoomLevel": 0,
+
     "terminal.integrated.commandsToSkipShell": [
         "-workbench.action.quickOpen"
     ],
@@ -15,5 +27,13 @@
     },
     "workbench.list.keyboardNavigation": "simple",
     "explorer.confirmDragAndDrop": false,
-    "gitlens.views.repositories.files.layout": "list"
+    "gitlens.views.repositories.files.layout": "list",
+    "eslint.enable": true,
+    "eslint.alwaysShowStatus": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "workbench.colorTheme": "Ayu Mirage",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "python.showStartPage": false,
 }
