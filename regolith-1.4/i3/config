@@ -327,6 +327,12 @@ bindsym $mod+Ctrl+l exec $i3-wm.program.lock
 # set_from_resource $i3-wm.program.sleep i3-wm.program.sleep systemctl suspend
 # bindsym $mod+Shift+s exec $i3-wm.program.sleep
 
+## Session // Set Black Wallpaper // <><Alt> b ##
+bindsym $mod+$alt+b exec /home/taishi/dotfiles/bin/set-black
+
+## Session // Set Normal Wallpaper // <><Ctrl> b ##
+bindsym $mod+Ctrl+b exec /home/taishi/dotfiles/bin/set-wallpaper
+
 ###############################################################################
 # System Management
 ###############################################################################
