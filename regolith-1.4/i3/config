@@ -118,7 +118,7 @@ bindsym $mod+Shift+m exec /usr/bin/sensible-browser 'https://www.notion.so/siriu
 bindsym $mod+v exec GTK_IM_MODULE=xim /snap/bin/code
 
 ## Launch // Slack // <> s ##
-bindsym $mod+s exec /snap/bin/slack
+bindsym $mod+s exec /usr/bin/slack
 
 ## Launch // Google Calendar // <> c ##
 bindsym $mod+c exec /usr/bin/google-chrome "https://calendar.google.com/calendar?authuser=taishi.nojima@aya.yale.edu"
@@ -137,6 +137,12 @@ bindsym $mod+Ctrl+g exec /usr/bin/google-chrome "https://mail.google.com/mail?au
 
 ## Launch // GDrive (AR) // <><Ctrl> d ##
 bindsym $mod+Ctrl+d exec /usr/bin/google-chrome "https://drive.google.com/drive/my-drive?authuser=tnojima@accelrobotics.com"
+
+## Launch // Office (AR) // <> o ##
+bindsym $mod+Shift+o exec /usr/bin/google-chrome "https://office.com"
+
+## Launch // Ranger // <> e ##
+bindsym $mod+e exec /usr/bin/x-terminal-emulator -e '/usr/bin/ranger .'
 
 ###############################################################################
 # Window and Workspace Navigation
@@ -346,8 +352,8 @@ set_from_resource $i3-wm.program.files i3-wm.program.files /usr/bin/nautilus --n
 bindsym $mod+Shift+n exec $i3-wm.program.files
 
 ## Launch // Notification Viewer // <> n ##
-set_from_resource $i3-wm.program.notification_ui i3-wm.program.notification_ui /usr/bin/rofication-gui
-bindsym $mod+n exec $i3-wm.program.notification_ui
+# set_from_resource $i3-wm.program.notification_ui i3-wm.program.notification_ui /usr/bin/rofication-gui
+# bindsym $mod+n exec $i3-wm.program.notification_ui
 
 ###############################################################################
 # Workspace Management

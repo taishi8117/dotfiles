@@ -41,7 +41,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.).
-    transparency = 15
+    transparency = 25
 
     # The height of the entire notification.  If the height is smaller
     # than the font height and padding combined, it will be raised
@@ -258,16 +258,17 @@
     # Xev might be helpful to find names for keys.
 
     # Close notification.
-    close = ctrl+space
+    close = ctrl+mod1+grave
 
     # Close all notifications.
-    close_all = ctrl+shift+space
+    close_all = ctrl+shift+mod1+grave
 
     # Redisplay last message(s).
     # On the US keyboard layout "grave" is normally above TAB and left
     # of "1". Make sure this key actually exists on your keyboard layout,
     # e.g. check output of 'xmodmap -pke'
-    history = ctrl+grave
+    # history = ctrl+grave
+    history = mod1+grave
 
     # Context menu.
     context = ctrl+shift+period

@@ -36,4 +36,5 @@
     "workbench.colorTheme": "Ayu Mirage",
     "javascript.updateImportsOnFileMove.enabled": "always",
     "python.showStartPage": false,
+    "git.autofetch": true,
 }
