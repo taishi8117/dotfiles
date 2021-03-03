@@ -1,6 +1,5 @@
 {
     "window.zoomLevel": 0,
-
     "go.useLanguageServer": true,
     "go.toolsEnvVars": {
         "GO111MODULE": "on",
@@ -13,10 +12,11 @@
     "go.lintFlags": [
         "--fast"
     ],
-
+    "go.addTags": {
+        "promptForTags": true
+    },
     "git.confirmSync": false,
     "git.enableSmartCommit": true,
-
     "terminal.integrated.commandsToSkipShell": [
         "-workbench.action.quickOpen"
     ],
@@ -37,4 +37,45 @@
     "javascript.updateImportsOnFileMove.enabled": "always",
     "python.showStartPage": false,
     "git.autofetch": true,
+    "workbench.iconTheme": "ayu",
+    "explorer.confirmDelete": false,
+    "jupyter.askForKernelRestart": false,
+    "beautify.language": {
+        "js": {
+            "type": [
+                "javascript",
+                "json",
+                "jsonc"
+            ],
+            "filename": [
+                ".jshintrc",
+                ".jsbeautifyrc"
+            ],
+            "ext": ["js", "json", "mongodb"],
+        },
+        "css": [
+            "css",
+            "less",
+            "scss"
+        ],
+        "html": [
+            "htm",
+            "html"
+        ]
+    },
+    "python.linting.flake8Args": [
+        "--max-line-length=120",
+        "--ignore=E402",
+    ],
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "python.languageServer": "Pylance",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
 }

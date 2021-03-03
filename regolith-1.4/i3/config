@@ -121,28 +121,34 @@ bindsym $mod+v exec GTK_IM_MODULE=xim /snap/bin/code
 bindsym $mod+s exec /usr/bin/slack
 
 ## Launch // Google Calendar // <> c ##
-bindsym $mod+c exec /usr/bin/google-chrome "https://calendar.google.com/calendar?authuser=taishi.nojima@aya.yale.edu"
+bindsym $mod+c exec /usr/bin/sensible-browser "https://woven.com/app/home"
 
 ## Launch // Google Calendar (AR) // <><Ctrl> c ##
-bindsym $mod+Ctrl+c exec /usr/bin/google-chrome "https://calendar.google.com/calendar?authuser=tnojima@accelrobotics.com"
+bindsym $mod+Ctrl+c exec /usr/bin/sensible-browser "https://calendar.google.com/calendar?authuser=tnojima@accelrobotics.com"
 
 ## Launch // Gmail (AYA) // <> g ##
-bindsym $mod+g exec /usr/bin/google-chrome "https://mail.google.com/mail?authuser=taishi.nojima@aya.yale.edu"
+bindsym $mod+g exec /usr/bin/sensible-browser "https://mail.google.com/mail?authuser=taishi.nojima@aya.yale.edu"
 
 ## Launch // Gmail (Emigru) // <> g ##
-bindsym $mod+Shift+g exec /usr/bin/google-chrome "https://mail.google.com/mail?authuser=taishi@emigru.com"
+bindsym $mod+Shift+g exec /usr/bin/sensible-browser "https://mail.google.com/mail?authuser=taishi@emigru.com"
 
 ## Launch // Gmail (AR) // <><Ctrl> g ##
-bindsym $mod+Ctrl+g exec /usr/bin/google-chrome "https://mail.google.com/mail?authuser=tnojima@accelrobotics.com"
+bindsym $mod+Ctrl+g exec /usr/bin/sensible-browser "https://mail.google.com/mail?authuser=tnojima@accelrobotics.com"
 
 ## Launch // GDrive (AR) // <><Ctrl> d ##
-bindsym $mod+Ctrl+d exec /usr/bin/google-chrome "https://drive.google.com/drive/my-drive?authuser=tnojima@accelrobotics.com"
+bindsym $mod+Ctrl+d exec /usr/bin/sensible-browser "https://drive.google.com/drive/my-drive?authuser=tnojima@accelrobotics.com"
 
 ## Launch // Office (AR) // <> o ##
-bindsym $mod+Shift+o exec /usr/bin/google-chrome "https://office.com"
+bindsym $mod+Shift+o exec /usr/bin/sensible-browser "https://office.com"
 
 ## Launch // Ranger // <> e ##
 bindsym $mod+e exec /usr/bin/x-terminal-emulator -e '/usr/bin/ranger .'
+
+## Launch // Jira // <><Ctrl> j ##
+bindsym $mod+Ctrl+j exec /usr/bin/sensible-browser "https://accelrobotics.atlassian.net/jira/software/projects/EM/boards/103"
+
+## Launch // Homer // <><Ctrl> h ##
+bindsym $mod+Ctrl+h exec /usr/bin/sensible-browser "http://homer.intern.sirius-lab.net:8080/"
 
 ###############################################################################
 # Window and Workspace Navigation
