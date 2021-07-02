@@ -75,10 +75,11 @@ set_from_resource $ws19 i3-wm.workspace.19.name "19"
 bindsym $mod+Return exec /usr/bin/x-terminal-emulator
 
 ## Launch // Browser // <><Shift> Enter ##
-bindsym $mod+Shift+Return exec gtk-launch $(xdg-settings get default-web-browser)
+#bindsym $mod+Shift+Return exec gtk-launch $(xdg-settings get default-web-browser)
+bindsym $mod+Shift+Return exec /usr/bin/google-chrome
 
 ## Launch // Google Chrome // <><Shift><Ctrl> Enter ##
-bindsym $mod+Shift+Ctrl+Return exec /usr/bin/google-chrome
+bindsym $mod+Shift+Ctrl+Return exec /usr/bin/firefox
 
 set_from_resource $rofiTheme rofi.theme /etc/regolith/styles/lascaille/rofi.rasi
 
@@ -102,6 +103,9 @@ bindsym $mod+Shift+question exec --no-startup-id $i3-wm.program.help
 set_from_resource $i3-wm.program.file_search i3-wm.program.file_search rofi -show find -modi find:/usr/share/rofi/modi/finder.sh
 bindsym $mod+$alt+space exec $i3-wm.program.file_search
 
+## Launch // Google Search // <> backslash ##
+bindsym $mod+backslash exec --no-startup-id rofi -lines 10 -show web-search -modi web-search:/opt/rofi-web-search/rofi-web-search.py -i 
+
 ## Launch // Notion Dashboard // <> m ##
 bindsym $mod+m exec /usr/bin/sensible-browser 'https://www.notion.so/siriuslab/Dashboard-0c20be91d48042ed9bae7154d1386a6e'
 
@@ -111,8 +115,8 @@ bindsym $mod+Shift+b exec /usr/bin/sensible-browser 'https://www.notion.so/siriu
 ## Launch // Sirius Encyclopedia // <><Shift> e ##
 bindsym $mod+Shift+e exec /usr/bin/sensible-browser 'https://www.notion.so/siriuslab/bc25767ddb8d4783822af381bb06a3a5?v=fda7759a3c1c42b383bf17032e93f723'
 
-## Launch // Emigru // <><Shift> m ##
-bindsym $mod+Shift+m exec /usr/bin/sensible-browser 'https://www.notion.so/siriuslab/933a7f9d1b8c4944a300a8c376777778'
+## Launch // Canopi // <><Shift> m ##
+bindsym $mod+Shift+m exec /usr/bin/google-chrome 'https://www.notion.so/canopi/Home-983cee89ad6d4a69910b9537292eba43'
 
 ## Launch // VS Code // <> v ##
 bindsym $mod+v exec GTK_IM_MODULE=xim /snap/bin/code
@@ -123,22 +127,19 @@ bindsym $mod+s exec /usr/bin/slack
 ## Launch // Google Calendar // <> c ##
 bindsym $mod+c exec /usr/bin/sensible-browser "https://woven.com/app/home"
 
-## Launch // Google Calendar (AR) // <><Ctrl> c ##
-bindsym $mod+Ctrl+c exec /usr/bin/sensible-browser "https://calendar.google.com/calendar?authuser=tnojima@accelrobotics.com"
+## Launch // Google Calendar (Canopi) // <><Ctrl> c ##
+bindsym $mod+Ctrl+c exec /usr/bin/sensible-browser "https://calendar.google.com/calendar?authuser=taishi@canopi.cash"
 
 ## Launch // Gmail (AYA) // <> g ##
 bindsym $mod+g exec /usr/bin/sensible-browser "https://mail.google.com/mail?authuser=taishi.nojima@aya.yale.edu"
 
-## Launch // Gmail (Emigru) // <> g ##
-bindsym $mod+Shift+g exec /usr/bin/sensible-browser "https://mail.google.com/mail?authuser=taishi@emigru.com"
+## Launch // Gmail (Canopi) // <><Ctrl> g ##
+bindsym $mod+Ctrl+g exec /usr/bin/sensible-browser "https://mail.google.com/mail?authuser=taishi@canopi.cash"
 
-## Launch // Gmail (AR) // <><Ctrl> g ##
-bindsym $mod+Ctrl+g exec /usr/bin/sensible-browser "https://mail.google.com/mail?authuser=tnojima@accelrobotics.com"
+## Launch // GDrive (Canopi) // <><Ctrl> d ##
+bindsym $mod+Ctrl+d exec /usr/bin/sensible-browser "https://drive.google.com/drive/my-drive?authuser=taishi@canopi.cash"
 
-## Launch // GDrive (AR) // <><Ctrl> d ##
-bindsym $mod+Ctrl+d exec /usr/bin/sensible-browser "https://drive.google.com/drive/my-drive?authuser=tnojima@accelrobotics.com"
-
-## Launch // Office (AR) // <> o ##
+## Launch // Office // <> o ##
 bindsym $mod+Shift+o exec /usr/bin/sensible-browser "https://office.com"
 
 ## Launch // Ranger // <> e ##

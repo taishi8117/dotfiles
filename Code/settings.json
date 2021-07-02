@@ -37,7 +37,7 @@
     "javascript.updateImportsOnFileMove.enabled": "always",
     "python.showStartPage": false,
     "git.autofetch": true,
-    "workbench.iconTheme": "ayu",
+    "workbench.iconTheme": "material-icon-theme",
     "explorer.confirmDelete": false,
     "jupyter.askForKernelRestart": false,
     "beautify.language": {
@@ -77,5 +77,30 @@
     },
     "[html]": {
         "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "go.toolsManagement.autoUpdate": true,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "editor.tabSize": 8,
+    "editor.cursorStyle": "line",
+    "editor.insertSpaces": false,
+    "editor.lineNumbers": "on",
+    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+    "editor.wordWrap": "off",
+    "terminal.integrated.fontFamily": "SauceCodePro Nerd Font",
+    "[css]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
     },
 }
