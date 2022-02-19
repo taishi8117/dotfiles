@@ -47,5 +47,21 @@
     {
         "key": "alt+ctrl+e",
         "command": "workbench.action.toggleEditorWidths"
+    },
+    {
+        "key": "ctrl+alt+down",
+        "command": "gotoNextPreviousMember.nextMember"
+    },
+    {
+        "key": "ctrl+down",
+        "command": "-gotoNextPreviousMember.nextMember"
+    },
+    {
+        "key": "ctrl+alt+up",
+        "command": "gotoNextPreviousMember.previousMember"
+    },
+    {
+        "key": "ctrl+up",
+        "command": "-gotoNextPreviousMember.previousMember"
     }
 ]

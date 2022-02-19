@@ -70,3 +70,4 @@
   #  >>> STYLE_MAP.keys()
   #
   export ZSH_COLORIZE_STYLE="monokai"
+. "$HOME/.cargo/env"

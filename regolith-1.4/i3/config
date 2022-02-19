@@ -118,6 +118,10 @@ bindsym $mod+Shift+e exec /usr/bin/sensible-browser 'https://www.notion.so/siriu
 ## Launch // Canopi // <><Shift> m ##
 bindsym $mod+Shift+m exec /usr/bin/google-chrome 'https://www.notion.so/canopi/Home-983cee89ad6d4a69910b9537292eba43'
 
+## Launch // Roam // <
+bindsym $mod+u exec /usr/bin/google-chrome 'https://roamresearch.com/#/app/canopi'
+
+
 ## Launch // VS Code // <> v ##
 bindsym $mod+v exec GTK_IM_MODULE=xim /snap/bin/code
 
@@ -125,10 +129,10 @@ bindsym $mod+v exec GTK_IM_MODULE=xim /snap/bin/code
 bindsym $mod+s exec /usr/bin/slack
 
 ## Launch // Google Calendar // <> c ##
-bindsym $mod+c exec /usr/bin/sensible-browser "https://woven.com/app/home"
+bindsym $mod+c exec /usr/bin/sensible-browser "https://roamresearch.com/#/app/canopi"
 
 ## Launch // Google Calendar (Canopi) // <><Ctrl> c ##
-bindsym $mod+Ctrl+c exec /usr/bin/sensible-browser "https://calendar.google.com/calendar?authuser=taishi@canopi.cash"
+bindsym $mod+Ctrl+c exec /usr/bin/sensible-browser "https://gchq.github.io/CyberChef/"
 
 ## Launch // Gmail (AYA) // <> g ##
 bindsym $mod+g exec /usr/bin/sensible-browser "https://mail.google.com/mail?authuser=taishi.nojima@aya.yale.edu"
@@ -150,6 +154,9 @@ bindsym $mod+Ctrl+j exec /usr/bin/sensible-browser "https://accelrobotics.atlass
 
 ## Launch // Homer // <><Ctrl> h ##
 bindsym $mod+Ctrl+h exec /usr/bin/sensible-browser "http://homer.intern.sirius-lab.net:8080/"
+
+## Launch // Toggl Track // <> z ##
+bindsym $mod+z exec /usr/bin/sensible-browser "https://track.toggl.com/timer"
 
 ###############################################################################
 # Window and Workspace Navigation

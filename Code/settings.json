@@ -1,5 +1,4 @@
 {
-    "window.zoomLevel": 0,
     "go.useLanguageServer": true,
     "go.toolsEnvVars": {
         "GO111MODULE": "on",
@@ -33,7 +32,7 @@
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
     },
-    "workbench.colorTheme": "Ayu Mirage",
+    "workbench.colorTheme": "Material Theme Palenight",
     "javascript.updateImportsOnFileMove.enabled": "always",
     "python.showStartPage": false,
     "git.autofetch": true,
@@ -79,7 +78,7 @@
         "editor.defaultFormatter": "vscode.html-language-features"
     },
     "workbench.editorAssociations": {
-        "*.ipynb": "jupyter.notebook.ipynb"
+        "*.ipynb": "jupyter-notebook"
     },
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
@@ -93,7 +92,6 @@
         "**/.settings": true,
         "**/.factorypath": true
     },
-    "editor.tabSize": 8,
     "editor.cursorStyle": "line",
     "editor.insertSpaces": false,
     "editor.lineNumbers": "on",
@@ -103,4 +101,10 @@
     "[css]": {
         "editor.defaultFormatter": "HookyQR.beautify"
     },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.inlineSuggest.enabled": true,
+    "terminal.integrated.inheritEnv": false,
+    "workbench.startupEditor": "none",
 }

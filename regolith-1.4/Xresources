@@ -1,2 +1,4 @@
 gnome.wallpaper: /home/taishi/Pictures/wallpaper/wallhaven-471vzo_1920x1080.png
 gnome.terminal.update: false
+i3xrocks.date.format2: %m/%d %H:%M:%S %s
+i3xrocks.time.interval: 1
