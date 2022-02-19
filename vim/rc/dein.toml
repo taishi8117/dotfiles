@@ -8,6 +8,9 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'nanotech/jellybeans.vim'
 
+[[plugins]]
+repo = 'ayu-theme/ayu-vim'
+
 # Status bar
 [[plugins]]
 repo = 'itchyny/lightline.vim'
@@ -53,12 +56,17 @@ repo = 'tpope/vim-surround'
 repo = 'scrooloose/syntastic'
 hook_add = 'source ~/.vim/rc/plugins/syntastic.vim'
 
-# Autocompletion framework 
-# [[plugins]]
-# repo = 'Shougo/deoplete.nvim'
-# hook_add = '''
-#   source ~/.vim/rc/plugins/deoplete.vim
-# '''
+# scrolling
+[[plugins]]
+repo = 'psliwka/vim-smoothie'
+
+# startup page 
+[[plugins]]
+repo = 'mhinz/vim-startify'
+
+# readline key bindings, necessary for tmux-yank
+[[plugins]]
+repo = 'tpope/vim-rsi'
 
 # Snippet support
 #[[plugins]]
@@ -95,6 +103,13 @@ hook_add = '''
   set updatetime=1000
 '''
 
+[[plugins]]
+repo = 'junegunn/gv.vim'
+
+[[plugins]]
+repo = 'itchyny/vim-gitbranch'
+
+
 ##### FUZZY FINDER #####
 
 [[plugins]]
@@ -106,3 +121,7 @@ merged = '0'
 repo = 'junegunn/fzf.vim'
 depends = 'fzf'
 hook_add = 'source ~/.vim/rc/plugins/fzf.vim'
+
+### Github Copilot
+[[plugins]]
+repo = 'github/copilot.vim'
