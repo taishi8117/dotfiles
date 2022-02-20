@@ -46,11 +46,17 @@ on_ft = 'thrift'
 repo = 'tomlion/vim-solidity'
 on_ft = 'sol'
 
-# [[plugins]]
-# repo = 'fatih/vim-go'
-# on_ft = 'go'
-# hook_add = 'source ~/.vim/rc/plugins/vim-go.vim'
-
 [[plugins]]
 repo = 'ekalinin/Dockerfile.vim'
 on_ft = 'dockerfile'
+
+[[plugins]]
+repo = 'elzr/vim-json'
+on_ft = ['json']
+
+##### DB #####
+[[plugins]]
+repo = 'tpope/dadbod'
+
+[[plugins]]
+repo = 'kristijanhusak/vim-dadbod-ui'

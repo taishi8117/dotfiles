@@ -31,6 +31,7 @@ set confirm    " confirm before exit when an unsaved file exists
 set hidden     " enable editing a file even when an unsaved file exists
 set autoread   " reload file when it was modified by another program
 set nobackup   " not making a backup file
+set nowritebackup
 set noswapfile " not making a swap file
 
 " search / replace settings

@@ -68,26 +68,6 @@ repo = 'mhinz/vim-startify'
 [[plugins]]
 repo = 'tpope/vim-rsi'
 
-# Snippet support
-#[[plugins]]
-#repo = 'Shougo/neosnippet.vim'
-#hook_add = '''
-#  source ~/.vim/rc/plugins/neosnippet.vim
-#'''
-#
-#[[plugins]]
-#repo = 'Shougo/neosnippet-snippets'
-
-#[[plugins]]
-#repo = 'SirVer/ultisnips'
-#hook_add = '''
-#  let g:UltiSnipsExpandTrigger="<c-k>"
-#  let g:UltiSnipsJumpForwardTrigger="<tab>"
-#  let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-#'''
-
-#[[plugins]]
-#repo = 'honza/vim-snippets'
 
 ##### SOURCE CONTROL #####
 
@@ -99,9 +79,6 @@ hook_add = 'autocmd QuickFixCmdPost *grep* cwindow'
 # Shows a git diff in the gutter
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
-hook_add = '''
-  set updatetime=1000
-'''
 
 [[plugins]]
 repo = 'junegunn/gv.vim'
@@ -122,6 +99,15 @@ repo = 'junegunn/fzf.vim'
 depends = 'fzf'
 hook_add = 'source ~/.vim/rc/plugins/fzf.vim'
 
+##### AUTOCOMPLETION #####
+
 ### Github Copilot
 [[plugins]]
 repo = 'github/copilot.vim'
+
+## coc 
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+merge = 0
+rev = 'release'
+hook_add = 'source ~/.vim/rc/plugins/coc.rc.vim'
