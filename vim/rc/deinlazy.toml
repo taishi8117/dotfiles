@@ -54,9 +54,3 @@ on_ft = 'dockerfile'
 repo = 'elzr/vim-json'
 on_ft = ['json']
 
-##### DB #####
-[[plugins]]
-repo = 'tpope/dadbod'
-
-[[plugins]]
-repo = 'kristijanhusak/vim-dadbod-ui'

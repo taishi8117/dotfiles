@@ -111,3 +111,10 @@ repo = 'neoclide/coc.nvim'
 merge = 0
 rev = 'release'
 hook_add = 'source ~/.vim/rc/plugins/coc.rc.vim'
+
+##### DB #####
+[[plugins]]
+repo = 'tpope/vim-dadbod'
+
+[[plugins]]
+repo = 'kristijanhusak/vim-dadbod-ui'
