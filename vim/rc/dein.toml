@@ -88,6 +88,11 @@ repo = 'tpope/vim-rsi'
 repo = 'liuchengxu/vista.vim'
 hook_add = 'source ~/.vim/rc/plugins/vista.vim'
 
+# nvim-treesitter
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+hook_post_update = 'TSUpdate'
+
 ##### SOURCE CONTROL #####
 
 # Git wrapper
