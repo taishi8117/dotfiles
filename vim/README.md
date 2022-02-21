@@ -3,9 +3,8 @@
 * Preview definition/impl in pop up
 * show git blame inline
 * show file path of a symbol in popup (maybe in documentation?)
-* terraform support
-* auto imports
 * better jupyter support
+* file navigation from the current open file
 
 ## Figure out / mapping
 * jump to file path under cursor
@@ -13,3 +12,6 @@
 
 ## TODO
 * https://github.com/NTBBloodbath/rest.nvim
+* https://github.com/kristijanhusak/vim-dadbod-completion
+* https://github.com/iamcco/markdown-preview.nvim
+* https://github.com/pappasam/coc-jedi

@@ -51,6 +51,10 @@ repo = 'ekalinin/Dockerfile.vim'
 on_ft = 'dockerfile'
 
 [[plugins]]
+repo = 'hashivim/vim-terraform'
+on_ft = 'terraform'
+
+[[plugins]]
 repo = 'elzr/vim-json'
 on_ft = ['json']
 hook_add = '''
