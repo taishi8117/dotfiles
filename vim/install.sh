@@ -16,6 +16,7 @@ mkdir -p $NVIM_HOME $NVIM_CONF
 ln -sfn $DOTFILES_ROOT/vim/vimrc $NVIM_CONF/init.vim
 ln -sfn $DOTFILES_ROOT/vim/after/ $NVIM_CONF/after
 ln -sfn $DOTFILES_ROOT/vim/rc/ $NVIM_HOME/rc
+ln -sfn $DOTFILES_ROOT/vim/lua/ $NVIM_CONF/lua
 
 nvim --headless +UpdateRemotePlugins +qa
 echo "hello dotfiles: vim"

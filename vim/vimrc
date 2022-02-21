@@ -23,6 +23,7 @@ endif
 
 " -----------------------------------------------------------------------------------------
 
+
 call s:source_rc('init.rc.vim')
 call s:source_rc('dein.rc.vim')
 call s:source_rc('theme.rc.vim')
@@ -33,3 +34,6 @@ call s:source_rc('filetype.rc.vim')
 
 filetype plugin indent on
 syntax enable
+
+lua require('core.init')
+

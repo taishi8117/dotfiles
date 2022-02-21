@@ -9,6 +9,9 @@ repo = 'Shougo/dein.vim'
 repo = 'nanotech/jellybeans.vim'
 
 [[plugins]]
+repo = 'sainnhe/sonokai'
+
+[[plugins]]
 repo = 'ayu-theme/ayu-vim'
 
 # Status bar
@@ -28,9 +31,6 @@ build = 'make'  # Linux & macOS only
 # Highlight all trailing whitespace characters
 [[plugins]]
 repo = 'ntpeters/vim-better-whitespace'
-hook_add = '''
-  let g:better_whitespace_enabled=0
-'''
 
 # Read/Write files with `sudo` command
 [[plugins]]
@@ -47,6 +47,10 @@ hook_add = '''
   let g:indent_guides_tab_guides = 0
 '''
 
+# auto closing brackets
+[[plugins]]
+repo = 'jiangmiao/auto-pairs'
+
 # Surround
 [[plugins]]
 repo = 'tpope/vim-surround'
@@ -60,7 +64,7 @@ hook_add = 'source ~/.vim/rc/plugins/syntastic.vim'
 [[plugins]]
 repo = 'psliwka/vim-smoothie'
 
-# startup page 
+# startup page
 [[plugins]]
 repo = 'mhinz/vim-startify'
 
@@ -68,6 +72,10 @@ repo = 'mhinz/vim-startify'
 [[plugins]]
 repo = 'tpope/vim-rsi'
 
+# vista
+[[plugins]]
+repo = 'liuchengxu/vista.vim'
+hook_add = 'source ~/.vim/rc/plugins/vista.vim'
 
 ##### SOURCE CONTROL #####
 
@@ -105,12 +113,15 @@ hook_add = 'source ~/.vim/rc/plugins/fzf.vim'
 [[plugins]]
 repo = 'github/copilot.vim'
 
-## coc 
+## coc
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 merge = 0
 rev = 'release'
 hook_add = 'source ~/.vim/rc/plugins/coc.rc.vim'
+
+[[plugins]]
+repo = 'josa42/vim-lightline-coc'
 
 ##### DB #####
 [[plugins]]

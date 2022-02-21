@@ -1,8 +1,3 @@
-"
-" native vim configs
-"
-nnoremap <C-l> :ls<CR>
-
 " plugin related configs
 "
 "
@@ -26,12 +21,13 @@ xnoremap \r :<C-U>cclose<CR>:write<CR>gv:QuickRun -mode v<CR>
 " fzf
 nnoremap <C-f> :Files<CR>
 nnoremap <C-g> :Rg<CR>
+nnoremap <C-l> :Buffers<CR>
 
 " fugitive
 nnoremap <C-s> :Gstatus<CR>
 
-" syntastic
-nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+" vista
+nnoremap <leader>o :Vista!!<CR>
 
 " locationlist
 nmap <C-n> :lnext<CR>
@@ -51,7 +47,8 @@ command CD :cd %:h
 
 """"""""""""""""""""
 " Coc mappings
-"
+""""""""""""""""""""
+
 " Use tab for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -65,7 +62,7 @@ function! s:check_back_space() abort
 endfunction
 
 " Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-n> coc#refresh()
+inoremap <silent><expr> <c-\> coc#refresh()
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
@@ -161,6 +158,8 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
+
+nnoremap <silent><nowait> <leader>= :call CocActionAsync('format')<CR>
 
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
