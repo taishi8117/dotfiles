@@ -1,5 +1,6 @@
 try
-  colorscheme jellybeans
+  " colorscheme jellybeans
+  colorscheme gruvbox-material
 catch /^Vim\%((\a\+)\)\=:E185/
   " deal with it
 endtry

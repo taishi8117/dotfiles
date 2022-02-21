@@ -14,6 +14,13 @@ repo = 'sainnhe/sonokai'
 [[plugins]]
 repo = 'ayu-theme/ayu-vim'
 
+[[plugins]]
+repo = 'sainnhe/gruvbox-material'
+
+# Font / icon
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
 # Status bar
 [[plugins]]
 repo = 'itchyny/lightline.vim'
@@ -46,6 +53,10 @@ hook_add = '''
   let g:indent_guides_guide_size = 1
   let g:indent_guides_tab_guides = 0
 '''
+
+# Registers
+[[plugins]]
+repo = 'junegunn/vim-peekaboo'
 
 # auto closing brackets
 [[plugins]]
