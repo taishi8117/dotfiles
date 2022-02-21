@@ -50,7 +50,11 @@
                 ".jshintrc",
                 ".jsbeautifyrc"
             ],
-            "ext": ["js", "json", "mongodb"],
+            "ext": [
+                "js",
+                "json",
+                "mongodb"
+            ],
         },
         "css": [
             "css",
@@ -66,11 +70,13 @@
         "--max-line-length=120",
         "--ignore=E402",
     ],
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "[javascript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "python.languageServer": "Pylance",
     "typescript.updateImportsOnFileMove.enabled": "always",
+    "typescript.preferences.importModuleSpecifier": "relative",
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
@@ -107,4 +113,15 @@
     "editor.inlineSuggest.enabled": true,
     "terminal.integrated.inheritEnv": false,
     "workbench.startupEditor": "none",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "python.insidersChannel": "weekly",
+    "workbench.startupEditor": "none",
+    "redhat.telemetry.enabled": true,
+    "window.zoomLevel": -1
 }

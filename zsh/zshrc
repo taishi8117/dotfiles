@@ -162,7 +162,7 @@
   zstyle ':completion:*:default' menu select=2
 
   # 補完候補のカラー表示
-  eval "$(dircolors -b)"
+  # eval "$(dircolors -b)"
   zstyle ':completion:*:default' list-colors ${LS_COLORS}
 
   # 補完で大文字にもマッチ
@@ -285,7 +285,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23"
   [ -f ~/zshrc.override ] && source ~/zshrc.override
 
 export PATH="$PATH:$HOME/.axiom/interact"
-source /home/taishi/.axiom/functions/autocomplete.zsh
+# source /home/taishi/.axiom/functions/autocomplete.zsh
 compdef _axiom-ssh axiom-rm
 compdef _axiom-ssh axiom-ssh
 compdef _axiom-ssh axiom-select
