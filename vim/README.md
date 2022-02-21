@@ -4,7 +4,12 @@
 * show git blame inline
 * show file path of a symbol in popup (maybe in documentation?)
 * terraform support
+* auto imports
+* better jupyter support
 
 ## Figure out / mapping
 * jump to file path under cursor
 * be able to jump into type definition from documentation / extern library
+
+## TODO
+* https://github.com/NTBBloodbath/rest.nvim

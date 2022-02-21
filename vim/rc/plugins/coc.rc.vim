@@ -4,6 +4,9 @@ let g:coc_global_extensions = [
   \ 'coc-prettier',
   \ 'coc-eslint',
   \ 'coc-docker',
+  \ 'coc-python',
+  \ 'coc-toml',
+  \ 'coc-snippets',
   \ ]
 
 

@@ -128,6 +128,7 @@ hook_add = 'source ~/.vim/rc/plugins/fzf.vim'
 ### Github Copilot
 [[plugins]]
 repo = 'github/copilot.vim'
+hook_add = 'let g:copilot_enabled = v:false'
 
 ## coc
 [[plugins]]
