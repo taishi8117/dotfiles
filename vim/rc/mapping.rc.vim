@@ -20,7 +20,8 @@ nnoremap <C-g> :Rg<CR>
 nnoremap <C-l> :Buffers<CR>
 
 " fugitive
-nnoremap <C-s> :Gstatus<CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gl :Gclog<CR>
 
 " vista
 nnoremap <leader>o :Vista!!<CR>

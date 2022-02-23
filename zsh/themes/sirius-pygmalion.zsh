@@ -70,9 +70,10 @@ prompt_pygmalion_precmd(){
   #if [[ $prompt_length -gt 40 ]]; then
   #  nl=$'\n%{\r%}';
   #fi
-  
+  local virtualenv_prompt_color="%{$fg[green]%}$(virtualenv_prompt_info)%{$reset_color%}"
+  local timestamp=$(date +'%s')
   PROMPT="$base_prompt$hginfo$gitinfo$nl$post_prompt"
-  RPROMPT="%{$fg[green]%}$(virtualenv_prompt_info)%{$reset_color%}"
+  RPROMPT="%{$fg[white]%}$timestamp%{$reset_color%}"
 }
 
 prompt_setup_pygmalion

@@ -293,3 +293,6 @@ compdef _axiom-ssh axiom-backup
 compdef _axiom-ssh axiom-vpn
 compdef _axiom-restore axiom-restore
 compdef _axiom-deploy axiom-deploy
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform

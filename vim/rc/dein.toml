@@ -38,6 +38,7 @@ build = 'make'  # Linux & macOS only
 # Highlight all trailing whitespace characters
 [[plugins]]
 repo = 'ntpeters/vim-better-whitespace'
+hook_add = 'let g:better_whitespace_enabled=0'
 
 # Read/Write files with `sudo` command
 [[plugins]]

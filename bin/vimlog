@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+timestamp=$(date +'%s')
+touch "$@_$timestamp.log"
+echo "$ $@\t$timestamp\n$($@)" | /usr/bin/nvim
+

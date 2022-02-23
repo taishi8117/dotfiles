@@ -1,8 +1,6 @@
 # dotfiles
 [![Build Status](https://travis-ci.org/taishi8117/dotfiles.svg?branch=master)](https://travis-ci.org/taishi8117/dotfiles)
 
-[Sirius Lab dotfiles](https://github.com/taishi8117/dotfiles)
-
 ## Installation
 
 To install on a Ubuntu 18.04 instance, clone this repository in your home directory and
