@@ -63,5 +63,15 @@
     {
         "key": "ctrl+up",
         "command": "-gotoNextPreviousMember.previousMember"
+    },
+    {
+        "key": "shift+cmd+i",
+        "command": "editor.action.formatDocument",
+        "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+    },
+    {
+        "key": "shift+alt+f",
+        "command": "-editor.action.formatDocument",
+        "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
     }
 ]
