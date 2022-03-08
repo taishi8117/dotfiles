@@ -2,3 +2,10 @@ gnome.wallpaper: /home/taishi/Pictures/wallpaper/wallhaven-471vzo_1920x1080.png
 gnome.terminal.update: false
 i3xrocks.date.format2: %m/%d %H:%M:%S %s
 i3xrocks.time.interval: 1
+i3-wm.bar.separator: /
+i3-wm.bar.separator.color: #44475a
+
+i3-wm.font: Source Code Pro Medium 12
+i3-wm.bar.font: pango:Source Code Pro Medium 12, Material Design Icons 12
+i3xrocks.value.font: Source Code Pro Medium 12
+rofi.font: Source Code Pro Medium 12

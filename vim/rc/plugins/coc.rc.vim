@@ -8,7 +8,8 @@ let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-jedi',
   \ 'coc-sh',
-  \ 'coc-rust-analyzer'
+  \ 'coc-rust-analyzer',
+  \ 'coc-diagnostic',
   \ ]
 
 

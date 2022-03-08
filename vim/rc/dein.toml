@@ -111,6 +111,8 @@ repo = 'junegunn/gv.vim'
 [[plugins]]
 repo = 'itchyny/vim-gitbranch'
 
+[[plugins]]
+repo = 'rhysd/conflict-marker.vim'
 
 ##### FUZZY FINDER #####
 

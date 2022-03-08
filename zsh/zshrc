@@ -8,6 +8,7 @@
 #  ___/ / / /  / / /_/ (__  / /__/ /_/ / /_/ /
 # /____/_/_/  /_/\__,_/____/_____\__,_/_.___/ 
 #
+#zmodload zsh/zprof
 
 #===============================================================================
 # 1: ZPLUG CONFIGURATION
@@ -106,6 +107,11 @@
   select-word-style default
   zstyle ':zle:*' word-chars "_-./;@"
   zstyle ':zle:*' word-style unspecified
+
+  # edit command with EDITOR
+  autoload -U edit-command-line
+  zle -N edit-command-line 
+  bindkey '^x^e' edit-command-line
 
 #===============================================================================
 # 3: HISTORY OPTIONS
