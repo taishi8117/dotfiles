@@ -31,7 +31,7 @@ hook_add = 'source ~/.vim/rc/plugins/lightline.vim'
 # Asynchronous execution library
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
-build = 'make'  # Linux & macOS only
+build = 'make' # Linux & macOS only
 
 ##### EDITOR #####
 
@@ -92,6 +92,7 @@ hook_add = 'source ~/.vim/rc/plugins/vista.vim'
 # nvim-treesitter
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
+hook_add = 'source ~/.vim/rc/plugins/treesitter.rc.vim'
 hook_post_update = 'TSUpdate'
 
 ##### SOURCE CONTROL #####
@@ -149,3 +150,33 @@ repo = 'tpope/vim-dadbod'
 
 [[plugins]]
 repo = 'kristijanhusak/vim-dadbod-ui'
+
+##### TELESCOPE #####
+[[plugins]]
+repo = 'nvim-lua/popup.nvim'
+
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
+
+[[plugins]]
+repo = 'nvim-telescope/telescope.nvim'
+
+[[plugins]]
+repo = 'nvim-telescope/telescope-media-files.nvim'
+hook_add = "lua require('telescope').load_extension('media_files')"
+
+[[plugins]]
+repo = 'nvim-telescope/telescope-symbols.nvim'
+
+[[plugins]]
+repo = 'nvim-telescope/telescope-file-browser.nvim'
+hook_add = "lua require('telescope').load_extension('file_browser')"
+
+
+##### TELEKASTEN #####
+[[plugins]]
+repo = 'renerocksai/telekasten.nvim'
+hook_add = 'source ~/.vim/rc/plugins/telekasten.rc.vim'
+
+[[plugins]]
+repo = 'renerocksai/calendar-vim'
