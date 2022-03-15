@@ -1,0 +1,9 @@
+#!/bin/bash
+# World clock for i3xrocks
+
+DATE_VALUE=$(echo $(TZ='America/Los_Angeles' date +"SF:%H") $(TZ='America/New_York' date +"NY:%H") $(date +"UTC:%H" --utc) $(TZ='Asia/Tokyo' date +"JP:%H"))
+
+LABEL_COLOR=${label_color:-$(xrescat i3xrocks.label.color "#7B8394")}
+VALUE_COLOR=${color:-$(xrescat i3xrocks.value.color "#D8DEE9")}
+VALUE_FONT=${font:-$(xrescat i3xrocks.value.font "Source Code Pro Medium 13")}
+echo "<span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\">$DATE_VALUE </span>"

@@ -16,10 +16,14 @@ repo = 'ayu-theme/ayu-vim'
 
 [[plugins]]
 repo = 'sainnhe/gruvbox-material'
+hook_add = 'source ~/.vim/rc/plugins/gruvbox-material.rc.vim'
 
 # Font / icon
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
+
+[[plugins]]
+repo = 'kyazdani42/nvim-web-devicons'
 
 # Status bar
 [[plugins]]
@@ -48,7 +52,7 @@ repo = 'lambdalisue/suda.vim'
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
 hook_add = '''
-  let g:indent_guides_enable_on_vim_startup = 1
+  let g:indent_guides_enable_on_vim_startup = 0
   set ts=4 sw=4 et
   let g:indent_guides_start_level = 2
   let g:indent_guides_guide_size = 1
@@ -95,6 +99,11 @@ repo = 'nvim-treesitter/nvim-treesitter'
 hook_add = 'source ~/.vim/rc/plugins/treesitter.rc.vim'
 hook_post_update = 'TSUpdate'
 
+
+# required by vim-markdown
+[[plugins]]
+repo = 'godlygeek/tabular'
+
 ##### SOURCE CONTROL #####
 
 # Git wrapper
@@ -132,7 +141,7 @@ hook_add = 'source ~/.vim/rc/plugins/fzf.vim'
 ### Github Copilot
 [[plugins]]
 repo = 'github/copilot.vim'
-hook_add = 'let g:copilot_enabled = v:false'
+hook_add = 'source ~/.vim/rc/plugins/copilot.rc.vim'
 
 ## coc
 [[plugins]]
@@ -160,6 +169,7 @@ repo = 'nvim-lua/plenary.nvim'
 
 [[plugins]]
 repo = 'nvim-telescope/telescope.nvim'
+hook_add = "source ~/.vim/rc/plugins/telescope.rc.vim"
 
 [[plugins]]
 repo = 'nvim-telescope/telescope-media-files.nvim'
@@ -172,6 +182,9 @@ repo = 'nvim-telescope/telescope-symbols.nvim'
 repo = 'nvim-telescope/telescope-file-browser.nvim'
 hook_add = "lua require('telescope').load_extension('file_browser')"
 
+[[plugins]]
+repo = 'fannheyward/telescope-coc.nvim'
+hook_add = "lua require('telescope').load_extension('coc')"
 
 ##### TELEKASTEN #####
 [[plugins]]

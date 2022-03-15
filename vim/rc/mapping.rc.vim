@@ -18,6 +18,7 @@ xnoremap \r :<C-U>cclose<CR>:write<CR>gv:QuickRun -mode v<CR>
 "nnoremap <C-f> :Files<CR>
 "nnoremap <C-g> :Rg<CR>
 "nnoremap <C-l> :Buffers<CR>
+nnoremap <leader>ft :Filetypes<CR>
 
 " telescope
 nnoremap <C-f> <cmd>Telescope find_files<CR>
@@ -25,6 +26,11 @@ nnoremap <C-g> <cmd>Telescope live_grep<CR>
 nnoremap <C-l> <cmd>Telescope buffers<CR>
 nnoremap <leader>s <cmd>Telescope symbols<CR>
 
+" indent guide
+nnoremap <leader>i <cmd>IndentGuidesToggle<CR>
+
+" copilot
+nnoremap <leader>cp :call ToggleCopilot()<CR>
 
 " fugitive
 nnoremap <leader>gs :Git<CR>

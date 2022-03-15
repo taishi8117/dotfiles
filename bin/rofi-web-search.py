@@ -27,7 +27,8 @@ PREFIX = {
     'def': ('Merriam-Webster', 'https://www.merriam-webster.com/dictionary/'),
     'en': ('Google English', 'https://www.google.com/search?lr=lang_en&q='),
     'd': ('Duckduckgo', 'https://duckduckgo.com/?q='),
-    'map': ('Google Maps', 'https://www.google.com/maps/search/')
+    'map': ('Google Maps', 'https://www.google.com/maps/search/'),
+    'eth': ('Etherscan', 'https://etherscan.io/search?q=')
 }
 
 def print_prefix_list():

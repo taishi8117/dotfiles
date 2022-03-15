@@ -40,8 +40,7 @@ set hlsearch   " highlight search string
 set incsearch  " enable incremental search
 set ignorecase " ignore case for search
 set smartcase  " case-senstive search if mixed cases are specified
-set wrapscan   " back to the beginning of the file after last match
-set gdefault   " default to global search
+"set wrapscan   " back to the beginning of the file after last match
 if has('nvim')
   set inccommand=split
 endif
