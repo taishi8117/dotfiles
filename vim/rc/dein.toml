@@ -25,12 +25,6 @@ repo = 'ryanoasis/vim-devicons'
 [[plugins]]
 repo = 'kyazdani42/nvim-web-devicons'
 
-# Status bar
-# [[plugins]]
-# repo = 'itchyny/lightline.vim'
-# hook_add = 'source ~/.vim/rc/plugins/lightline.vim'
-
-
 [[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
 hook_add = 'source ~/.vim/rc/plugins/lualine.rc.vim'
@@ -81,6 +75,7 @@ repo = 'psliwka/vim-smoothie'
 # startup page
 [[plugins]]
 repo = 'mhinz/vim-startify'
+hook_add = 'source ~/.vim/rc/plugins/startify.rc.vim'
 
 # readline key bindings, necessary for tmux-yank
 [[plugins]]
