@@ -26,9 +26,14 @@ repo = 'ryanoasis/vim-devicons'
 repo = 'kyazdani42/nvim-web-devicons'
 
 # Status bar
+# [[plugins]]
+# repo = 'itchyny/lightline.vim'
+# hook_add = 'source ~/.vim/rc/plugins/lightline.vim'
+
+
 [[plugins]]
-repo = 'itchyny/lightline.vim'
-hook_add = 'source ~/.vim/rc/plugins/lightline.vim'
+repo = 'nvim-lualine/lualine.nvim'
+hook_add = 'source ~/.vim/rc/plugins/lualine.rc.vim'
 
 ##### RUNTIME #####
 
@@ -48,16 +53,9 @@ hook_add = 'let g:better_whitespace_enabled=0'
 [[plugins]]
 repo = 'lambdalisue/suda.vim'
 
-# Visually display indent levels
+# Indent
 [[plugins]]
-repo = 'nathanaelkane/vim-indent-guides'
-hook_add = '''
-  let g:indent_guides_enable_on_vim_startup = 0
-  set ts=4 sw=4 et
-  let g:indent_guides_start_level = 2
-  let g:indent_guides_guide_size = 1
-  let g:indent_guides_tab_guides = 0
-'''
+repo = 'lukas-reineke/indent-blankline.nvim'
 
 # Registers
 [[plugins]]
@@ -150,8 +148,8 @@ merge = 0
 rev = 'release'
 hook_add = 'source ~/.vim/rc/plugins/coc.rc.vim'
 
-[[plugins]]
-repo = 'josa42/vim-lightline-coc'
+# [[plugins]]
+# repo = 'josa42/vim-lightline-coc'
 
 ##### DB #####
 [[plugins]]

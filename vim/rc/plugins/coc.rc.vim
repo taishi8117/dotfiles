@@ -7,13 +7,10 @@ let g:coc_global_extensions = [
   \ 'coc-toml',
   \ 'coc-snippets',
   \ 'coc-jedi',
-  \ 'coc-sh',
   \ 'coc-rust-analyzer',
   \ 'coc-diagnostic',
   \ 'coc-vimlsp',
   \ 'coc-lua',
-  \ 'coc-webview',
-  \ 'coc-markdown-preview-enhanced',
   \ ]
 
 
