@@ -25,6 +25,9 @@ repo = 'ayu-theme/ayu-vim'
 repo = 'sainnhe/gruvbox-material'
 hook_add = 'source ~/.vim/rc/plugins/gruvbox-material.rc.vim'
 
+[[plugins]]
+repo = 'folke/tokyonight.nvim'
+
 # Font / icon
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
