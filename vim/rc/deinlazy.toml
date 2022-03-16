@@ -1,8 +1,16 @@
+# nvim-treesitter
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+merged = 0
+if = 'has("nvim")'
+on_event = 'BufRead'
+hook_post_update = 'TSUpdate'
+hook_source = 'source ~/.vim/rc/plugins/treesitter.rc.lua'
+
 ##### FILE EXPLORER #####
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = 'source ~/.vim/rc/plugins/nerdtree.vim'
-
 
 # ref: https://zenn.dev/mkobayashime/articles/nvim-treesitter-dein
 [[plugins]]
@@ -36,14 +44,6 @@ on_ft = 'toml'
 [[plugins]]
 repo = 'Vimjas/vim-python-pep8-indent'
 on_ft = 'python'
-
-[[plugins]]
-repo = 'leafgarland/typescript-vim'
-on_ft = 'typescript'
-
-[[plugins]]
-repo = 'pangloss/vim-javascript'
-on_ft = 'javascript'
 
 [[plugins]]
 repo = 'solarnz/thrift.vim'

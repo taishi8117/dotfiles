@@ -16,6 +16,7 @@ local colors = {
   red      = '#ec5f67',
 }
 
+
 require('lualine').setup({
     options = { 
         theme = 'jellybeans',

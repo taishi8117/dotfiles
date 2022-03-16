@@ -32,9 +32,6 @@ repo = 'ryanoasis/vim-devicons'
 [[plugins]]
 repo = 'kyazdani42/nvim-web-devicons'
 
-[[plugins]]
-repo = 'nvim-lualine/lualine.nvim'
-hook_add = 'source ~/.vim/rc/plugins/lualine.rc.vim'
 
 ##### RUNTIME #####
 
@@ -92,12 +89,6 @@ repo = 'tpope/vim-rsi'
 [[plugins]]
 repo = 'liuchengxu/vista.vim'
 hook_add = 'source ~/.vim/rc/plugins/vista.vim'
-
-# nvim-treesitter
-[[plugins]]
-repo = 'nvim-treesitter/nvim-treesitter'
-hook_add = 'source ~/.vim/rc/plugins/treesitter.rc.vim'
-hook_post_update = 'TSUpdate'
 
 
 # required by vim-markdown
@@ -194,3 +185,10 @@ hook_add = 'source ~/.vim/rc/plugins/telekasten.rc.vim'
 
 [[plugins]]
 repo = 'renerocksai/calendar-vim'
+
+
+##### LUALINE #####
+# calling at the bottom to ensure everything else was loaded
+[[plugins]]
+repo = 'nvim-lualine/lualine.nvim'
+hook_add = 'source ~/.vim/rc/plugins/lualine.rc.vim'
