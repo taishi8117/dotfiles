@@ -2,6 +2,13 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
+
+##### PREREQ #####
+# plugins that are required by many
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
+
+
 ##### INTERFACE #####
 
 # Color theme
@@ -104,9 +111,13 @@ repo = 'godlygeek/tabular'
 repo = 'tpope/vim-fugitive'
 hook_add = 'autocmd QuickFixCmdPost *grep* cwindow'
 
-# Shows a git diff in the gutter
 [[plugins]]
-repo = 'airblade/vim-gitgutter'
+repo = 'sindrets/diffview.nvim'
+hook_add = 'source ~/.vim/rc/plugins/diffview.rc.vim'
+
+[[plugins]]
+repo = 'lewis6991/gitsigns.nvim'
+hook_add = "lua require('gitsigns').setup()"
 
 [[plugins]]
 repo = 'junegunn/gv.vim'
@@ -156,9 +167,6 @@ repo = 'kristijanhusak/vim-dadbod-ui'
 ##### TELESCOPE #####
 [[plugins]]
 repo = 'nvim-lua/popup.nvim'
-
-[[plugins]]
-repo = 'nvim-lua/plenary.nvim'
 
 [[plugins]]
 repo = 'nvim-telescope/telescope.nvim'

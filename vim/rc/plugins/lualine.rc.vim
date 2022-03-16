@@ -1,4 +1,21 @@
 lua << END
+-- https://github.com/nvim-lualine/lualine.nvim/blob/master/examples/evil_lualine.lua
+-- Color table for highlights
+-- stylua: ignore
+local colors = {
+  bg       = '#202328',
+  fg       = '#bbc2cf',
+  yellow   = '#ECBE7B',
+  cyan     = '#008080',
+  darkblue = '#081633',
+  green    = '#98be65',
+  orange   = '#FF8800',
+  violet   = '#a9a1e1',
+  magenta  = '#c678dd',
+  blue     = '#51afef',
+  red      = '#ec5f67',
+}
+
 require('lualine').setup({
     options = { 
         theme = 'jellybeans',
@@ -13,11 +30,11 @@ require('lualine').setup({
                   colored = true, -- Displays a colored diff status if set to true
                   diff_color = {
                     -- Same color values as the general color option can be used here.
-                    added    = 'DiffAdd',    -- Changes the diff's added color
-                    modified = 'DiffChange', -- Changes the diff's modified color
-                    removed  = 'DiffDelete', -- Changes the diff's removed color you
+                    added    = { fg = colors.green },    -- Changes the diff's added color
+                    modified = { fg = colors.orange }, -- Changes the diff's modified color
+                    removed  = { fg = colors.red }, -- Changes the diff's removed color you
                   },
-                  symbols = {added = '+', modified = '~', removed = '-'}, -- Changes the symbols used by the diff.
+                  symbols = {added = ' ', modified = ' ', removed = ' '}, -- Changes the symbols used by the diff.
                   source = nil, -- A function that works as a data source for diff.
                                 -- It must return a table as such:
                                 --   { added = add_count, modified = modified_count, removed = removed_count }
@@ -37,13 +54,13 @@ require('lualine').setup({
 
                   diagnostics_color = {
                     -- Same values as the general color option can be used here.
-                    error = 'DiagnosticError', -- Changes diagnostics' error color.
-                    warn  = 'DiagnosticWarn',  -- Changes diagnostics' warn color.
-                    info  = 'DiagnosticInfo',  -- Changes diagnostics' info color.
-                    hint  = 'DiagnosticHint',  -- Changes diagnostics' hint color.
+                    error = { fg = colors.red }, -- Changes diagnostics' error color.
+                    warn  = { fg = colors.yellow },  -- Changes diagnostics' warn color.
+                    info  = { fg = colors.cyan },  -- Changes diagnostics' info color.
+                    hint  = { fg = colors.violet },  -- Changes diagnostics' hint color.
                   },
-                  symbols = {error = 'E', warn = 'W', info = 'I', hint = 'H'},
-                  colored = false,           -- Displays diagnostics status in color if set to true.
+                  symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '},
+                  colored = true,           -- Displays diagnostics status in color if set to true.
                   update_in_insert = false, -- Update diagnostics in insert mode.
                   always_visible = false,   -- Show diagnostics even if there are none.
                 }

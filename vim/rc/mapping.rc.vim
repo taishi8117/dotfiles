@@ -24,6 +24,7 @@ nnoremap <leader>ft :Filetypes<CR>
 nnoremap <C-f> <cmd>Telescope find_files<CR>
 nnoremap <C-g> <cmd>Telescope live_grep<CR>
 nnoremap <C-l> <cmd>Telescope buffers<CR>
+nnoremap <leader>ru <cmd>Telescope oldfiles<CR>
 nnoremap <leader>s <cmd>Telescope symbols<CR>
 
 " indent guide
