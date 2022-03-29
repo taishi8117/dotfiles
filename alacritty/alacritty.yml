@@ -73,11 +73,11 @@ font:
     style: Bold
 
   italic:
-    family: monospace
+    family: SauceCodePro Nerd Font Mono
     style: Italic
 
   bold_italic:
-    family: monospace
+    family: SauceCodePro Nerd Font Mono
     style: Bold Italic
 
   size: 11

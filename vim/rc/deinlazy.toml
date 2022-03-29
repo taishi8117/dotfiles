@@ -1,8 +1,6 @@
 # nvim-treesitter
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
-merged = 0
-if = 'has("nvim")'
 on_event = 'BufRead'
 hook_post_update = 'TSUpdate'
 hook_source = 'source ~/.vim/rc/plugins/treesitter.rc.lua'
@@ -67,6 +65,10 @@ on_ft = ['json']
 hook_add = '''
   let g:vim_json_syntax_conceal = 0
 '''
+
+[[plugins]]
+repo = 'jparise/vim-graphql'
+on_ft = ['graphql', 'typescript', 'javascript']
 
 ##### MARKDOWN #####
 

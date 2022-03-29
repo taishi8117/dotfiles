@@ -195,3 +195,7 @@ repo = 'renerocksai/calendar-vim'
 [[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
 hook_add = 'source ~/.vim/rc/plugins/lualine.rc.vim'
+
+[[plugins]]
+repo = 'akinsho/bufferline.nvim'
+hook_add = 'source ~/.vim/rc/plugins/bufferline.rc.lua'
