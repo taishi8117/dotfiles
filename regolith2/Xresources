@@ -1,0 +1,2 @@
+regolith.look.path: /usr/share/regolith-look/default
+i3-wm.binding.exit_app: q

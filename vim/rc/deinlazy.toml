@@ -1,9 +1,9 @@
 # nvim-treesitter
-[[plugins]]
-repo = 'nvim-treesitter/nvim-treesitter'
-on_event = 'BufRead'
-hook_post_update = 'TSUpdate'
-hook_source = 'source ~/.vim/rc/plugins/treesitter.rc.lua'
+# [[plugins]]
+# repo = 'nvim-treesitter/nvim-treesitter'
+# on_event = 'BufRead'
+# hook_post_update = 'TSUpdate'
+# hook_source = 'source ~/.vim/rc/plugins/treesitter.rc.lua'
 
 ##### FILE EXPLORER #####
 [[plugins]]
@@ -11,10 +11,10 @@ repo = 'scrooloose/nerdtree'
 hook_add = 'source ~/.vim/rc/plugins/nerdtree.vim'
 
 # ref: https://zenn.dev/mkobayashime/articles/nvim-treesitter-dein
-[[plugins]]
-repo = 'kyazdani42/nvim-tree.lua'
-on_event = 'BufRead'
-hook_source = 'source ~/.vim/rc/plugins/nvim-tree.rc.vim'
+# [[plugins]]
+# repo = 'kyazdani42/nvim-tree.lua'
+# on_event = 'BufRead'
+# hook_source = 'source ~/.vim/rc/plugins/nvim-tree.rc.vim'
 
 ##### EDITOR #####
 
