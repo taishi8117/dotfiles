@@ -1,0 +1,2 @@
+## Launch // Terminal // <> Enter ##
+bindsym $mod+s exec --no-startup-id /snap/bin/slack

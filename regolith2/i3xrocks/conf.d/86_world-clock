@@ -1,0 +1,3 @@
+# World clock
+[world-clock]
+interval=xresource:i3xrocks.time.interval 10

@@ -1,2 +1,5 @@
 regolith.look.path: /usr/share/regolith-look/default
 i3-wm.binding.exit_app: q
+i3-wm.binding.ws_next_on_output2: Ctrl+Shift+m
+i3xrocks.date.format2: %m/%d %H:%M:%S %s
+i3xrocks.time.interval: 1
