@@ -1,2 +1,5 @@
-## Launch // Terminal // <> Enter ##
+## Launch // Slack // <> s ##
 bindsym $mod+s exec --no-startup-id /snap/bin/slack
+
+## Launch // 1Password // <> p ##
+bindsym $mod+p exec --no-startup-id /usr/bin/1password
