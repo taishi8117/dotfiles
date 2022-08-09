@@ -11,8 +11,8 @@ smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
 
 " quickrun
-nnoremap \r :cclose<CR>:write<CR>:QuickRun -mode n<CR>
-xnoremap \r :<C-U>cclose<CR>:write<CR>gv:QuickRun -mode v<CR>
+"nnoremap \r :cclose<CR>:write<CR>:QuickRun -mode n<CR>
+"xnoremap \r :<C-U>cclose<CR>:write<CR>gv:QuickRun -mode v<CR>
 
 " fzf
 "nnoremap <C-f> :Files<CR>
@@ -94,6 +94,10 @@ nmap <silent> gd <cmd>Telescope coc definitions<CR>
 nmap <silent> gy <cmd>Telescope coc type_definitions<CR>
 nmap <silent> gi <cmd>Telescope coc implementations<CR>
 nmap <silent> gr <cmd>Telescope coc references<CR>
+nmap <silent> ga <cmd>Telescope coc diagnostics<CR>
+nmap <silent> ge <cmd>Telescope coc workspace_diagnostics<CR>
+nmap <silent> go <cmd>Telescope coc outline<CR>
+nmap <silent> gm <cmd>Telescope marks<CR>
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>

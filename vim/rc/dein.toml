@@ -93,6 +93,9 @@ repo = 'tpope/vim-rsi'
 repo = 'liuchengxu/vista.vim'
 hook_add = 'source ~/.vim/rc/plugins/vista.vim'
 
+# show marks
+[[plugins]]
+repo = 'Yilin-Yang/vim-markbar'
 
 # required by vim-markdown
 [[plugins]]
