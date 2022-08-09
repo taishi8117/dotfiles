@@ -3,6 +3,7 @@
 "
 " double ESC to switch search highlighting
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
+nnoremap <leader>e :NERDTreeFind<CR>
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 
 " neosnippet
