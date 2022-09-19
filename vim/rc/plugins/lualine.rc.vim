@@ -66,8 +66,8 @@ require('lualine').setup({
                   always_visible = false,   -- Show diagnostics even if there are none.
                 }
             },
-            lualine_c = { {'filename', path = 1} },
-            lualine_d = {'g:coc_status', 'bo:filetype'},
+            lualine_c = { {'filename', path = 1}, 'b:coc_current_function' },
+            lualine_d = {'g:coc_status', 'bo:filetype' },
             lualine_x = {'encoding', 'fileformat', 'filetype'},
             lualine_y = {'progress'},
             lualine_z = {'location'}

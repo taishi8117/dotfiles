@@ -1,10 +1,14 @@
 {
+  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+  "coc.preferences.formatOnSaveFiletypes": ["go"],
   "javascript.suggest.autoImports": true,
   "typescript.suggest.autoImports": true,
   "languageserver": {
     "terraform": {
       "command": "terraform-lsp",
-      "filetypes": ["terraform"]
+      "filetypes": ["terraform", "tf"],
+      "initializationOptions": {},
+      "settings": {}
     }
   },
   "rust-analyzer.cargo.loadOutDirsFromCheck": true,
