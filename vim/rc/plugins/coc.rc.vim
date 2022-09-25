@@ -11,7 +11,8 @@ let g:coc_global_extensions = [
   \ 'coc-diagnostic',
   \ 'coc-vimlsp',
   \ 'coc-nav',
-  \ 'coc-go'
+  \ 'coc-go',
+  \ 'coc-solidity'
   \ ]
 
 
