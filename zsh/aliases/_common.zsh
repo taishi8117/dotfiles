@@ -8,6 +8,7 @@ alias -g L='| less'
 alias -g H='| head'
 alias -g G='| grep'
 alias -g GI='| grep -ri'
+alias -g D='doppler run --'
 
 # エイリアス
 if [ "$(uname)" = 'Darwin' ]; then
