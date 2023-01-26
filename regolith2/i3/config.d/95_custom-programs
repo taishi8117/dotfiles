@@ -5,7 +5,7 @@ bindsym $mod+s exec --no-startup-id /snap/bin/slack
 bindsym $mod+p exec --no-startup-id /usr/bin/1password
 
 ## Launch // Screenshot // <><Shift> s ##
-bindsym $mod+Shift+s exec --no-startup-id /usr/bin/gnome-screenshot -i
+bindsym $mod+Shift+s exec --no-startup-id /usr/bin/flameshot gui
 
 ## Launch // Firefox // <><Shift><Ctrl> Enter  ##
 bindsym $mod+Shift+Ctrl+Return exec --no-startup-id /snap/bin/firefox

@@ -1,4 +1,4 @@
-#!/usr/bin/env
+#!/usr/bin/env python3
 
 import sys
 from datetime import datetime
@@ -17,6 +17,22 @@ def main(cmd, arg):
         print("timestamp hex:", hex(ts))
         print("local time   :", datetime.fromtimestamp(ts).isoformat())
         print("utc time     :", datetime.utcfromtimestamp(ts).isoformat() + "Z")
+    elif cmd == "hex":
+        if arg is None:
+            print(f"{cmd} <number>")
+            return
+        elif '.' in arg:
+            num = float(arg)
+        elif arg.startswith("0x"):
+            num = int(arg, 16)
+        else:
+            num = int(arg)
+
+        print("num            :", num)
+        print("hex(num)       :", hex(int(num)))
+        print("num * 1e18     :", int(num * 1e18))
+        print("hex(num * 1e18):", hex(int(num * 1e18)))
+        print("num / 1e18     :", num / 1e18)
 
 
 if __name__ == "__main__":
