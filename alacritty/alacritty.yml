@@ -82,6 +82,24 @@ font:
 
   size: 11
 
+    #font:
+    #  normal:
+    #    family: Proto Mono
+    #    style: Medium
+    #
+    #  bold:
+    #    family: Proto Mono
+    #    style: Bold
+    #
+    #  italic:
+    #    family: Proto Mono
+    #    style: Italic
+    #
+    #  bold_italic:
+    #    family: Proto Mono
+    #    style: Bold Italic
+    #
+    #  size: 11
 
 scrolling:
   # maximum number of lines in the scrollback buffer. Specifying '0' will

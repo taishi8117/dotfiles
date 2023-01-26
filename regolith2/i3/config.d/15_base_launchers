@@ -8,4 +8,4 @@ bindsym $mod+$i3-wm.binding.terminal exec --no-startup-id /usr/bin/x-terminal-em
 
 ## Launch // Chrome // <><Shift> Enter ##
 set_from_resource $i3-wm.binding.browser i3-wm.binding.browser Shift+Return
-bindsym $mod+$i3-wm.binding.browser exec --no-startup-id /usr/bin/google-chrome --profile-directory="Profile 1"
+bindsym $mod+$i3-wm.binding.browser exec --no-startup-id /usr/bin/google-chrome --profile-directory="Profile 3"
