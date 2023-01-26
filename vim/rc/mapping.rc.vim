@@ -34,6 +34,10 @@ nnoremap <leader>i <cmd>IndentGuidesToggle<CR>
 
 " copilot
 nnoremap <leader>cp :call ToggleCopilot()<CR>
+imap <M-.> <Plug>(copilot-next)
+imap <M-,> <Plug>(copilot-previous)
+imap <silent><script><expr> <C-k> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
 
 " fugitive
 nnoremap <leader>gs :Git<CR>

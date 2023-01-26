@@ -1,4 +1,4 @@
-let g:copilot_enabled = v:false
+let g:copilot_enabled = v:true
 
 function! ToggleCopilot()
     if g:copilot_enabled
