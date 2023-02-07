@@ -8,6 +8,8 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'nvim-lua/plenary.nvim'
 
+[[plugins]]
+repo = 'MunifTanjim/nui.nvim'
 
 ##### INTERFACE #####
 
@@ -41,7 +43,7 @@ repo = 'kyazdani42/nvim-web-devicons'
 # Asynchronous execution library
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
-build = 'make' # Linux & macOS only
+build = 'make'              # Linux & macOS only
 
 ##### EDITOR #####
 
@@ -93,10 +95,6 @@ repo = 'tpope/vim-rsi'
 repo = 'liuchengxu/vista.vim'
 hook_add = 'source ~/.vim/rc/plugins/vista.vim'
 
-# show marks
-[[plugins]]
-repo = 'Yilin-Yang/vim-markbar'
-
 # required by vim-markdown
 [[plugins]]
 repo = 'godlygeek/tabular'
@@ -125,6 +123,9 @@ repo = 'itchyny/vim-gitbranch'
 [[plugins]]
 repo = 'rhysd/conflict-marker.vim'
 
+[[plugins]]
+repo = 'ruanyl/vim-gh-line'
+
 ##### FUZZY FINDER #####
 
 [[plugins]]
@@ -136,6 +137,9 @@ merged = '0'
 repo = 'junegunn/fzf.vim'
 depends = 'fzf'
 hook_add = 'source ~/.vim/rc/plugins/fzf.vim'
+
+[[plugins]]
+repo = 'stsewd/fzf-checkout.vim'
 
 ##### AUTOCOMPLETION #####
 
@@ -202,3 +206,7 @@ hook_add = 'source ~/.vim/rc/plugins/lualine.rc.vim'
 [[plugins]]
 repo = 'akinsho/bufferline.nvim'
 hook_add = 'source ~/.vim/rc/plugins/bufferline.rc.lua'
+
+##### DUCK #####
+[[plugins]]
+repo = 'tamton-aquib/duck.nvim'

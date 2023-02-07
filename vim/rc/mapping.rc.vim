@@ -17,7 +17,7 @@ vmap <C-j> <Plug>(coc-snippets-select)
 "xnoremap \r :<C-U>cclose<CR>:write<CR>gv:QuickRun -mode v<CR>
 
 " fzf
-"nnoremap <C-f> :Files<CR>
+nnoremap <C-f> :Files<CR>
 "nnoremap <C-g> :Rg<CR>
 "nnoremap <C-l> :Buffers<CR>
 nnoremap <leader>ft :Filetypes<CR>
@@ -52,6 +52,10 @@ nmap <C-p> :lprevious<CR>
 
 " terminal
 tnoremap <Esc> <C-\><C-n>
+
+" duck
+nnoremap <leader>dd :lua require("duck").hatch('🐈')<CR>
+nnoremap <leader>dc :lua require("duck").cook()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom Command
@@ -170,14 +174,14 @@ xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
 " Remap <C-f> and <C-b> to scroll float windows/popups
-if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-endif
+"if has('nvim-0.4.0') || has('patch-8.2.0750')
+"  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+"  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+"  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+"  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+"  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+"  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+"endif
 
 " Use CTRL-S for selections ranges
 " Requires 'textDocument/selectionRange' support of language server
@@ -234,6 +238,8 @@ nmap <silent> ga <cmd>Telescope coc diagnostics<CR>
 nmap <silent> ge <cmd>Telescope coc workspace_diagnostics<CR>
 nmap <silent> go <cmd>Telescope coc outline<CR>
 nmap <silent> gm <cmd>Telescope marks<CR>
+
+nnoremap <silent><nowait> == :call CocActionAsync('format')<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  TELESCOPE MAPPING
