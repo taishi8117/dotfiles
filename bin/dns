@@ -1,0 +1,38 @@
+#!/bin/bash
+domain=$1
+if [ -z "$domain" ]; then
+    echo "Usage: $0 domain"
+    exit 1
+fi
+
+
+echo "A records for $domain:"
+dig +noall +answer +multiline $domain A
+
+echo "AAAA records for $domain:"
+dig +noall +answer +multiline $domain AAAA
+
+echo "CNAME records for $domain:"
+dig +noall +answer +multiline $domain CNAME
+
+echo "MX records for $domain:"
+dig +noall +answer +multiline $domain MX
+
+echo "TXT records for $domain:"
+dig +noall +answer +multiline $domain TXT
+
+echo "NS records for $domain:"
+dig +noall +answer +multiline $domain NS
+
+echo "SOA records for $domain:"
+dig +noall +answer +multiline $domain SOA
+
+echo "SRV records for $domain:"
+dig +noall +answer +multiline $domain SRV
+
+echo "CAA records for $domain:"
+dig +noall +answer +multiline $domain CAA
+
+echo "DNSKEY records for $domain:"
+dig +noall +answer +multiline $domain DNSKEY
+
