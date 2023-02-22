@@ -37,6 +37,9 @@ repo = 'ryanoasis/vim-devicons'
 [[plugins]]
 repo = 'kyazdani42/nvim-web-devicons'
 
+[[plugins]]
+repo = 'wellle/context.vim'
+
 
 ##### RUNTIME #####
 
@@ -44,6 +47,10 @@ repo = 'kyazdani42/nvim-web-devicons'
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
 build = 'make'              # Linux & macOS only
+
+[[plugins]]
+repo = 'gelguy/wilder.nvim'
+hook_add = 'source ~/.vim/rc/plugins/wilder.rc.lua'
 
 ##### EDITOR #####
 
