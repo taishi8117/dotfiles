@@ -37,8 +37,8 @@ repo = 'ryanoasis/vim-devicons'
 [[plugins]]
 repo = 'kyazdani42/nvim-web-devicons'
 
-[[plugins]]
-repo = 'wellle/context.vim'
+# [[plugins]]
+# repo = 'wellle/context.vim'
 
 #### MOVEMENT ####
 
@@ -95,7 +95,8 @@ hook_add = 'source ~/.vim/rc/plugins/syntastic.vim'
 
 # scrolling
 [[plugins]]
-repo = 'psliwka/vim-smoothie'
+repo = 'petertriho/nvim-scrollbar'
+hook_add = 'source ~/.vim/rc/plugins/scrollbar.rc.lua'
 
 # startup page
 [[plugins]]
@@ -115,6 +116,21 @@ repo = 'tpope/vim-rsi'
 [[plugins]]
 repo = 'godlygeek/tabular'
 
+# comments
+[[plugins]]
+repo = 'numToStr/Comment.nvim'
+hook_add = 'lua require("Comment").setup()'
+
+# todo comments
+[[plugins]]
+repo = 'folke/todo-comments.nvim'
+hook_add = 'source ~/.vim/rc/plugins/todo-comments.rc.lua'
+
+# search lens
+[[plugins]]
+repo = 'kevinhwang91/nvim-hlslens'
+hook_add = 'source ~/.vim/rc/plugins/hlslens.rc.lua'
+
 ##### SOURCE CONTROL #####
 
 # Git wrapper
@@ -128,7 +144,9 @@ hook_add = 'source ~/.vim/rc/plugins/diffview.rc.vim'
 
 [[plugins]]
 repo = 'lewis6991/gitsigns.nvim'
-hook_add = "lua require('gitsigns').setup()"
+hook_add = """
+    lua require('gitsigns').setup()
+"""
 
 [[plugins]]
 repo = 'junegunn/gv.vim'
@@ -234,7 +252,22 @@ repo = 'nvim-treesitter/nvim-treesitter'
 hook_post_update = 'TSUpdate'
 hook_source = 'source ~/.vim/rc/plugins/treesitter.rc.lua'
 
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter-context'
+hook_source = 'lua require("treesitter-context").setup()'
+
 # outline
 [[plugins]]
 repo = 'stevearc/aerial.nvim'
 hook_add = 'source ~/.vim/rc/plugins/aerial.rc.lua'
+
+
+##### FOLDS #####
+[[plugins]]
+repo = 'kevinhwang91/promise-async'
+
+[[plugins]]
+repo = 'kevinhwang91/nvim-ufo'
+hook_add = '''
+source ~/.vim/rc/plugins/nvim-ufo.rc.lua
+'''

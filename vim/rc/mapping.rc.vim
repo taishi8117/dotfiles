@@ -28,6 +28,10 @@ nnoremap <C-g> <cmd>Telescope live_grep<CR>
 nnoremap <C-l> <cmd>Telescope buffers<CR>
 nnoremap <leader>ru <cmd>Telescope oldfiles<CR>
 nnoremap <leader>s <cmd>Telescope symbols<CR>
+nmap <silent> go <cmd>Telescope aerial<CR>
+nmap <silent> gm <cmd>Telescope marks<CR>
+nmap <silent> gp <cmd>Telescope registers<CR>
+nmap <silent> gt <cmd>TodoTelescope<CR>
 
 " indent guide
 nnoremap <leader>i <cmd>IndentGuidesToggle<CR>
@@ -236,9 +240,6 @@ nmap <silent> gi <cmd>Telescope coc implementations<CR>
 nmap <silent> gr <cmd>Telescope coc references<CR>
 nmap <silent> ga <cmd>Telescope coc diagnostics<CR>
 nmap <silent> ge <cmd>Telescope coc workspace_diagnostics<CR>
-nmap <silent> go <cmd>Telescope aerial<CR>
-nmap <silent> gm <cmd>Telescope marks<CR>
-nmap <silent> gp <cmd>Telescope registers<CR>
 
 nnoremap <silent><nowait> == :call CocActionAsync('format')<CR>
 
