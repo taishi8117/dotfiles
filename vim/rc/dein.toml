@@ -91,9 +91,9 @@ hook_add = 'source ~/.vim/rc/plugins/startify.rc.vim'
 repo = 'tpope/vim-rsi'
 
 # vista
-[[plugins]]
-repo = 'liuchengxu/vista.vim'
-hook_add = 'source ~/.vim/rc/plugins/vista.vim'
+#[[plugins]]
+#repo = 'liuchengxu/vista.vim'
+#hook_add = 'source ~/.vim/rc/plugins/vista.vim'
 
 # required by vim-markdown
 [[plugins]]
@@ -210,3 +210,15 @@ hook_add = 'source ~/.vim/rc/plugins/bufferline.rc.lua'
 ##### DUCK #####
 [[plugins]]
 repo = 'tamton-aquib/duck.nvim'
+
+##### OUTLINE #####
+# nvim-treesitter
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+hook_post_update = 'TSUpdate'
+hook_source = 'source ~/.vim/rc/plugins/treesitter.rc.lua'
+
+# outline
+[[plugins]]
+repo = 'stevearc/aerial.nvim'
+hook_add = 'source ~/.vim/rc/plugins/aerial.rc.lua'

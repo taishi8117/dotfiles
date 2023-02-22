@@ -43,8 +43,8 @@ let g:copilot_no_tab_map = v:true
 nnoremap <leader>gs :Git<CR>
 nnoremap <leader>gl :Gclog<CR>
 
-" vista
-nnoremap <leader>o :Vista!!<CR>
+" outline
+nnoremap <leader>o :AerialToggle<CR>
 
 " locationlist
 nmap <C-n> :lnext<CR>
@@ -236,8 +236,9 @@ nmap <silent> gi <cmd>Telescope coc implementations<CR>
 nmap <silent> gr <cmd>Telescope coc references<CR>
 nmap <silent> ga <cmd>Telescope coc diagnostics<CR>
 nmap <silent> ge <cmd>Telescope coc workspace_diagnostics<CR>
-nmap <silent> go <cmd>Telescope coc outline<CR>
+nmap <silent> go <cmd>Telescope aerial<CR>
 nmap <silent> gm <cmd>Telescope marks<CR>
+nmap <silent> gp <cmd>Telescope registers<CR>
 
 nnoremap <silent><nowait> == :call CocActionAsync('format')<CR>
 
