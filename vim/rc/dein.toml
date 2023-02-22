@@ -40,6 +40,15 @@ repo = 'kyazdani42/nvim-web-devicons'
 [[plugins]]
 repo = 'wellle/context.vim'
 
+#### MOVEMENT ####
+
+[[plugins]]
+repo = 'tpope/vim-repeat'
+
+[[plugins]]
+repo = 'ggandor/leap.nvim'
+hook_add = 'lua require("leap").add_default_mappings()'
+
 
 ##### RUNTIME #####
 
