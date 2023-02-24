@@ -271,3 +271,8 @@ repo = 'kevinhwang91/nvim-ufo'
 hook_add = '''
 source ~/.vim/rc/plugins/nvim-ufo.rc.lua
 '''
+
+#### FILE MANAGER ####
+[[plugins]]
+repo = 'nvim-neo-tree/neo-tree.nvim'
+hook_add = 'source ~/.vim/rc/plugins/neo-tree.rc.lua'

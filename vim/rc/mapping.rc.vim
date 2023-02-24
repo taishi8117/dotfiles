@@ -2,9 +2,13 @@
 "
 "
 " double ESC to switch search highlighting
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
-nnoremap <leader>e :NERDTreeFind<CR>
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
+
+" file manager
+" nnoremap <silent><C-e> :NERDTreeToggle<CR>
+" nnoremap <leader>e :NERDTreeFind<CR>
+nnoremap <silent><C-e> :Neotree toggle=true<CR>
+nnoremap <leader>e :Neotree source=filesystem reveal=true reveal_force_cwd=true toggle=true position=left<CR>
 
 " Use <C-l> for trigger snippet expand.
 imap <C-l> <Plug>(coc-snippets-expand)
