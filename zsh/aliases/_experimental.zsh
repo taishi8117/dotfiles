@@ -29,3 +29,4 @@ alias grh='git reset HEAD~'
 alias gsl='git sl'
 
 alias vimplug='vim ~/dotfiles/vim/rc/dein.toml'
+alias lg=lazygit

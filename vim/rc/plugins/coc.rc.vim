@@ -10,6 +10,7 @@ let g:coc_global_extensions = [
   \ 'coc-rust-analyzer',
   \ 'coc-diagnostic',
   \ 'coc-vimlsp',
+  \ 'coc-lua',
   \ 'coc-nav',
   \ 'coc-go',
   \ 'coc-solidity'

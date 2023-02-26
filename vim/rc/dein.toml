@@ -98,6 +98,10 @@ hook_add = 'source ~/.vim/rc/plugins/syntastic.vim'
 repo = 'petertriho/nvim-scrollbar'
 hook_add = 'source ~/.vim/rc/plugins/scrollbar.rc.lua'
 
+[[plugins]]
+repo = 'karb94/neoscroll.nvim'
+hook_add = 'lua require("neoscroll").setup()'
+
 # startup page
 [[plugins]]
 repo = 'mhinz/vim-startify'
@@ -189,9 +193,6 @@ merge = 0
 rev = 'release'
 hook_add = 'source ~/.vim/rc/plugins/coc.rc.vim'
 
-# [[plugins]]
-# repo = 'josa42/vim-lightline-coc'
-
 ##### DB #####
 [[plugins]]
 repo = 'tpope/vim-dadbod'
@@ -276,3 +277,21 @@ source ~/.vim/rc/plugins/nvim-ufo.rc.lua
 [[plugins]]
 repo = 'nvim-neo-tree/neo-tree.nvim'
 hook_add = 'source ~/.vim/rc/plugins/neo-tree.rc.lua'
+
+#### TERMINAL ####
+[[plugins]]
+repo = 'akinsho/toggleterm.nvim'
+hook_add = 'source ~/.vim/rc/plugins/toggleterm.rc.lua'
+
+#### ZEN MODE ####
+[[plugins]]
+repo = 'folke/zen-mode.nvim'
+hook_source = 'source ~/.vim/rc/plugins/zen-mode.rc.lua'
+
+[[plugins]]
+repo = 'folke/twilight.nvim'
+hook_add = 'lua require("twilight").setup()'
+
+#### CSV ####
+[[plugins]]
+repo = 'chrisbra/csv.vim'

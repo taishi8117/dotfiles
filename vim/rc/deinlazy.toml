@@ -1,16 +1,4 @@
-##### FILE EXPLORER #####
-[[plugins]]
-repo = 'scrooloose/nerdtree'
-hook_add = 'source ~/.vim/rc/plugins/nerdtree.vim'
-
-# ref: https://zenn.dev/mkobayashime/articles/nvim-treesitter-dein
-# [[plugins]]
-# repo = 'kyazdani42/nvim-tree.lua'
-# on_event = 'BufRead'
-# hook_source = 'source ~/.vim/rc/plugins/nvim-tree.rc.vim'
-
 ##### EDITOR #####
-
 # Auto close parentheses and repeat by dot dot dot ...
 [[plugins]]
 repo = 'cohama/lexima.vim'
@@ -74,4 +62,3 @@ repo = 'iamcco/markdown-preview.nvim'
 on_ft = ['markdown', 'telekasten']
 build = 'sh -c "cd app && yarn install"'
 hook_add = 'let g:mkdp_auto_close = 0'
-
