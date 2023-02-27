@@ -13,7 +13,8 @@ let g:coc_global_extensions = [
   \ 'coc-lua',
   \ 'coc-nav',
   \ 'coc-go',
-  \ 'coc-solidity'
+  \ 'coc-solidity',
+  \ 'coc-sql'
   \ ]
 
 

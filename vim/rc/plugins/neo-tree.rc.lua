@@ -107,8 +107,8 @@ require('neo-tree').setup({
     filesystem = {
       window = {
           mappings = {
-            ["tf"] = "telescope_find",
-            ["tg"] = "telescope_grep",
+            ["f"] = "telescope_find",
+            ["g"] = "telescope_grep",
             ["o"]  = "system_open",
           },
         },

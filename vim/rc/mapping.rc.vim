@@ -7,6 +7,8 @@ nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 " nnoremap <leader>e :NERDTreeFind<CR>
 nnoremap <silent><C-e> :Neotree toggle=true<CR>
 nnoremap <leader>e :Neotree source=filesystem reveal=true reveal_force_cwd=true toggle=true position=left<CR>
+nnoremap <C-l> :Neotree source=buffers reveal=true reveal_force_cwd=true toggle=true position=left<CR>
+nnoremap <C-k> :Neotree source=git_status reveal=true reveal_force_cwd=true toggle=true position=left<CR>
 
 " terminal
 nnoremap <C-t> :ToggleTermToggleAll<CR>
@@ -36,7 +38,6 @@ nnoremap <leader>ft :Filetypes<CR>
 " telescope
 nnoremap <C-f> <cmd>Telescope find_files<CR>
 nnoremap <C-g> <cmd>Telescope live_grep<CR>
-nnoremap <C-l> <cmd>Telescope buffers<CR>
 nnoremap <leader>ru <cmd>Telescope oldfiles<CR>
 nnoremap <leader>s <cmd>Telescope symbols<CR>
 nmap <silent> go <cmd>Telescope aerial<CR>

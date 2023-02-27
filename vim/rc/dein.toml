@@ -236,7 +236,7 @@ repo = 'renerocksai/calendar-vim'
 # calling at the bottom to ensure everything else was loaded
 [[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
-hook_add = 'source ~/.vim/rc/plugins/lualine.rc.vim'
+hook_add = 'source ~/.vim/rc/plugins/lualine.rc.lua'
 
 [[plugins]]
 repo = 'akinsho/bufferline.nvim'
@@ -295,3 +295,4 @@ hook_add = 'lua require("twilight").setup()'
 #### CSV ####
 [[plugins]]
 repo = 'chrisbra/csv.vim'
+hook_add = 'let g:csv_move_folds = 1'
