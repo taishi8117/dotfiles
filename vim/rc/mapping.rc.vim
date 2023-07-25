@@ -5,10 +5,10 @@ nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 " file manager
 " nnoremap <silent><C-e> :NERDTreeToggle<CR>
 " nnoremap <leader>e :NERDTreeFind<CR>
-nnoremap <silent><C-e> :Neotree toggle=true<CR>
 nnoremap <leader>e :Neotree source=filesystem reveal=true reveal_force_cwd=true toggle=true position=left<CR>
-nnoremap <C-l> :Neotree source=buffers reveal=true reveal_force_cwd=true toggle=true position=left<CR>
-nnoremap <C-k> :Neotree source=git_status reveal=true reveal_force_cwd=true toggle=true position=left<CR>
+nnoremap <C-e> :Neotree source=filesystem toggle=true position=left<CR>
+nnoremap <C-k> :Neotree source=buffers reveal=true reveal_force_cwd=true toggle=true position=left<CR>
+nnoremap <C-l> :Neotree source=git_status reveal=true reveal_force_cwd=true toggle=true position=left<CR>
 
 " terminal
 nnoremap <C-t> :ToggleTermToggleAll<CR>
@@ -83,6 +83,8 @@ command Qa :qa
 command QA :qa
 command Wq :wq
 command WQ :wq
+command Vs :vs
+command Sp :sp
 
 " suda
 command WS :w suda://%
