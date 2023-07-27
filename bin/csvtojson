@@ -1,0 +1,6 @@
+#!/bin/bash
+
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+JQ_FILE="$SCRIPT_DIR/../jq/csv2json.jq"
+
+jq -R -s -f $JQ_FILE $1
