@@ -290,21 +290,8 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23"
   # Source `~/zshrc.override` if exist
   [ -f ~/zshrc.override ] && source ~/zshrc.override
 
-export PATH="$PATH:$HOME/.axiom/interact"
-# source /home/taishi/.axiom/functions/autocomplete.zsh
-compdef _axiom-ssh axiom-rm
-compdef _axiom-ssh axiom-ssh
-compdef _axiom-ssh axiom-select
-compdef _axiom-ssh axiom-backup
-compdef _axiom-ssh axiom-vpn
-compdef _axiom-restore axiom-restore
-compdef _axiom-deploy axiom-deploy
-
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/bin/terraform terraform
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export PATH="$PATH:/home/taishi/.bifrost/bin"
+export PATH="$PATH:$HOME/.local/bin"

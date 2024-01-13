@@ -1,0 +1,13 @@
+
+## Session Management (55)
+wm.binding.exit_app: q
+
+## WM Bar (70)
+wm.bar.font: Proto Mono Regular 12
+wm.bar.workspace.focused.background.color: #080404
+wm.bar.workspace.focused.border.color: #f6ae2d
+wm.bar.workspace.focused.text.color: #f6ae2d
+wm.bar.workspace.inactive.background.color: #080404
+wm.bar.workspace.inactive.border.color: #080404
+wm.bar.workspace.inactive.text.color: #929292
+wm.bar.background.color: #080404
