@@ -251,7 +251,7 @@ repo = 'tamton-aquib/duck.nvim'
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
 hook_post_update = 'TSUpdate'
-hook_source = 'source ~/.vim/rc/plugins/treesitter.rc.lua'
+# hook_source = 'source ~/.vim/rc/plugins/treesitter.rc.lua'
 
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter-context'
