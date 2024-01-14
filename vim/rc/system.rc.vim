@@ -2,7 +2,11 @@
 set visualbell t_vb=
 set noerrorbells
 
-set clipboard=unnamed,unnamedplus
+if has("unnamedplus")
+    set clipboard=unnamedplus
+else
+    set clipboard=unnamed
+endif
 
 set mouse=a       " enable mouse
 set shellslash    " use / as separator in Windows
