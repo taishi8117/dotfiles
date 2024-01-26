@@ -59,9 +59,9 @@ else
     CHARGE_ICON=$(echo -e '')
 fi
 
-ICON_SPAN="<span font_desc=\"${VALUE_FONT}\" color=\"${LABEL_COLOR}\">$LABEL_ICON</span>"
-VALUE_SPAN="<span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\"> $BATT_PERCENT%</span>"
-CHARGE_SPAN="<span color=\"${LABEL_COLOR}\">$CHARGE_ICON</span>"
+ICON_SPAN="<span font_desc=\"${VALUE_FONT}\" color=\"#fcfdc7\">$LABEL_ICON</span>"
+VALUE_SPAN="<span font_desc=\"${VALUE_FONT}\" color=\"#fcfdc7\"> $BATT_PERCENT%</span>"
+CHARGE_SPAN="<span color=\"#fcfdc7\">$CHARGE_ICON</span>"
 
 echo "${ICON_SPAN}${VALUE_SPAN}${CHARGE_SPAN}"
 

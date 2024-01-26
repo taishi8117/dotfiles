@@ -28,9 +28,9 @@ on_ft = 'python'
 repo = 'solarnz/thrift.vim'
 on_ft = 'thrift'
 
-[[plugins]]
-repo = 'tomlion/vim-solidity'
-on_ft = 'solidity'
+# [[plugins]]
+# repo = 'tomlion/vim-solidity'
+# on_ft = 'solidity'
 
 [[plugins]]
 repo = 'ekalinin/Dockerfile.vim'

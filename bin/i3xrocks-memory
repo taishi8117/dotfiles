@@ -16,9 +16,9 @@
 
 BUTTON=${button:-}
 TYPE="${BLOCK_INSTANCE:-mem}"
-VALUE_COLOR=${color:-$(xrescat i3xrocks.value.color "#D8DEE9")}
+VALUE_COLOR="#fcfdc7" #${color:-$(xrescat i3xrocks.value.color "#fcfdc7")}
 LABEL_ICON=${label_icon:-$(xrescat i3xrocks.label.memory M)}
-LABEL_COLOR=${label_color:-$(xrescat i3xrocks.label.color "#7B8394")}
+LABEL_COLOR="#fcfdc7" #${label_color:-$(xrescat i3xrocks.label.color "#fcfdc7")}
 VALUE_FONT=${font:-$(xrescat i3xrocks.value.font "JetBrains Mono Medium 13")}
 DISP=${display:-$(xrescat i3xrocks.memory.display "free")}
 PERCENTAGE=${percentage:-$(xrescat i3xrocks.memory.percentage "false")}

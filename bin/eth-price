@@ -7,7 +7,8 @@ price_res=$(curl -s -H "Accept: application/json" "https://api.coingecko.com/api
 # Extract the Ethereum price from the JSON response
 eth_price=$(echo $price_res | jq -r '.ethereum.usd')
 
-block_height=$(curl -s https://api.blockcypher.com/v1/eth/main | jq .height)
+# hummingbot api key
+block_height=$(/usr/bin/cast block-number --rpc-url https://mainnet.infura.io/v3/88bc5cf999e94eaf9a7b3a4ffb4f99c9)
 
 # Check if the Ethereum price is null or empty (i.e., the API returned an error)
 if [ -z "$eth_price" ] || [ "$eth_price" = "null" ]; then

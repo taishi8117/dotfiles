@@ -1,0 +1,7 @@
+###############################################################################
+# Launcher dialogs OVERRIDE
+###############################################################################
+
+## Launch // Browser // <><Shift> Enter ##
+set_from_resource $wm.binding.browser wm.binding.browser Shift+Return
+bindsym $mod+$wm.binding.browser exec --no-startup-id /usr/bin/google-chrome --profile-directory="Profile 2"

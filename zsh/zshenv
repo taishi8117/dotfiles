@@ -71,3 +71,5 @@
   #
   export ZSH_COLORIZE_STYLE="monokai"
 . "$HOME/.cargo/env"
+
+export PATH="$PATH:/home/charon/.foundry/bin"
