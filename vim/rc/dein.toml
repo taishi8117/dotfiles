@@ -88,11 +88,6 @@ repo = 'jiangmiao/auto-pairs'
 [[plugins]]
 repo = 'tpope/vim-surround'
 
-# Syntax checking
-[[plugins]]
-repo = 'scrooloose/syntastic'
-hook_add = 'source ~/.vim/rc/plugins/syntastic.vim'
-
 # scrolling
 [[plugins]]
 repo = 'petertriho/nvim-scrollbar'
@@ -251,7 +246,7 @@ repo = 'tamton-aquib/duck.nvim'
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
 hook_post_update = 'TSUpdate'
-# hook_source = 'source ~/.vim/rc/plugins/treesitter.rc.lua'
+hook_source = 'source ~/.vim/rc/plugins/treesitter.rc.lua'
 
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter-context'

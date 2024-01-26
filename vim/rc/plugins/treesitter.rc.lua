@@ -1,6 +1,6 @@
 require('nvim-treesitter.configs').setup {
   ensure_installed = {
-      "c", "lua", "vim", "help", "javascript", "typescript",
+      "c", "lua", "vim", "javascript", "typescript",
       "bash", "css", "dockerfile", "go", "html", "jq", "make", "markdown",
       "python", "regex", "rust", "toml", "yaml", "solidity", "sql", "terraform"
   },
