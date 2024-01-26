@@ -1,4 +1,4 @@
-" plugin related configs
+"gpt-4-0125-preview plugin related configs
 " double ESC to switch search highlighting
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 
@@ -72,6 +72,9 @@ tnoremap <Esc> <C-\><C-n>
 " duck
 nnoremap <leader>dd :lua require("duck").hatch('🐈')<CR>
 nnoremap <leader>dc :lua require("duck").cook()<CR>
+
+" chatgpt
+nnoremap <leader>c :ChatGPT<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom Command

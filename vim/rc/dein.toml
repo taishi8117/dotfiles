@@ -2,7 +2,6 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-
 ##### PREREQ #####
 # plugins that are required by many
 [[plugins]]
@@ -10,6 +9,10 @@ repo = 'nvim-lua/plenary.nvim'
 
 [[plugins]]
 repo = 'MunifTanjim/nui.nvim'
+
+[[plugins]]
+repo = 'rcarriga/nvim-notify'
+hook_add = 'source ~/.vim/rc/plugins/notify.lua'
 
 ##### INTERFACE #####
 
@@ -291,3 +294,8 @@ hook_add = 'lua require("twilight").setup()'
 [[plugins]]
 repo = 'chrisbra/csv.vim'
 hook_add = 'let g:csv_move_folds = 1'
+
+#### GPT ####
+[[plugins]]
+repo = 'jackMort/ChatGPT.nvim'
+hook_add = 'source ~/.vim/rc/plugins/chatgpt.rc.lua'
