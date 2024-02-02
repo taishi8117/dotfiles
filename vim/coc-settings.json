@@ -3,6 +3,7 @@
   "coc.preferences.formatOnSaveFiletypes": ["go"],
   "javascript.suggest.autoImports": true,
   "typescript.suggest.autoImports": true,
+  "typescript.preferences.importModuleSpecifier": "relative",
   "languageserver": {
     "terraform": {
       "command": "terraform-lsp",
@@ -64,5 +65,6 @@
     "snippet": "\ue60b", //  pair of curly braces
     "typeParameter": "\uf728", //  file presentation box
     "default": "\uf29c" //  question mark in circle
-  }
+  },
+  "snippets.textmateSnippetsRoots": ["~/.scissors-snippets"]
 }

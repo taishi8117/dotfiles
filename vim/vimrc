@@ -27,10 +27,10 @@ let g:coc_node_path = '/home/charon/.nvm/versions/node/v18.18.2/bin/node'
 
 
 call s:source_rc('init.rc.vim')
+call s:source_rc('system.rc.vim')
 call s:source_rc('dein.rc.vim')
 call s:source_rc('theme.rc.vim')
 call s:source_rc('editor.rc.vim')
-call s:source_rc('system.rc.vim')
 call s:source_rc('mapping.rc.vim')
 call s:source_rc('filetype.rc.vim')
 call s:source_rc('post.rc.vim')

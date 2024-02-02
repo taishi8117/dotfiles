@@ -299,3 +299,8 @@ hook_add = 'let g:csv_move_folds = 1'
 [[plugins]]
 repo = 'jackMort/ChatGPT.nvim'
 hook_add = 'source ~/.vim/rc/plugins/chatgpt.rc.lua'
+
+## snippets
+[[plugins]]
+repo = 'chrisgrieser/nvim-scissors'
+hook_add = 'source ~/.vim/rc/plugins/scissors.rc.lua'
