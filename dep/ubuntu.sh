@@ -9,4 +9,4 @@ sudo apt-get install /tmp/nvim0.8.3.deb
 
 sudo wget https://github.com/neovim/neovim/releases/download/v0.9.5/nvim-linux64.tar.gz -O /tmp/nvim0.9.5.tar.gz
 sudo tar -xzvf /tmp/nvim0.9.5.tar.gz -C /tmp
-sudo cp /tmp/nvim-linux64/bin/nvim /usr/local/bin/nvim
+sudo cp /tmp/nvim-linux64/bin/nvim /usr/bin/nvim
