@@ -12,7 +12,6 @@
       "settings": {}
     }
   },
-  "rust-analyzer.cargo.loadOutDirsFromCheck": true,
   "rust-analyzer.procMacro.enable": true,
   "codeLens.enable": false,
   "diagnostic.errorSign": "",

@@ -304,3 +304,11 @@ hook_add = 'source ~/.vim/rc/plugins/chatgpt.rc.lua'
 [[plugins]]
 repo = 'chrisgrieser/nvim-scissors'
 hook_add = 'source ~/.vim/rc/plugins/scissors.rc.lua'
+
+[[plugins]]
+repo = 'rafamadriz/friendly-snippets'
+
+### org mode
+[[plugins]]
+repo = 'nvim-orgmode/orgmode'
+hook_source = 'source ~/.vim/rc/plugins/orgmode.rc.lua'
