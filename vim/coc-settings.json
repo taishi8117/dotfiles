@@ -65,5 +65,6 @@
     "typeParameter": "\uf728", //  file presentation box
     "default": "\uf29c" //  question mark in circle
   },
-  "snippets.textmateSnippetsRoots": ["~/.scissors-snippets"]
+  "snippets.textmateSnippetsRoots": ["~/.scissors-snippets"],
+  "jedi.enable": true
 }

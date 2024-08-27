@@ -23,6 +23,11 @@ if dein#load_state(s:dein_dir)
   call dein#load_toml('~/.vim/rc/dein.toml', {'lazy': 0})
   call dein#load_toml('~/.vim/rc/deinlazy.toml', {'lazy': 1})
 
+  " Check if the override file exists and load it
+  if filereadable(expand('~/dein_override.toml'))
+    call dein#load_toml(expand('~/dein_override.toml'), {'lazy': 0})
+  endif
+
   " To clear cache
   " call map(dein#check_clean(), "delete(v:val, 'rf')")
   " call dein#recache_runtimepath()

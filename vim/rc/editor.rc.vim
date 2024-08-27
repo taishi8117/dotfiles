@@ -6,6 +6,12 @@
 set t_Co=256
 
 set number         " display line number
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+augroup END
+
 set cursorline     " change cursorline color
 set laststatus=2   " always display status bar
 set cmdheight=1    " one line for message bar

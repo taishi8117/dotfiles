@@ -12,6 +12,9 @@ require("todo-comments").setup {
     TODO = { icon = " ", color = "todo" },
     HACK = { icon = " ", color = "warning" },
     WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
+    AUDIT = { icon = " ", color = "hint" },
+    AUDIT_NOTE = { icon = " ", color = "info" },
+    AUDIT_ISSUE = { icon = " ", color = "error" },
     PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
     NOTE = { icon = " ", color = "info", alt = { "INFO" } },
     TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
@@ -24,5 +27,11 @@ require("todo-comments").setup {
     default = { "Identifier", "#7C3AED" },
     test = { "#d3869b" },
     todo = { "#a9b665" }
+  },
+  highlight = {
+    pattern = [[.*<((KEYWORDS)%(\(.{-1,}\))?):]],
+  },
+  search = {
+    pattern = [[\b(KEYWORDS)(\(.*\))?:]], -- ripgrep regex
   }
 }
