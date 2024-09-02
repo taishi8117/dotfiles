@@ -11,6 +11,7 @@ augroup numbertoggle
   autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
   autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 augroup END
+highlight CursorLineNr ctermfg=Yellow guifg=Yellow
 
 set cursorline     " change cursorline color
 set laststatus=2   " always display status bar

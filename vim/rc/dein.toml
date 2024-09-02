@@ -296,9 +296,13 @@ repo = 'chrisbra/csv.vim'
 hook_add = 'let g:csv_move_folds = 1'
 
 #### GPT ####
+# [[plugins]]
+# repo = 'jackMort/ChatGPT.nvim'
+# hook_add = 'source ~/.vim/rc/plugins/chatgpt.rc.lua'
+
 [[plugins]]
-repo = 'jackMort/ChatGPT.nvim'
-hook_add = 'source ~/.vim/rc/plugins/chatgpt.rc.lua'
+repo = 'Robitx/gp.nvim'
+hook_add = 'source ~/.vim/rc/plugins/gp.rc.lua'
 
 ## snippets
 [[plugins]]
