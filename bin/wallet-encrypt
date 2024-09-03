@@ -1,0 +1,119 @@
+#!/bin/bash
+
+# Function to print messages in colors
+print_in_color() {
+    COLOR=$1
+    shift
+    MESSAGE=$@
+    case $COLOR in
+        "red")
+            echo -e "\033[31m${MESSAGE}\033[0m"
+            ;;
+        "green")
+            echo -e "\033[32m${MESSAGE}\033[0m"
+            ;;
+        "yellow")
+            echo -e "\033[33m${MESSAGE}\033[0m"
+            ;;
+        "blue")
+            echo -e "\033[34m${MESSAGE}\033[0m"
+            ;;
+        "magenta")
+            echo -e "\033[35m${MESSAGE}\033[0m"
+            ;;
+        "cyan")
+            echo -e "\033[36m${MESSAGE}\033[0m"
+            ;;
+        *)
+            echo "${MESSAGE}"
+            ;;
+    esac
+}
+
+# Ensure a file is provided and parse arguments
+MODE=""
+TEXT_FILE=""
+
+while getopts "d:e:" opt; do
+    case $opt in
+        d)
+            MODE="decrypt"
+            TEXT_FILE=$OPTARG
+            ;;
+        e)
+            MODE="encrypt"
+            TEXT_FILE=$OPTARG
+            ;;
+        \?)
+            print_in_color "red" "Invalid option: -$OPTARG"
+            exit 1
+            ;;
+        :)
+            print_in_color "red" "Option -$OPTARG requires an argument."
+            exit 1
+            ;;
+    esac
+done
+
+if [ -z "$TEXT_FILE" ]; then
+    print_in_color "red" "Usage: $0 -e <path-to-file-to-encrypt> or $0 -d <path-to-file-to-decrypt>"
+    exit 1
+fi
+
+if [ ! -f "$TEXT_FILE" ]; then
+    print_in_color "red" "File not found: $TEXT_FILE"
+    exit 1
+fi
+
+case $MODE in
+    encrypt)
+        # Prompt for password
+        print_in_color "cyan" "Enter password for encryption:"
+        read -s PASSWORD
+
+        # Encrypt the file
+        print_in_color "blue" "Encrypting file..."
+        openssl enc -aes-256-cbc -md sha512 -pbkdf2 -iter 100000 -salt -in "${TEXT_FILE}" -out "${TEXT_FILE}.enc" -pass pass:"$PASSWORD"
+        if [ $? -ne 0 ]; then
+            print_in_color "red" "Encryption failed."
+            exit 1
+        fi
+        print_in_color "green" "File encrypted successfully. Saved as ${TEXT_FILE}.enc"
+
+        # Prompt for password for decryption verification
+        print_in_color "cyan" "Enter password to verify decryption:"
+        read -s PASSWORD_CONFIRM
+
+        # Decrypt the file to stdout to verify
+        print_in_color "blue" "Verifying encryption by decrypting the file..."
+        DECRYPTED_CONTENT=$(openssl enc -aes-256-cbc -md sha512 -pbkdf2 -iter 100000 -salt -d -in "${TEXT_FILE}.enc" -pass pass:"$PASSWORD_CONFIRM")
+
+        if [ $? -ne 0 ]; then
+            print_in_color "red" "Decryption verification failed. Likely due to incorrect password."
+            exit 1
+        fi
+
+        # Print the decrypted content to stdout
+        print_in_color "green" "Decryption verified. Decrypted content is as follows:"
+        print_in_color "yellow" "${DECRYPTED_CONTENT}"
+        ;;
+    
+    decrypt)
+        # Prompt for password for decryption
+        print_in_color "cyan" "Enter password for decryption:"
+        read -s PASSWORD
+        
+        # Decrypt the file and print the contents
+        print_in_color "blue" "Decrypting file and displaying contents..."
+        DECRYPTED_CONTENT=$(openssl enc -aes-256-cbc -md sha512 -pbkdf2 -iter 100000 -salt -d -in "${TEXT_FILE}" -pass pass:"$PASSWORD")
+        
+        if [ $? -ne 0 ]; then
+            print_in_color "red" "Decryption failed. Likely due to incorrect password."
+            exit 1
+        fi
+
+        # Print the decrypted content to stdout
+        print_in_color "green" "Decrypted content is as follows:"
+        print_in_color "yellow" "${DECRYPTED_CONTENT}"
+        ;;
+esac
