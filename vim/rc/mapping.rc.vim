@@ -85,6 +85,9 @@ nnoremap <leader>k :lua require("horus").show_node_info()<CR>
 nnoremap <leader>g :GpChatToggle<CR>
 nnoremap <leader>gf :GpChatFinder<CR>
 vnoremap <leader>ga :GpAppend 
+vnoremap <leader>gw :GpRewrite 
+vnoremap <leader>gv :GpVnew 
+vnoremap <leader>gs :GpSnew 
 
 
 " nvim-scissors
