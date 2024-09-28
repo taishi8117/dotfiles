@@ -66,5 +66,7 @@
     "default": "\uf29c" //  question mark in circle
   },
   "snippets.textmateSnippetsRoots": ["~/.scissors-snippets"],
-  "jedi.enable": true
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.formatting.provider": "black"
 }

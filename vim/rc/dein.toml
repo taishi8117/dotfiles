@@ -14,6 +14,9 @@ repo = 'MunifTanjim/nui.nvim'
 repo = 'rcarriga/nvim-notify'
 hook_add = 'source ~/.vim/rc/plugins/notify.lua'
 
+[[plugins]]
+repo = 'echasnovski/mini.nvim'
+
 ##### INTERFACE #####
 
 # Color theme
@@ -78,6 +81,7 @@ repo = 'lambdalisue/suda.vim'
 # Indent
 [[plugins]]
 repo = 'lukas-reineke/indent-blankline.nvim'
+hook_add = 'source ~/.vim/rc/plugins/ibl.rc.lua'
 
 # Registers
 [[plugins]]
@@ -319,5 +323,9 @@ hook_source = 'source ~/.vim/rc/plugins/orgmode.rc.lua'
 
 
 ### markdown
+# [[plugins]]
+# repo = 'OXY2DEV/markview.nvim'
+
 [[plugins]]
-repo = 'OXY2DEV/markview.nvim'
+repo = 'MeanderingProgrammer/render-markdown.nvim'
+hook_add = 'source ~/.vim/rc/plugins/render-markdown.rc.lua'

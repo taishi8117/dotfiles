@@ -6,7 +6,7 @@ let g:coc_global_extensions = [
   \ 'coc-docker',
   \ 'coc-toml',
   \ 'coc-snippets',
-  \ 'coc-jedi',
+  \ 'coc-pyright',
   \ 'coc-rust-analyzer',
   \ 'coc-diagnostic',
   \ 'coc-vimlsp',
