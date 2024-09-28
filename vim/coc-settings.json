@@ -38,32 +38,32 @@
     }
   },
   "suggest.completionItemKindLabels": {
-    "keyword": "\uf1de", //  sliders
-    "variable": "\ue79b", //  isometric box
-    "value": "\uf89f", //  digits 123
-    "operator": "\u03a8", // Ψ greek letter psi
-    "constructor": "\uf0ad", //  wrench
-    "function": "\u0192", // ƒ latin small letter F
-    "reference": "\ufa46", // 渚 retweet symbol
-    "constant": "\uf8fe", //  greek letter pi
-    "method": "\uf09a", //  facebook "f"
-    "struct": "\ufb44", // פּ file tree
-    "class": "\uf0e8", //  hierarchy / site map
-    "interface": "\uf417", //  git commit / line interrupted by circle
-    "text": "\ue612", //  left-justified lines
-    "enum": "\uf02c", //  pair of tags
-    "enumMember": "\uf02b", //  tag
-    "module": "\uf40d", //  code file / page showing angle brackets
-    "color": "\ue22b", //  palette
-    "property": "\ue624", //  predator dots
-    "field": "\uf9be", // 料left-justified sorted lines
-    "unit": "\uf475", //  negative-space ellipsis
-    "event": "\ufacd", // 鬒clock alert / clock with exclamation mark
-    "file": "\uf15b", //  file / blank page
-    "folder": "\uf07b", //  folder
-    "snippet": "\ue60b", //  pair of curly braces
-    "typeParameter": "\uf728", //  file presentation box
-    "default": "\uf29c" //  question mark in circle
+    "keyword": "\uf02d", //  book
+    "variable": "\uf0e7", //  lightning bolt
+    "value": "\uf51e", //  coins
+    "operator": "\u002B", // + plus sign
+    "constructor": "\uf662", //  toolbox
+    "function": "\uf794", //  lambda
+    "reference": "\uf0c1", //  link
+    "constant": "\u03c0", // π greek letter pi
+    "method": "\uf013", //  cog
+    "struct": "\uf542", //  server tree
+    "class": "\uf104", //  key
+    "interface": "\uf1b3", //  cube
+    "text": "\uf031", //  bold text
+    "enum": "\ue096", //  layers
+    "enumMember": "\uf477", //  posititve-space ellipsis
+    "module": "\uf121", //  code
+    "color": "\ue047", //  color palette
+    "property": "\ufab7", // 﫷 rectangels with dots
+    "field": "\uf15c", //  paperstack
+    "unit": "\uf2dd", //  balance scale
+    "event": "\uf133", //  calendar
+    "file": "\uf0f6", //  filetext
+    "folder": "\uf114", //  folder outline
+    "snippet": "\uf5dc", //  brain
+    "typeParameter": "\uf1c9", //  code branch
+    "default": "\uf128" //  question chassis solid symbol
   },
   "snippets.textmateSnippetsRoots": ["~/.scissors-snippets"],
   "python.linting.enabled": true,
