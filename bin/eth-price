@@ -5,18 +5,19 @@
 price_res=$(curl -s -H "Accept: application/json" "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd")
 
 # Extract the Ethereum price from the JSON response
-# eth_price=$(echo $price_res | jq -r '.ethereum.usd')
 eth_price=$(cast call --rpc-url https://mainnet.infura.io/v3/de9ba10244a6415cac3d51e1d8c83395 0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419 "latestRoundData() returns (uint80,int256,uint256,uint256,uint80)" | sed -n "2 p" | cut -d' ' -f 1 | xargs printf "%d / 100000000\n" | bc)
-gas_price=$(curl 'https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=G8EWVZ41TVHTFK9UC9AZ2TBCHXR368Y51N' | jq .result.SafeGasPrice -r)
 
-# hummingbot api key
+# Fetch the gas price and format it to one decimal point
+gas_price=$(curl -s 'https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=G8EWVZ41TVHTFK9UC9AZ2TBCHXR368Y51N' | jq .result.SafeGasPrice -r)
+formatted_gas_price=$(printf "%.1f\n" "$gas_price")
+
+# Fetch the current block height
 block_height=$(/usr/bin/cast block-number --rpc-url https://mainnet.infura.io/v3/88bc5cf999e94eaf9a7b3a4ffb4f99c9)
 
 # Check if the Ethereum price is null or empty (i.e., the API returned an error)
 if [ -z "$eth_price" ] || [ "$eth_price" = "null" ]; then
   echo ""
 else
-  # Print the Ethereum price
-  echo "Ξ $block_height @ \$$eth_price ($gas_price Gwei)"
-  #echo "The current price of Ethereum is: $eth_price USD"
+  # Print the Ethereum price and block info
+  echo "Ξ $block_height @ \$$eth_price ($formatted_gas_price Gwei)"
 fi

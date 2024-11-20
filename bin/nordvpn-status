@@ -1,17 +1,11 @@
 #!/bin/bash
-
-# Run the `nordvpn status` command and store the output in a variable
 vpn_status=$(nordvpn status)
-
-# Use grep to search for the line that starts with "Hostname:"
-# and extract the hostname using awk
 vpn_hostname=$(echo "$vpn_status" | grep "^Hostname:" | awk '{print $2}')
 vpn_icon=$(echo "")
 
-# If the hostname is empty (i.e., not connected to a VPN), print an empty string
 if [[ -z "$vpn_hostname" ]]; then
   echo ""
 else
   vpn_hostname=$(echo "$vpn_hostname" | cut -d. -f1)
-  echo "$vpn_icon $vpn_hostname"
+  echo "<span color=\"#fcfc03\">$vpn_icon $vpn_hostname</span>"
 fi
