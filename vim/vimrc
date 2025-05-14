@@ -21,7 +21,7 @@ if has("nvim")
     endif
 endif
 
-let g:coc_node_path = '/home/charon/.nvm/versions/node/v18.18.2/bin/node'
+let g:coc_node_path = '/home/ubuntu/.nvm/versions/node/v20.19.1/bin/node'
 
 " -----------------------------------------------------------------------------------------
 
