@@ -24,6 +24,10 @@ on_ft = 'toml'
 repo = 'solarnz/thrift.vim'
 on_ft = 'thrift'
 
+[[plugins]]
+repo = 'neo4j-contrib/cypher-vim-syntax'
+on_ft = 'cypher'
+
 # [[plugins]]
 # repo = 'tomlion/vim-solidity'
 # on_ft = 'solidity'
