@@ -1,16 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# zsh/install.sh - Legacy installer (calls main zsh installer)
 
-DOTFILES_ROOT=$(git rev-parse --show-toplevel)
+set -euo pipefail
 
-ZSHRC=$HOME/.zshrc
-ZSHENV=$HOME/.zshenv
-ZPLUG_HOME=$HOME/.zplug
+# Get dotfiles directory
+DOTFILES_ROOT="${DOTFILES_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"
+export DOTFILES_DIR="$DOTFILES_ROOT"
 
-# Install zplug
-git clone https://github.com/taishi8117/zplug $ZPLUG_HOME
-
-ln -sfn $DOTFILES_ROOT/zsh/zshrc $ZSHRC
-ln -sfn $DOTFILES_ROOT/zsh/zshenv $ZSHENV
-
-# Here, ~/.zshenv and ~/.zshrc are loaded
-zsh -ic "echo 'hello dotfiles: zsh'"
+# Call the main zsh installer
+echo "[zsh/install.sh] Calling main zsh installer..."
+exec "$DOTFILES_ROOT/lib/installers/zsh.sh" "$@"
