@@ -1,25 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# nvim/install.sh - Legacy installer (calls main nvim installer)
 
-DOTFILES_ROOT=$(git rev-parse --show-toplevel)
-VIM_HOME=$HOME/.vim
+set -euo pipefail
 
-pip3 install --user pynvim
+# Get dotfiles directory
+DOTFILES_ROOT="${DOTFILES_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"
+export DOTFILES_DIR="$DOTFILES_ROOT"
 
-mkdir -p $VIM_HOME
-ln -sfn $DOTFILES_ROOT/vim/vimrc $HOME/.vimrc
-ln -sfn $DOTFILES_ROOT/vim/rc/ $VIM_HOME/rc
-ln -sfn $DOTFILES_ROOT/vim/after/ $VIM_HOME/after
-
-NVIM_CONF=$HOME/.config/nvim
-NVIM_HOME=$HOME/.nvim
-mkdir -p $NVIM_HOME $NVIM_CONF
-ln -sfn $DOTFILES_ROOT/vim/vimrc $NVIM_CONF/init.vim
-ln -sfn $DOTFILES_ROOT/vim/after/ $NVIM_CONF/after
-ln -sfn $DOTFILES_ROOT/vim/lua/ $NVIM_CONF/lua
-ln -sfn $DOTFILES_ROOT/vim/coc-settings.json $NVIM_CONF/coc-settings.json
-
-ln -sfn $DOTFILES_ROOT/vim/rc/ $NVIM_HOME/rc
-
-nvim --headless +UpdateRemotePlugins +qa
-echo "hello dotfiles: vim"
+# Call the main nvim installer
+echo "[nvim/install.sh] Calling main nvim installer..."
+exec "$DOTFILES_ROOT/lib/installers/nvim.sh" "$@"
 
