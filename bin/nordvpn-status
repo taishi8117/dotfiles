@@ -1,11 +1,41 @@
-#!/bin/bash
-vpn_status=$(nordvpn status)
-vpn_hostname=$(echo "$vpn_status" | grep "^Hostname:" | awk '{print $2}')
-vpn_icon=$(echo "")
+#!/usr/bin/env bash
+# nord + tailscale status (show only when tailscale is Running)
 
-if [[ -z "$vpn_hostname" ]]; then
-  echo ""
+set -euo pipefail
+command -v jq >/dev/null || { echo "jq is required"; exit 1; }
+
+YELLOW="#fcfc03"
+NORD_ICON=""
+TS_ICON="󰒍"
+
+# ---------- NordVPN ----------
+if nord_raw=$(nordvpn status 2>/dev/null); then
+  nord_host=$(awk '/^Hostname:/ {print $2}' <<<"$nord_raw")
+  nord_host=${nord_host%%.*}
 else
-  vpn_hostname=$(echo "$vpn_hostname" | cut -d. -f1)
-  echo "<span color=\"#fcfc03\">$vpn_icon $vpn_hostname</span>"
+  nord_host=""
 fi
+
+# ---------- Tailscale ----------
+ts_json=$(tailscale status --json 2>/dev/null || echo "{}")
+
+backend_state=$(jq -r '.BackendState // "Stopped"' <<<"$ts_json")
+exit_id=$(jq -r '.ExitNodeStatus.ID // empty' <<<"$ts_json")
+
+exit_host=""
+if [[ "$backend_state" == "Running" && -n "$exit_id" ]]; then
+  exit_host=$(jq -r --arg id "$exit_id" '
+      (.Peer | to_entries[] | .value)
+      | select(.ID == $id)
+      | (.DNSName // .HostName // "")' <<<"$ts_json")
+  exit_host=${exit_host%%.*}
+  [[ -z "$exit_host" ]] && \
+      exit_host=$(jq -r '.ExitNodeStatus.TailscaleIPs[0] // empty' <<<"$ts_json")
+fi
+
+# ---------- Assemble ----------
+out=""
+[[ -n "$nord_host" ]] && out+="<span color=\"$YELLOW\">$NORD_ICON $nord_host</span>"
+[[ -n "$exit_host" ]] && out+=" <span color=\"$YELLOW\">$TS_ICON $exit_host</span>"
+
+echo "$out"
